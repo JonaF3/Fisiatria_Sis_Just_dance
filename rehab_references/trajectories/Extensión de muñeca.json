@@ -1,0 +1,31 @@
+{
+  "schema_version": "rehab_trajectory_hand21_v1",
+  "exercise_id": "Extensión de muñeca",
+  "name": "Extensión de muñeca",
+  "tracking_type": "hand21",
+  "landmark_schema": "mediapipe_hand_21",
+  "reference_type": "single_rep_open_close",
+  "source_video": "rehab_references/videos/Extensión de muñeca.mp4",
+  "metadata": {
+    "fps": 26.105,
+    "total_frames": 64,
+    "duration_s": 2.452,
+    "frame_skip": 1,
+    "valid_samples": 64
+  },
+  "primary_metric": "wrist_to_middle_tip_from_horizontal",
+  "active_angles": ["index_pip_flexion_2d", "middle_pip_flexion_2d", "ring_pip_flexion_2d", "pinky_pip_flexion_2d"],
+  "required_landmarks": ["index_mcp", "index_pip", "middle_mcp", "middle_pip", "ring_mcp", "ring_pip", "pinky_mcp", "pinky_pip"],
+  "ranges": {
+    "open_range": [172.93, 180.0],
+    "closed_range": [169.57, 180.0],
+    "safe_range": [0.0, 180.0]
+  },
+  "suggested_config_patch": {
+    "tracking_type": "hand21",
+    "landmark_schema": "mediapipe_hand_21",
+    "evaluation_mode": "static_wrist_alignment",
+    "primary_metric": "wrist_to_middle_tip_from_horizontal"
+  },
+  "trajectory": []
+}

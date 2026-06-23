@@ -359,6 +359,46 @@ def shoulder_abduction_body_rel(
     )
 
 
+def shoulder_cross_body_angle(
+    world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
+) -> Optional[float]:
+    frame = compute_body_frame(world_landmarks, min_confidence)
+    if frame is None:
+        return None
+    required = [f"{side}_shoulder", f"{side}_elbow", f"{side}_hip"]
+    opposite_side = "left" if side == "right" else "right"
+    required += [f"{opposite_side}_shoulder"]
+    if not visible_landmarks(world_landmarks, required, min_confidence):
+        return None
+
+    p_shoulder = world_landmarks[f"{side}_shoulder"]
+    p_elbow = world_landmarks[f"{side}_elbow"]
+    p_opp_shoulder = world_landmarks[f"{opposite_side}_shoulder"]
+
+    arm = np.array([
+        p_elbow.x - p_shoulder.x,
+        p_elbow.y - p_shoulder.y,
+        p_elbow.z - p_shoulder.z,
+    ], dtype=np.float64)
+    arm_norm = _normalize(arm)
+    if arm_norm is None:
+        return None
+
+    cross = np.array([
+        p_opp_shoulder.x - p_shoulder.x,
+        p_opp_shoulder.y - p_shoulder.y,
+        p_opp_shoulder.z - p_shoulder.z,
+    ], dtype=np.float64)
+    cross_norm = _normalize(cross)
+    if cross_norm is None:
+        return None
+
+    angle = _angle_between(arm_norm.astype(np.float32), cross_norm.astype(np.float32))
+    if angle is None:
+        return None
+    return round(angle, 2)
+
+
 def hip_flexion_body_rel(
     world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
 ) -> Optional[float]:
@@ -382,6 +422,211 @@ def hip_flexion_body_rel(
     )
 
 
+def hip_abduction_body_rel(
+    world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
+) -> Optional[float]:
+    frame = compute_body_frame(world_landmarks, min_confidence)
+    if frame is None:
+        return None
+    return _limb_angle_in_plane(
+        world_landmarks,
+        proximal=f"{side}_hip",
+        distal=f"{side}_knee",
+        plane_normal=frame["forward"],
+        body_down=-frame["up"],
+        min_confidence=min_confidence,
+    )
+
+
+def hip_extension_body_rel(
+    world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
+) -> Optional[float]:
+    frame = compute_body_frame(world_landmarks, min_confidence)
+    if frame is None:
+        return None
+
+    required = [f"{side}_hip", f"{side}_knee"]
+    if not visible_landmarks(world_landmarks, required, min_confidence):
+        return None
+
+    p_hip = world_landmarks[f"{side}_hip"]
+    p_knee = world_landmarks[f"{side}_knee"]
+
+    thigh = np.array([
+        p_knee.x - p_hip.x,
+        p_knee.y - p_hip.y,
+        p_knee.z - p_hip.z,
+    ], dtype=np.float64)
+
+    thigh_proj = thigh - np.dot(thigh, frame["lateral"]) * frame["lateral"]
+    thigh_proj_norm = _normalize(thigh_proj)
+    if thigh_proj_norm is None:
+        return None
+
+    body_down = -frame["up"]
+    down_proj = body_down - np.dot(body_down, frame["lateral"]) * frame["lateral"]
+    down_proj_norm = _normalize(down_proj)
+    if down_proj_norm is None:
+        return None
+
+    body_fwd = frame["forward"]
+    fwd_proj = body_fwd - np.dot(body_fwd, frame["lateral"]) * frame["lateral"]
+    fwd_proj_norm = _normalize(fwd_proj)
+    if fwd_proj_norm is None:
+        return None
+
+    dx = float(np.dot(thigh_proj_norm, fwd_proj_norm))
+    dy = float(np.dot(thigh_proj_norm, down_proj_norm))
+    angle_rad = math.atan2(dx, dy)
+    signed_deg = math.degrees(angle_rad)
+
+    return round(180.0 - signed_deg, 2)
+
+
+def _ankle_inversion_signed(
+    world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
+) -> Optional[float]:
+    required = [f"{side}_heel", f"{side}_foot_index", f"{side}_ankle"]
+    if not visible_landmarks(world_landmarks, required, min_confidence):
+        return None
+
+    p_heel = world_landmarks[f"{side}_heel"]
+    p_foot = world_landmarks[f"{side}_foot_index"]
+
+    hf_vec = np.array([
+        p_foot.x - p_heel.x,
+        0.0,
+        -(p_foot.z - p_heel.z),
+    ], dtype=np.float64)
+
+    hf_norm = _normalize(hf_vec)
+    if hf_norm is None:
+        return None
+
+    angle_rad = math.atan2(hf_norm[0], hf_norm[2])
+    angle_deg = math.degrees(angle_rad)
+
+    if side == "left":
+        angle_deg = -angle_deg
+
+    return angle_deg
+
+
+def ankle_inversion_body_rel(
+    world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
+) -> Optional[float]:
+    signed = _ankle_inversion_signed(world_landmarks, side, min_confidence)
+    if signed is None:
+        return None
+    return round(signed, 2)
+
+
+def ankle_eversion_body_rel(
+    world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
+) -> Optional[float]:
+    signed = _ankle_inversion_signed(world_landmarks, side, min_confidence)
+    if signed is None:
+        return None
+    return round(signed, 2)
+
+
+def hip_external_rotation_body_rel(
+    world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
+) -> Optional[float]:
+    frame = compute_body_frame(world_landmarks, min_confidence)
+    if frame is None:
+        return None
+
+    required = [f"{side}_knee", f"{side}_ankle"]
+    if not visible_landmarks(world_landmarks, required, min_confidence):
+        return None
+
+    p_knee = world_landmarks[f"{side}_knee"]
+    p_ankle = world_landmarks[f"{side}_ankle"]
+
+    shin = np.array([
+        p_ankle.x - p_knee.x,
+        p_ankle.y - p_knee.y,
+        p_ankle.z - p_knee.z,
+    ], dtype=np.float64)
+
+    shin_proj = shin - np.dot(shin, frame["forward"]) * frame["forward"]
+    shin_proj_norm = _normalize(shin_proj)
+    if shin_proj_norm is None:
+        return None
+
+    body_down = -frame["up"]
+    down_proj = body_down - np.dot(body_down, frame["forward"]) * frame["forward"]
+    down_proj_norm = _normalize(down_proj)
+    if down_proj_norm is None:
+        return None
+
+    lat = frame["lateral"]
+    lat_proj = lat - np.dot(lat, frame["forward"]) * frame["forward"]
+    lat_proj_norm = _normalize(lat_proj)
+    if lat_proj_norm is None:
+        return None
+
+    dx = float(np.dot(shin_proj_norm, lat_proj_norm))
+    dy = float(np.dot(shin_proj_norm, down_proj_norm))
+    angle_rad = math.atan2(dx, dy)
+    angle_deg = math.degrees(angle_rad)
+
+    if side == "left":
+        angle_deg = -angle_deg
+
+    return round(angle_deg, 2)
+
+
+def hip_adduction_body_rel(
+    world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
+) -> Optional[float]:
+    frame = compute_body_frame(world_landmarks, min_confidence)
+    if frame is None:
+        return None
+
+    required = [f"{side}_hip", f"{side}_knee"]
+    if not visible_landmarks(world_landmarks, required, min_confidence):
+        return None
+
+    p_hip = world_landmarks[f"{side}_hip"]
+    p_knee = world_landmarks[f"{side}_knee"]
+
+    thigh = np.array([
+        p_knee.x - p_hip.x,
+        p_knee.y - p_hip.y,
+        p_knee.z - p_hip.z,
+    ], dtype=np.float64)
+
+    fwd = frame["forward"]
+    thigh_proj = thigh - np.dot(thigh, fwd) * fwd
+    thigh_proj_norm = _normalize(thigh_proj)
+    if thigh_proj_norm is None:
+        return None
+
+    body_down = -frame["up"]
+    down_proj = body_down - np.dot(body_down, fwd) * fwd
+    down_proj_norm = _normalize(down_proj)
+    if down_proj_norm is None:
+        return None
+
+    lat = frame["lateral"]
+    lat_proj = lat - np.dot(lat, fwd) * fwd
+    lat_proj_norm = _normalize(lat_proj)
+    if lat_proj_norm is None:
+        return None
+
+    dx = float(np.dot(thigh_proj_norm, lat_proj_norm))
+    dy = float(np.dot(thigh_proj_norm, down_proj_norm))
+    angle_rad = math.atan2(dx, dy)
+    angle_deg = math.degrees(angle_rad)
+
+    if side == "right":
+        return round(max(0.0, -angle_deg), 2)
+    else:
+        return round(max(0.0, angle_deg), 2)
+
+
 def trunk_lean_body_rel(
     world_landmarks: dict, min_confidence: float = 0.35
 ) -> Optional[float]:
@@ -401,6 +646,66 @@ def trunk_lean_body_rel(
     # En world_landmarks de MediaPipe: Y negativo = hacia arriba (contra la gravedad)
     gravity_up = np.array([0.0, 1.0, 0.0], dtype=np.float64)
     return _angle_between(frame["up"].astype(np.float32), gravity_up.astype(np.float32))
+
+
+def pelvic_shift_body_rel(
+    world_landmarks: dict, min_confidence: float = 0.35
+) -> Optional[float]:
+    required = ["left_shoulder", "right_shoulder", "left_hip", "right_hip"]
+    if not visible_landmarks(world_landmarks, required, min_confidence):
+        return None
+    ms_x = (world_landmarks["left_shoulder"].x + world_landmarks["right_shoulder"].x) / 2
+    ms_y = (world_landmarks["left_shoulder"].y + world_landmarks["right_shoulder"].y) / 2
+    mh_x = (world_landmarks["left_hip"].x + world_landmarks["right_hip"].x) / 2
+    mh_y = (world_landmarks["left_hip"].y + world_landmarks["right_hip"].y) / 2
+    dx = mh_x - ms_x
+    dy = mh_y - ms_y
+    if abs(dy) < 0.001:
+        return None
+    angle = math.degrees(math.atan2(dx, dy))
+    return round(angle, 2)
+
+
+def pelvic_shift_2d(landmarks: dict, min_confidence: float = 0.35) -> Optional[float]:
+    required = ["left_shoulder", "right_shoulder", "left_hip", "right_hip"]
+    if not visible_landmarks(landmarks, required, min_confidence):
+        return None
+    ms_x = (landmarks["left_shoulder"].x + landmarks["right_shoulder"].x) / 2
+    ms_y = (landmarks["left_shoulder"].y + landmarks["right_shoulder"].y) / 2
+    mh_x = (landmarks["left_hip"].x + landmarks["right_hip"].x) / 2
+    mh_y = (landmarks["left_hip"].y + landmarks["right_hip"].y) / 2
+    dx = mh_x - ms_x
+    dy = ms_y - mh_y
+    if abs(dy) < 0.001:
+        return None
+    angle = math.degrees(math.atan2(dx, abs(dy)))
+    return round(angle, 2)
+
+
+def scapular_depression_body_rel(
+    world_landmarks: dict, side: str = "right", min_confidence: float = 0.35
+) -> Optional[float]:
+    required = [f"{side}_shoulder", f"{side}_ear", "left_hip", "right_hip", "left_shoulder", "right_shoulder"]
+    if not visible_landmarks(world_landmarks, required, min_confidence):
+        return None
+    frame = compute_body_frame(world_landmarks, min_confidence)
+    if frame is None:
+        return None
+    shoulder = np.array([world_landmarks[f"{side}_shoulder"].x,
+                         world_landmarks[f"{side}_shoulder"].y,
+                         world_landmarks[f"{side}_shoulder"].z])
+    ear = np.array([world_landmarks[f"{side}_ear"].x,
+                    world_landmarks[f"{side}_ear"].y,
+                    world_landmarks[f"{side}_ear"].z])
+    v = shoulder - ear
+    vertical = np.dot(v, frame["up"])
+    lateral = np.dot(v, frame["lateral"])
+    forward = np.dot(v, frame["forward"])
+    horizontal = math.sqrt(lateral**2 + forward**2)
+    if horizontal < 0.001:
+        return None
+    angle = math.degrees(math.atan2(vertical, horizontal))
+    return round(angle, 2)
 
 
 def hip_abduction_2d(
@@ -576,9 +881,65 @@ def compute_angles_33(
             if v is not None:
                 angles[f"{side}_hip_flexion_body_rel"] = v
 
+            v = hip_abduction_body_rel(wl, side, min_confidence)
+            if v is not None:
+                angles[f"{side}_hip_abduction_body_rel"] = v
+
+            v = hip_extension_body_rel(wl, side, min_confidence)
+            if v is not None:
+                angles[f"{side}_hip_extension_body_rel"] = v
+
+            v = ankle_inversion_body_rel(wl, side, min_confidence)
+            if v is not None:
+                angles[f"{side}_ankle_inversion_body_rel"] = v
+
+            v = ankle_eversion_body_rel(wl, side, min_confidence)
+            if v is not None:
+                angles[f"{side}_ankle_eversion_body_rel"] = v
+
+            v = hip_external_rotation_body_rel(wl, side, min_confidence)
+            if v is not None:
+                angles[f"{side}_hip_external_rotation_body_rel"] = v
+
+            v = hip_adduction_body_rel(wl, side, min_confidence)
+            if v is not None:
+                angles[f"{side}_hip_adduction_body_rel"] = v
+
+            v = shoulder_cross_body_angle(wl, side, min_confidence)
+            if v is not None:
+                angles[f"{side}_shoulder_cross_body_angle"] = v
+
+            v = scapular_depression_body_rel(wl, side, min_confidence)
+            if v is not None:
+                angles[f"{side}_scapular_depression_body_rel"] = v
+
+        # Alias: right_ankle_flexion_3d = right_ankle_angle_3d
+        for side in ("right", "left"):
+            k = f"{side}_ankle_angle_3d"
+            if k in angles:
+                angles[f"{side}_ankle_flexion_3d"] = angles[k]
+
         v = trunk_lean_body_rel(wl, min_confidence)
         if v is not None:
             angles["trunk_lean_body_rel"] = v
+
+        v = pelvic_shift_body_rel(wl, min_confidence)
+        if v is not None:
+            angles["pelvic_shift_body_rel"] = v
+
+        # Bilateral cross-body: min de ambos lados
+        vl = angles.get("left_shoulder_cross_body_angle")
+        vr = angles.get("right_shoulder_cross_body_angle")
+        if vl is not None and vr is not None:
+            angles["shoulder_cross_body_bilateral"] = round(float(min(vl, vr)), 2)
+        elif vl is not None:
+            angles["shoulder_cross_body_bilateral"] = vl
+        elif vr is not None:
+            angles["shoulder_cross_body_bilateral"] = vr
+
+    v = pelvic_shift_2d(image_landmarks, min_confidence)
+    if v is not None:
+        angles["pelvic_shift_2d"] = v
 
     # Métricas posturales adicionales
     trunk = trunk_lean_2d(image_landmarks, min_confidence)

@@ -137,6 +137,7 @@ class Pose33TrajectoryEvaluator:
         self.target_delta = float(self.cfg.get("target_delta", 25.0))
         self.return_tolerance = float(self.cfg.get("return_tolerance", 8.0))
         self.safe_margin = float(self.cfg.get("safe_margin", 60.0))
+        self.calib_timeout_frames = int(self.cfg.get("calib_timeout_frames", max(30, self.calib_frames * 3)))
         # "increasing": el angulo crece desde el neutro hacia el objetivo.
         # "decreasing": el angulo decrece desde el neutro hacia el objetivo.
         self.direction = str(self.cfg.get("direction", "increasing")).lower()
@@ -164,23 +165,26 @@ class Pose33TrajectoryEvaluator:
         return round(new, 2)
 
     def _build_dynamic_ranges(self, neutral: float) -> None:
-        """Construye start/target/safe relativos al neutro calibrado del paciente."""
-        tol = self.return_tolerance
+        """Construye start/target/safe relativos al neutro calibrado del paciente.
+        Garantiza un ancho minimo de 15° para el rango target y 10° para el start."""
+        tol = max(self.return_tolerance, 5.0)
         delta = self.target_delta
-        margin = self.safe_margin
+        margin = max(self.safe_margin, 15.0)
         if self.direction == "decreasing":
             self.state.dyn_start_range = [neutral - tol, neutral + tol]
             self.state.dyn_target_range = [neutral - delta - margin, neutral - delta]
-            self.state.dyn_safe_range = [neutral - delta - margin - 20.0, neutral + tol + 10.0]
+            self.state.dyn_safe_range = [neutral - delta - margin - 20.0, neutral + max(tol, 20.0) + 20.0]
         else:  # increasing
             self.state.dyn_start_range = [neutral - tol, neutral + tol]
             self.state.dyn_target_range = [neutral + delta, neutral + delta + margin]
-            self.state.dyn_safe_range = [neutral - tol - 10.0, neutral + delta + margin + 20.0]
+            self.state.dyn_safe_range = [neutral - max(tol, 20.0) - 20.0, neutral + delta + margin + 20.0]
 
     def _update_calibration(self, value: Optional[float]) -> bool:
         """
         Acumula muestras del neutro mientras el paciente esta quieto.
         Devuelve True cuando la calibracion queda completada en este frame.
+        Si se alcanza calib_timeout_frames, fuerza la calibracion con la mediana
+        actual aunque el jitter sea alto, para no bloquear el ejercicio.
         """
         if value is None:
             return False
@@ -197,6 +201,13 @@ class Pose33TrajectoryEvaluator:
                 self._build_dynamic_ranges(self.state.neutral_value)
                 self.state.calibrated = True
                 return True
+        if len(samples) >= self.calib_timeout_frames:
+            ordered = sorted(samples)
+            neutral = ordered[len(ordered) // 2]
+            self.state.neutral_value = round(float(neutral), 2)
+            self._build_dynamic_ranges(self.state.neutral_value)
+            self.state.calibrated = True
+            return True
         return False
 
     def reset_current_rep(self) -> None:
@@ -385,8 +396,6 @@ class Pose33TrajectoryEvaluator:
                 "in_target": False,
                 "in_target_primary_only": False,
                 "in_safe": in_safe,
-            "gate_ok": True,
-            "gate_details": gate_details if self.gate_ranges else {},
                 "gate_ok": False,
                 "gate_details": gate_details,
                 "feedback_key": "gate_failed",

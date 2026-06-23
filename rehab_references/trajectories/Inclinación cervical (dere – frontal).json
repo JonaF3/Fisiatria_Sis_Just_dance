@@ -1,0 +1,28 @@
+{
+  "schema_version": "rehab_trajectory_mediapipe33_v1",
+  "exercise_id": "Inclinación cervical (dere – frontal)",
+  "name": "Inclinación cervical (dere – frontal)",
+  "backend": "mediapipe_pose_landmarker",
+  "landmark_schema": "mediapipe_pose_33",
+  "tracking_type": "pose33",
+  "reference_type": "single_rep_trajectory",
+  "source_video": "rehab_references/videos/Inclinación cervical (dere – frontal).mp4",
+  "metadata": {
+    "fps": 26.106,
+    "total_frames": 99,
+    "duration_s": 3.792,
+    "frame_skip": 2,
+    "valid_samples": 50
+  },
+  "required_landmarks": ["nose", "left_shoulder", "right_shoulder", "left_hip"],
+  "optional_landmarks": ["left_ear", "right_ear", "right_hip"],
+  "primary_angle": "left_neck_lateral_2d",
+  "direction": "increasing",
+  "ranges": {
+    "start_ranges": {"left_neck_lateral_2d": [117.39, 137.39]},
+    "target_ranges": {"left_neck_lateral_2d": [138.61, 158.61]},
+    "safe_ranges": {"left_neck_lateral_2d": [106.16, 168.61]}
+  },
+  "validation_strategy": "hybrid_3d_primary_2d_confirmation",
+  "trajectory": []
+}

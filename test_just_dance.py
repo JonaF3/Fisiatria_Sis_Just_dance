@@ -91,10 +91,19 @@ def test_angles_in_range():
     controller.release_capture()
 
     # Iterate through all the angles
-    for angle_list in controller.angles_video.values():
+    signed_angles = {'right_ankle_inversion_body_rel', 'left_ankle_inversion_body_rel',
+                     'right_ankle_eversion_body_rel', 'left_ankle_eversion_body_rel'}
+    for angle_name, angle_list in controller.angles_video.items():
         for angle in angle_list:
-            assert 0 <= angle <= 180
+            if angle_name in signed_angles:
+                # Signed angles can be negative (e.g., inversion = -10°)
+                assert -30 <= angle <= 30
+            else:
+                assert 0 <= angle <= 180
 
-    for angle_list in controller.angles_camera.values():
+    for angle_name, angle_list in controller.angles_camera.items():
         for angle in angle_list:
-            assert 0 <= angle <= 180
+            if angle_name in signed_angles:
+                assert -30 <= angle <= 30
+            else:
+                assert 0 <= angle <= 180
