@@ -1,0 +1,5876 @@
+{
+  "schema_version": "rehab_trajectory_hand21_v1",
+  "exercise_id": "pueba mano",
+  "name": "pueba mano",
+  "tracking_type": "hand21",
+  "landmark_schema": "mediapipe_hand_21",
+  "reference_type": "single_rep_open_close",
+  "source_video": "rehab_references/videos/pueba mano.mp4",
+  "metadata": {
+    "fps": 29.921,
+    "total_frames": 304,
+    "duration_s": 10.16,
+    "frame_skip": 1,
+    "valid_samples": 289,
+    "skipped_no_hand": 15,
+    "avg_pip_stats": {
+      "min": 4.55,
+      "max": 178.87,
+      "mean": 109.4,
+      "start": 138.79,
+      "end": 178.54
+    }
+  },
+  "primary_metric": "avg_pip_flexion_2d",
+  "active_angles": [
+    "index_pip_flexion_2d",
+    "middle_pip_flexion_2d",
+    "ring_pip_flexion_2d",
+    "pinky_pip_flexion_2d"
+  ],
+  "required_landmarks": [
+    "index_mcp",
+    "index_pip",
+    "index_dip",
+    "middle_mcp",
+    "middle_pip",
+    "middle_dip",
+    "ring_mcp",
+    "ring_pip",
+    "ring_dip",
+    "pinky_mcp",
+    "pinky_pip",
+    "pinky_dip"
+  ],
+  "ranges": {
+    "open_range": [
+      173.6,
+      180.0
+    ],
+    "closed_range": [
+      0.0,
+      15.75
+    ],
+    "safe_range": [
+      0.0,
+      180.0
+    ]
+  },
+  "suggested_config_patch": {
+    "tracking_type": "hand21",
+    "landmark_schema": "mediapipe_hand_21",
+    "evaluation_mode": "open_close",
+    "primary_metric": "avg_pip_flexion_2d",
+    "open_range": [
+      173.6,
+      180.0
+    ],
+    "closed_range": [
+      0.0,
+      15.75
+    ],
+    "min_open_fingers": 4,
+    "min_closed_fingers": 3,
+    "min_stable_frames": 5,
+    "cooldown_frames": 10
+  },
+  "trajectory": [
+    {
+      "progress": 0.0,
+      "source_frame_index": 15,
+      "source_time_s": 0.5013,
+      "avg_pip_flexion_2d": 138.79,
+      "angles": {
+        "thumb_mcp_flexion_2d": 157.25,
+        "thumb_ip_flexion_2d": 175.86,
+        "index_mcp_flexion_2d": 160.58,
+        "index_pip_flexion_2d": 134.0,
+        "index_dip_flexion_2d": 71.92,
+        "middle_mcp_flexion_2d": 168.87,
+        "middle_pip_flexion_2d": 53.07,
+        "middle_dip_flexion_2d": 153.23,
+        "ring_mcp_flexion_2d": 163.91,
+        "ring_pip_flexion_2d": 85.46,
+        "ring_dip_flexion_2d": 144.54,
+        "pinky_mcp_flexion_2d": 155.7,
+        "pinky_pip_flexion_2d": 131.28,
+        "pinky_dip_flexion_2d": 145.37,
+        "thumb_mcp_flexion_3d": 167.87,
+        "thumb_ip_flexion_3d": 164.52,
+        "index_mcp_flexion_3d": 164.15,
+        "index_pip_flexion_3d": 149.69,
+        "index_dip_flexion_3d": 156.9,
+        "middle_mcp_flexion_3d": 168.1,
+        "middle_pip_flexion_3d": 104.56,
+        "middle_dip_flexion_3d": 139.72,
+        "ring_mcp_flexion_3d": 146.92,
+        "ring_pip_flexion_3d": 141.18,
+        "ring_dip_flexion_3d": 142.49,
+        "pinky_mcp_flexion_3d": 151.92,
+        "pinky_pip_flexion_3d": 158.33,
+        "pinky_dip_flexion_3d": 121.73
+      },
+      "tracking_quality": 0.965,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.20497086644172668,
+          "y": 0.9517622590065002,
+          "z": -1.8232222487313265e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.2538459897041321,
+          "y": 0.9572198390960693,
+          "z": -0.05278721824288368
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.3011871874332428,
+          "y": 0.9038565754890442,
+          "z": -0.07833234965801239
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.3277989327907562,
+          "y": 0.8258123397827148,
+          "z": -0.09787788987159729
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.3564586341381073,
+          "y": 0.7582055926322937,
+          "z": -0.11909410357475281
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.25583815574645996,
+          "y": 0.7812119722366333,
+          "z": -0.06688085198402405
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.25194549560546875,
+          "y": 0.7019920945167542,
+          "z": -0.10535916686058044
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.24317647516727448,
+          "y": 0.6943194270133972,
+          "z": -0.13155801594257355
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.2353176474571228,
+          "y": 0.7127372622489929,
+          "z": -0.1461903601884842
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.20439773797988892,
+          "y": 0.7645155191421509,
+          "z": -0.060294825583696365
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.18277719616889954,
+          "y": 0.6563291549682617,
+          "z": -0.10576891899108887
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.15972262620925903,
+          "y": 0.6821410655975342,
+          "z": -0.13270194828510284
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.1432095468044281,
+          "y": 0.743774950504303,
+          "z": -0.14518482983112335
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.1636272519826889,
+          "y": 0.7715249061584473,
+          "z": -0.05771838501095772
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.1254279762506485,
+          "y": 0.7026433944702148,
+          "z": -0.10714903473854065
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.09176474809646606,
+          "y": 0.7249643802642822,
+          "z": -0.1301196813583374
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.07313708961009979,
+          "y": 0.7735128998756409,
+          "z": -0.13764460384845734
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.13059447705745697,
+          "y": 0.8011788129806519,
+          "z": -0.057684678584337234
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.08417005836963654,
+          "y": 0.7630302906036377,
+          "z": -0.09672398865222931
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.047243744134902954,
+          "y": 0.7690832018852234,
+          "z": -0.11155448108911514
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.023794397711753845,
+          "y": 0.7916786074638367,
+          "z": -0.11757580190896988
+        }
+      }
+    },
+    {
+      "progress": 0.03333,
+      "source_frame_index": 24,
+      "source_time_s": 0.8021,
+      "avg_pip_flexion_2d": 178.53,
+      "angles": {
+        "thumb_mcp_flexion_2d": 176.84,
+        "thumb_ip_flexion_2d": 167.41,
+        "index_mcp_flexion_2d": 177.63,
+        "index_pip_flexion_2d": 176.09,
+        "index_dip_flexion_2d": 177.35,
+        "middle_mcp_flexion_2d": 175.01,
+        "middle_pip_flexion_2d": 178.9,
+        "middle_dip_flexion_2d": 178.25,
+        "ring_mcp_flexion_2d": 177.66,
+        "ring_pip_flexion_2d": 179.37,
+        "ring_dip_flexion_2d": 179.75,
+        "pinky_mcp_flexion_2d": 174.83,
+        "pinky_pip_flexion_2d": 179.69,
+        "pinky_dip_flexion_2d": 177.69,
+        "thumb_mcp_flexion_3d": 170.98,
+        "thumb_ip_flexion_3d": 154.31,
+        "index_mcp_flexion_3d": 157.47,
+        "index_pip_flexion_3d": 172.3,
+        "index_dip_flexion_3d": 140.69,
+        "middle_mcp_flexion_3d": 159.69,
+        "middle_pip_flexion_3d": 148.02,
+        "middle_dip_flexion_3d": 173.15,
+        "ring_mcp_flexion_3d": 161.25,
+        "ring_pip_flexion_3d": 158.95,
+        "ring_dip_flexion_3d": 172.48,
+        "pinky_mcp_flexion_3d": 172.28,
+        "pinky_pip_flexion_3d": 167.84,
+        "pinky_dip_flexion_3d": 152.16
+      },
+      "tracking_quality": 0.9948,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3090038597583771,
+          "y": 0.7653293013572693,
+          "z": 3.4504637369536795e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.36207589507102966,
+          "y": 0.7366424798965454,
+          "z": -0.019454915076494217
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.40674251317977905,
+          "y": 0.6729185581207275,
+          "z": -0.026228293776512146
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4413221478462219,
+          "y": 0.6173056364059448,
+          "z": -0.03224210813641548
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.46971791982650757,
+          "y": 0.5883765816688538,
+          "z": -0.03838517516851425
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.37666431069374084,
+          "y": 0.5495659112930298,
+          "z": -0.011831297539174557
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.3982228636741638,
+          "y": 0.4693320393562317,
+          "z": -0.022638162598013878
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4084813594818115,
+          "y": 0.4171774387359619,
+          "z": -0.03322533518075943
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.41557765007019043,
+          "y": 0.36956334114074707,
+          "z": -0.042079225182533264
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3453246057033539,
+          "y": 0.5299396514892578,
+          "z": -0.013269558548927307
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3521214723587036,
+          "y": 0.42710649967193604,
+          "z": -0.023091968148946762
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3551208972930908,
+          "y": 0.3631773889064789,
+          "z": -0.034059055149555206
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3560057580471039,
+          "y": 0.3090616464614868,
+          "z": -0.042804546654224396
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3149241507053375,
+          "y": 0.5342143177986145,
+          "z": -0.01753336191177368
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3134797215461731,
+          "y": 0.4397315979003906,
+          "z": -0.030070621520280838
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3132208585739136,
+          "y": 0.3800433278083801,
+          "z": -0.04164307937026024
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.31276577711105347,
+          "y": 0.3277982473373413,
+          "z": -0.04988185316324234
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.283709317445755,
+          "y": 0.5568843483924866,
+          "z": -0.023804347962141037
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.2686642110347748,
+          "y": 0.48663529753685,
+          "z": -0.037857651710510254
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.2582802176475525,
+          "y": 0.4393913447856903,
+          "z": -0.04561843350529671
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.25004637241363525,
+          "y": 0.39307934045791626,
+          "z": -0.05055646598339081
+        }
+      }
+    },
+    {
+      "progress": 0.06667,
+      "source_frame_index": 34,
+      "source_time_s": 1.1363,
+      "avg_pip_flexion_2d": 178.76,
+      "angles": {
+        "thumb_mcp_flexion_2d": 178.03,
+        "thumb_ip_flexion_2d": 152.95,
+        "index_mcp_flexion_2d": 178.37,
+        "index_pip_flexion_2d": 177.26,
+        "index_dip_flexion_2d": 177.0,
+        "middle_mcp_flexion_2d": 177.35,
+        "middle_pip_flexion_2d": 179.78,
+        "middle_dip_flexion_2d": 177.5,
+        "ring_mcp_flexion_2d": 178.85,
+        "ring_pip_flexion_2d": 178.81,
+        "ring_dip_flexion_2d": 180.0,
+        "pinky_mcp_flexion_2d": 174.61,
+        "pinky_pip_flexion_2d": 179.55,
+        "pinky_dip_flexion_2d": 177.42,
+        "thumb_mcp_flexion_3d": 175.83,
+        "thumb_ip_flexion_3d": 158.08,
+        "index_mcp_flexion_3d": 158.43,
+        "index_pip_flexion_3d": 169.31,
+        "index_dip_flexion_3d": 141.58,
+        "middle_mcp_flexion_3d": 160.92,
+        "middle_pip_flexion_3d": 145.07,
+        "middle_dip_flexion_3d": 174.61,
+        "ring_mcp_flexion_3d": 158.74,
+        "ring_pip_flexion_3d": 160.66,
+        "ring_dip_flexion_3d": 173.53,
+        "pinky_mcp_flexion_3d": 173.28,
+        "pinky_pip_flexion_3d": 168.65,
+        "pinky_dip_flexion_3d": 147.11
+      },
+      "tracking_quality": 0.9934,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3161084055900574,
+          "y": 0.744025468826294,
+          "z": 3.621877056048106e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.36727553606033325,
+          "y": 0.7193272113800049,
+          "z": -0.01984483003616333
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.41229623556137085,
+          "y": 0.6577939987182617,
+          "z": -0.02677243947982788
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.44877561926841736,
+          "y": 0.6113746762275696,
+          "z": -0.03280726075172424
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.4813607335090637,
+          "y": 0.5963252782821655,
+          "z": -0.03870335593819618
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3865025043487549,
+          "y": 0.5335530042648315,
+          "z": -0.01032974198460579
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.40938451886177063,
+          "y": 0.4580545425415039,
+          "z": -0.019573567435145378
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4213017225265503,
+          "y": 0.41068243980407715,
+          "z": -0.029020246118307114
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.42944616079330444,
+          "y": 0.36923426389694214,
+          "z": -0.0369594469666481
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.35578054189682007,
+          "y": 0.5138339996337891,
+          "z": -0.011117056012153625
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3677695393562317,
+          "y": 0.417952299118042,
+          "z": -0.019182724878191948
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3748722970485687,
+          "y": 0.3593388497829437,
+          "z": -0.028403183445334435
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.37864118814468384,
+          "y": 0.31046634912490845,
+          "z": -0.035697489976882935
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.32495027780532837,
+          "y": 0.5168801546096802,
+          "z": -0.015012278221547604
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.32666629552841187,
+          "y": 0.42590412497520447,
+          "z": -0.026210075244307518
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3289361596107483,
+          "y": 0.3686423897743225,
+          "z": -0.03726895526051521
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3309309184551239,
+          "y": 0.31822019815444946,
+          "z": -0.04498578608036041
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.2932084798812866,
+          "y": 0.5378502607345581,
+          "z": -0.02095520682632923
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.2788916528224945,
+          "y": 0.468902051448822,
+          "z": -0.033694084733724594
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.26908358931541443,
+          "y": 0.42345863580703735,
+          "z": -0.04102153703570366
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.2615854740142822,
+          "y": 0.3791436553001404,
+          "z": -0.04568071663379669
+        }
+      }
+    },
+    {
+      "progress": 0.1,
+      "source_frame_index": 43,
+      "source_time_s": 1.4371,
+      "avg_pip_flexion_2d": 178.52,
+      "angles": {
+        "thumb_mcp_flexion_2d": 178.16,
+        "thumb_ip_flexion_2d": 150.92,
+        "index_mcp_flexion_2d": 178.87,
+        "index_pip_flexion_2d": 176.67,
+        "index_dip_flexion_2d": 177.01,
+        "middle_mcp_flexion_2d": 177.71,
+        "middle_pip_flexion_2d": 178.8,
+        "middle_dip_flexion_2d": 177.38,
+        "ring_mcp_flexion_2d": 178.97,
+        "ring_pip_flexion_2d": 178.84,
+        "ring_dip_flexion_2d": 179.83,
+        "pinky_mcp_flexion_2d": 174.54,
+        "pinky_pip_flexion_2d": 179.51,
+        "pinky_dip_flexion_2d": 177.3,
+        "thumb_mcp_flexion_3d": 175.3,
+        "thumb_ip_flexion_3d": 156.42,
+        "index_mcp_flexion_3d": 158.44,
+        "index_pip_flexion_3d": 168.7,
+        "index_dip_flexion_3d": 141.78,
+        "middle_mcp_flexion_3d": 159.82,
+        "middle_pip_flexion_3d": 145.39,
+        "middle_dip_flexion_3d": 173.99,
+        "ring_mcp_flexion_3d": 157.75,
+        "ring_pip_flexion_3d": 161.33,
+        "ring_dip_flexion_3d": 172.07,
+        "pinky_mcp_flexion_3d": 171.69,
+        "pinky_pip_flexion_3d": 169.78,
+        "pinky_dip_flexion_3d": 147.13
+      },
+      "tracking_quality": 0.9947,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.31548580527305603,
+          "y": 0.7281468510627747,
+          "z": 3.590531889585691e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.36577510833740234,
+          "y": 0.7032780647277832,
+          "z": -0.019848421216011047
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4106980264186859,
+          "y": 0.6426076292991638,
+          "z": -0.027072472497820854
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.44686830043792725,
+          "y": 0.5968971252441406,
+          "z": -0.0332542322576046
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.4789721965789795,
+          "y": 0.5835548043251038,
+          "z": -0.03949678689241409
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3846766948699951,
+          "y": 0.5247076153755188,
+          "z": -0.013265805318951607
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4087364673614502,
+          "y": 0.4491287171840668,
+          "z": -0.02345624379813671
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.42113378643989563,
+          "y": 0.400595486164093,
+          "z": -0.03310588002204895
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4297136068344116,
+          "y": 0.3578084707260132,
+          "z": -0.041192106902599335
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3541022539138794,
+          "y": 0.5046021342277527,
+          "z": -0.014326426200568676
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3667498230934143,
+          "y": 0.40867218375205994,
+          "z": -0.023640373721718788
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.37333184480667114,
+          "y": 0.34918856620788574,
+          "z": -0.03319272771477699
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3765386939048767,
+          "y": 0.2995161712169647,
+          "z": -0.040630239993333817
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.32359838485717773,
+          "y": 0.5069403648376465,
+          "z": -0.018281439319252968
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3253072500228882,
+          "y": 0.41565752029418945,
+          "z": -0.030373891815543175
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3275693655014038,
+          "y": 0.3576613664627075,
+          "z": -0.04157845303416252
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.32939499616622925,
+          "y": 0.306958943605423,
+          "z": -0.04938211664557457
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.2920318841934204,
+          "y": 0.5271552205085754,
+          "z": -0.024204779416322708
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.2772030830383301,
+          "y": 0.45809584856033325,
+          "z": -0.03775826841592789
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.2669089138507843,
+          "y": 0.41209185123443604,
+          "z": -0.04538555070757866
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.2590084969997406,
+          "y": 0.3668803572654724,
+          "z": -0.05025219917297363
+        }
+      }
+    },
+    {
+      "progress": 0.13333,
+      "source_frame_index": 53,
+      "source_time_s": 1.7713,
+      "avg_pip_flexion_2d": 177.58,
+      "angles": {
+        "thumb_mcp_flexion_2d": 172.22,
+        "thumb_ip_flexion_2d": 176.75,
+        "index_mcp_flexion_2d": 179.15,
+        "index_pip_flexion_2d": 175.67,
+        "index_dip_flexion_2d": 176.03,
+        "middle_mcp_flexion_2d": 174.28,
+        "middle_pip_flexion_2d": 179.08,
+        "middle_dip_flexion_2d": 177.55,
+        "ring_mcp_flexion_2d": 177.63,
+        "ring_pip_flexion_2d": 177.54,
+        "ring_dip_flexion_2d": 179.22,
+        "pinky_mcp_flexion_2d": 176.4,
+        "pinky_pip_flexion_2d": 178.74,
+        "pinky_dip_flexion_2d": 177.92,
+        "thumb_mcp_flexion_3d": 170.3,
+        "thumb_ip_flexion_3d": 153.07,
+        "index_mcp_flexion_3d": 156.16,
+        "index_pip_flexion_3d": 169.93,
+        "index_dip_flexion_3d": 141.76,
+        "middle_mcp_flexion_3d": 156.41,
+        "middle_pip_flexion_3d": 144.97,
+        "middle_dip_flexion_3d": 177.1,
+        "ring_mcp_flexion_3d": 157.49,
+        "ring_pip_flexion_3d": 157.62,
+        "ring_dip_flexion_3d": 175.05,
+        "pinky_mcp_flexion_3d": 176.19,
+        "pinky_pip_flexion_3d": 168.31,
+        "pinky_dip_flexion_3d": 154.93
+      },
+      "tracking_quality": 0.9966,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.31671175360679626,
+          "y": 0.7310754060745239,
+          "z": 3.064668021579564e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.36779654026031494,
+          "y": 0.7057104706764221,
+          "z": -0.01943163014948368
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4127049148082733,
+          "y": 0.6486572623252869,
+          "z": -0.02533572167158127
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4433212876319885,
+          "y": 0.5965337753295898,
+          "z": -0.030128976330161095
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.4659948945045471,
+          "y": 0.5625108480453491,
+          "z": -0.034648966044187546
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3854691684246063,
+          "y": 0.5309209823608398,
+          "z": -0.010531289502978325
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.40923386812210083,
+          "y": 0.458252876996994,
+          "z": -0.02028999850153923
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.42085862159729004,
+          "y": 0.4108448624610901,
+          "z": -0.030253872275352478
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4285232424736023,
+          "y": 0.36652833223342896,
+          "z": -0.03843211382627487
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3551107347011566,
+          "y": 0.5110856294631958,
+          "z": -0.011058270931243896
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3619949221611023,
+          "y": 0.41702163219451904,
+          "z": -0.019649086520075798
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3652760684490204,
+          "y": 0.3595529794692993,
+          "z": -0.029780054464936256
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3659876883029938,
+          "y": 0.309559166431427,
+          "z": -0.0378621481359005
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.32592517137527466,
+          "y": 0.5131041407585144,
+          "z": -0.014425252564251423
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.32600054144859314,
+          "y": 0.4284392297267914,
+          "z": -0.025223372504115105
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.32839396595954895,
+          "y": 0.3738126754760742,
+          "z": -0.03481388837099075
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3298742473125458,
+          "y": 0.32472744584083557,
+          "z": -0.041715700179338455
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.2956122159957886,
+          "y": 0.5312595367431641,
+          "z": -0.019887177273631096
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.28424546122550964,
+          "y": 0.46422114968299866,
+          "z": -0.0316351056098938
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.2775840163230896,
+          "y": 0.4188960790634155,
+          "z": -0.03749125078320503
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.2727339565753937,
+          "y": 0.3748020529747009,
+          "z": -0.041130635887384415
+        }
+      }
+    },
+    {
+      "progress": 0.16667,
+      "source_frame_index": 63,
+      "source_time_s": 2.1055,
+      "avg_pip_flexion_2d": 168.58,
+      "angles": {
+        "thumb_mcp_flexion_2d": 168.59,
+        "thumb_ip_flexion_2d": 163.53,
+        "index_mcp_flexion_2d": 172.86,
+        "index_pip_flexion_2d": 178.45,
+        "index_dip_flexion_2d": 2.38,
+        "middle_mcp_flexion_2d": 172.4,
+        "middle_pip_flexion_2d": 169.95,
+        "middle_dip_flexion_2d": 12.3,
+        "ring_mcp_flexion_2d": 176.47,
+        "ring_pip_flexion_2d": 172.42,
+        "ring_dip_flexion_2d": 19.49,
+        "pinky_mcp_flexion_2d": 179.07,
+        "pinky_pip_flexion_2d": 164.14,
+        "pinky_dip_flexion_2d": 88.92,
+        "thumb_mcp_flexion_3d": 161.6,
+        "thumb_ip_flexion_3d": 144.5,
+        "index_mcp_flexion_3d": 149.7,
+        "index_pip_flexion_3d": 147.0,
+        "index_dip_flexion_3d": 124.03,
+        "middle_mcp_flexion_3d": 153.0,
+        "middle_pip_flexion_3d": 118.32,
+        "middle_dip_flexion_3d": 141.46,
+        "ring_mcp_flexion_3d": 151.7,
+        "ring_pip_flexion_3d": 132.22,
+        "ring_dip_flexion_3d": 145.55,
+        "pinky_mcp_flexion_3d": 172.32,
+        "pinky_pip_flexion_3d": 141.05,
+        "pinky_dip_flexion_3d": 126.81
+      },
+      "tracking_quality": 0.995,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.32086336612701416,
+          "y": 0.7321059703826904,
+          "z": 2.336645650302671e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3699159026145935,
+          "y": 0.7071978449821472,
+          "z": -0.01887442171573639
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.41157931089401245,
+          "y": 0.6505127549171448,
+          "z": -0.02352658286690712
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.43794310092926025,
+          "y": 0.5937380790710449,
+          "z": -0.028248155489563942
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.4454363286495209,
+          "y": 0.543216347694397,
+          "z": -0.03180086985230446
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.38649094104766846,
+          "y": 0.5419999361038208,
+          "z": 0.0027633372228592634
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.3999466300010681,
+          "y": 0.4781791865825653,
+          "z": -0.011744608171284199
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.40495777130126953,
+          "y": 0.4507610499858856,
+          "z": -0.025897802785038948
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.40411701798439026,
+          "y": 0.4544806480407715,
+          "z": -0.03260166943073273
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.35816705226898193,
+          "y": 0.5239227414131165,
+          "z": 0.004503251053392887
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3616812527179718,
+          "y": 0.4453957974910736,
+          "z": -0.008806576952338219
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.36641746759414673,
+          "y": 0.4242256283760071,
+          "z": -0.021974314004182816
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3662760257720947,
+          "y": 0.44999822974205017,
+          "z": -0.02751689963042736
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.32972532510757446,
+          "y": 0.5247381925582886,
+          "z": 0.0021151017863303423
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.32838889956474304,
+          "y": 0.45375871658325195,
+          "z": -0.011114981025457382
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3318467140197754,
+          "y": 0.42339715361595154,
+          "z": -0.020495861768722534
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.33469972014427185,
+          "y": 0.43575724959373474,
+          "z": -0.023191656917333603
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.2989756166934967,
+          "y": 0.53929603099823,
+          "z": -0.0023623225279152393
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.2918447256088257,
+          "y": 0.48442310094833374,
+          "z": -0.01500143762677908
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.2958948016166687,
+          "y": 0.4571699798107147,
+          "z": -0.021478144451975822
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.3034285604953766,
+          "y": 0.45843446254730225,
+          "z": -0.022298110648989677
+        }
+      }
+    },
+    {
+      "progress": 0.2,
+      "source_frame_index": 72,
+      "source_time_s": 2.4063,
+      "avg_pip_flexion_2d": 40.44,
+      "angles": {
+        "thumb_mcp_flexion_2d": 169.64,
+        "thumb_ip_flexion_2d": 153.93,
+        "index_mcp_flexion_2d": 166.86,
+        "index_pip_flexion_2d": 28.68,
+        "index_dip_flexion_2d": 151.18,
+        "middle_mcp_flexion_2d": 170.45,
+        "middle_pip_flexion_2d": 10.98,
+        "middle_dip_flexion_2d": 172.0,
+        "ring_mcp_flexion_2d": 176.3,
+        "ring_pip_flexion_2d": 15.97,
+        "ring_dip_flexion_2d": 167.07,
+        "pinky_mcp_flexion_2d": 172.68,
+        "pinky_pip_flexion_2d": 33.65,
+        "pinky_dip_flexion_2d": 157.05,
+        "thumb_mcp_flexion_3d": 158.19,
+        "thumb_ip_flexion_3d": 129.34,
+        "index_mcp_flexion_3d": 144.63,
+        "index_pip_flexion_3d": 120.91,
+        "index_dip_flexion_3d": 130.62,
+        "middle_mcp_flexion_3d": 147.04,
+        "middle_pip_flexion_3d": 93.49,
+        "middle_dip_flexion_3d": 131.46,
+        "ring_mcp_flexion_3d": 147.42,
+        "ring_pip_flexion_3d": 103.61,
+        "ring_dip_flexion_3d": 134.68,
+        "pinky_mcp_flexion_3d": 167.97,
+        "pinky_pip_flexion_3d": 104.82,
+        "pinky_dip_flexion_3d": 119.41
+      },
+      "tracking_quality": 0.9984,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.32924818992614746,
+          "y": 0.7350338101387024,
+          "z": 6.634978344521869e-09
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3776392340660095,
+          "y": 0.7071362733840942,
+          "z": -0.013769288547337055
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4159705340862274,
+          "y": 0.6489765048027039,
+          "z": -0.019097644835710526
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4409940540790558,
+          "y": 0.5901011824607849,
+          "z": -0.026394004002213478
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.43806013464927673,
+          "y": 0.5348581671714783,
+          "z": -0.032867591828107834
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.390491783618927,
+          "y": 0.5448066592216492,
+          "z": 0.002290195319801569
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.39700087904930115,
+          "y": 0.46575433015823364,
+          "z": -0.016127347946166992
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.3994658589363098,
+          "y": 0.47129860520362854,
+          "z": -0.03143879771232605
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.3961391746997833,
+          "y": 0.5105284452438354,
+          "z": -0.037769295275211334
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.36163508892059326,
+          "y": 0.5366343259811401,
+          "z": 0.0006639158818870783
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.36117318272590637,
+          "y": 0.44300544261932373,
+          "z": -0.01624956540763378
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3670847713947296,
+          "y": 0.47269508242607117,
+          "z": -0.0281438659876585
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3698215186595917,
+          "y": 0.5206836462020874,
+          "z": -0.03222538158297539
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3337709605693817,
+          "y": 0.541366696357727,
+          "z": -0.004564938601106405
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3301040530204773,
+          "y": 0.4524926543235779,
+          "z": -0.019621912389993668
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.33976536989212036,
+          "y": 0.4816434383392334,
+          "z": -0.023783236742019653
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.34438440203666687,
+          "y": 0.530454695224762,
+          "z": -0.02278091385960579
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3036744296550751,
+          "y": 0.5553982853889465,
+          "z": -0.011536202393472195
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.30283045768737793,
+          "y": 0.4932960569858551,
+          "z": -0.023093877360224724
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.31335312128067017,
+          "y": 0.5086467862129211,
+          "z": -0.0245851818472147
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.32063961029052734,
+          "y": 0.5445341467857361,
+          "z": -0.02261405810713768
+        }
+      }
+    },
+    {
+      "progress": 0.23333,
+      "source_frame_index": 82,
+      "source_time_s": 2.7405,
+      "avg_pip_flexion_2d": 4.71,
+      "angles": {
+        "thumb_mcp_flexion_2d": 164.17,
+        "thumb_ip_flexion_2d": 149.52,
+        "index_mcp_flexion_2d": 163.91,
+        "index_pip_flexion_2d": 2.38,
+        "index_dip_flexion_2d": 179.79,
+        "middle_mcp_flexion_2d": 170.07,
+        "middle_pip_flexion_2d": 0.27,
+        "middle_dip_flexion_2d": 176.59,
+        "ring_mcp_flexion_2d": 177.52,
+        "ring_pip_flexion_2d": 3.49,
+        "ring_dip_flexion_2d": 178.04,
+        "pinky_mcp_flexion_2d": 170.46,
+        "pinky_pip_flexion_2d": 12.19,
+        "pinky_dip_flexion_2d": 179.69,
+        "thumb_mcp_flexion_3d": 157.34,
+        "thumb_ip_flexion_3d": 130.4,
+        "index_mcp_flexion_3d": 116.77,
+        "index_pip_flexion_3d": 90.28,
+        "index_dip_flexion_3d": 122.42,
+        "middle_mcp_flexion_3d": 117.19,
+        "middle_pip_flexion_3d": 86.95,
+        "middle_dip_flexion_3d": 82.57,
+        "ring_mcp_flexion_3d": 115.24,
+        "ring_pip_flexion_3d": 94.38,
+        "ring_dip_flexion_3d": 99.03,
+        "pinky_mcp_flexion_3d": 132.42,
+        "pinky_pip_flexion_3d": 99.8,
+        "pinky_dip_flexion_3d": 104.4
+      },
+      "tracking_quality": 0.9987,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.32846373319625854,
+          "y": 0.7448775768280029,
+          "z": -2.484008803094184e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3755693733692169,
+          "y": 0.7104296088218689,
+          "z": -0.012989419512450695
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.41528189182281494,
+          "y": 0.6509264707565308,
+          "z": -0.018054166808724403
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.43752044439315796,
+          "y": 0.5820502638816833,
+          "z": -0.023825891315937042
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.4259343147277832,
+          "y": 0.5301613807678223,
+          "z": -0.02642514742910862
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3924664556980133,
+          "y": 0.5573018193244934,
+          "z": -0.0016759380232542753
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.39576175808906555,
+          "y": 0.4887956380844116,
+          "z": -0.022600866854190826
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.3905351161956787,
+          "y": 0.5469682216644287,
+          "z": -0.03329496085643768
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.3868865370750427,
+          "y": 0.5893036127090454,
+          "z": -0.036478191614151
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3642788231372833,
+          "y": 0.5487555861473083,
+          "z": -0.003169563366100192
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3647715151309967,
+          "y": 0.4816719889640808,
+          "z": -0.02464250847697258
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.36387282609939575,
+          "y": 0.5559872388839722,
+          "z": -0.02815239317715168
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.36556923389434814,
+          "y": 0.5917328000068665,
+          "z": -0.024885619059205055
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3360028862953186,
+          "y": 0.5538303256034851,
+          "z": -0.008235781453549862
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3357424736022949,
+          "y": 0.4871927797794342,
+          "z": -0.028855813667178154
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3402937650680542,
+          "y": 0.557346761226654,
+          "z": -0.019960086792707443
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3438417911529541,
+          "y": 0.5930487513542175,
+          "z": -0.008186723105609417
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3059905767440796,
+          "y": 0.5692625045776367,
+          "z": -0.014674598351120949
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.30781441926956177,
+          "y": 0.5227066278457642,
+          "z": -0.027247430756688118
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.316206693649292,
+          "y": 0.5705674290657043,
+          "z": -0.019120974466204643
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.32132017612457275,
+          "y": 0.6006854772567749,
+          "z": -0.009003103710711002
+        }
+      }
+    },
+    {
+      "progress": 0.26667,
+      "source_frame_index": 91,
+      "source_time_s": 3.0413,
+      "avg_pip_flexion_2d": 4.96,
+      "angles": {
+        "thumb_mcp_flexion_2d": 157.34,
+        "thumb_ip_flexion_2d": 144.64,
+        "index_mcp_flexion_2d": 162.56,
+        "index_pip_flexion_2d": 4.12,
+        "index_dip_flexion_2d": 178.33,
+        "middle_mcp_flexion_2d": 170.46,
+        "middle_pip_flexion_2d": 0.05,
+        "middle_dip_flexion_2d": 177.64,
+        "ring_mcp_flexion_2d": 178.26,
+        "ring_pip_flexion_2d": 3.58,
+        "ring_dip_flexion_2d": 177.75,
+        "pinky_mcp_flexion_2d": 168.23,
+        "pinky_pip_flexion_2d": 12.63,
+        "pinky_dip_flexion_2d": 179.89,
+        "thumb_mcp_flexion_3d": 152.35,
+        "thumb_ip_flexion_3d": 120.22,
+        "index_mcp_flexion_3d": 105.43,
+        "index_pip_flexion_3d": 90.76,
+        "index_dip_flexion_3d": 109.27,
+        "middle_mcp_flexion_3d": 107.57,
+        "middle_pip_flexion_3d": 86.13,
+        "middle_dip_flexion_3d": 77.67,
+        "ring_mcp_flexion_3d": 105.39,
+        "ring_pip_flexion_3d": 87.77,
+        "ring_dip_flexion_3d": 101.09,
+        "pinky_mcp_flexion_3d": 120.85,
+        "pinky_pip_flexion_3d": 102.57,
+        "pinky_dip_flexion_3d": 96.59
+      },
+      "tracking_quality": 0.9994,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3310199975967407,
+          "y": 0.7388318777084351,
+          "z": -2.523209445826069e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3755490779876709,
+          "y": 0.7111486196517944,
+          "z": -0.014542462304234505
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4167327284812927,
+          "y": 0.6494283080101013,
+          "z": -0.01999419555068016
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.431199848651886,
+          "y": 0.5753861665725708,
+          "z": -0.024795642122626305
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.41196030378341675,
+          "y": 0.5327776074409485,
+          "z": -0.02564733475446701
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.393915593624115,
+          "y": 0.5659421682357788,
+          "z": -0.004739021882414818
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.396573007106781,
+          "y": 0.5063871741294861,
+          "z": -0.023998580873012543
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.38929226994514465,
+          "y": 0.5686379075050354,
+          "z": -0.032091427594423294
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.38663679361343384,
+          "y": 0.5990135073661804,
+          "z": -0.034290969371795654
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.36555373668670654,
+          "y": 0.5594640374183655,
+          "z": -0.004962471779435873
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.36690789461135864,
+          "y": 0.5024840235710144,
+          "z": -0.02469940297305584
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3650561273097992,
+          "y": 0.5775934457778931,
+          "z": -0.025955937802791595
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.365386426448822,
+          "y": 0.5974867343902588,
+          "z": -0.02159033715724945
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.33783042430877686,
+          "y": 0.5641578435897827,
+          "z": -0.00846958626061678
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3383103609085083,
+          "y": 0.5082425475120544,
+          "z": -0.029070638120174408
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3421918749809265,
+          "y": 0.5801247954368591,
+          "z": -0.018829213455319405
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.34429046511650085,
+          "y": 0.6025893092155457,
+          "z": -0.006383132189512253
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3082117736339569,
+          "y": 0.575677216053009,
+          "z": -0.01317977998405695
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.31078898906707764,
+          "y": 0.536948561668396,
+          "z": -0.024925436824560165
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.3185259997844696,
+          "y": 0.5867714881896973,
+          "z": -0.015530762262642384
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.32183247804641724,
+          "y": 0.6083455681800842,
+          "z": -0.004796255379915237
+        }
+      }
+    },
+    {
+      "progress": 0.3,
+      "source_frame_index": 101,
+      "source_time_s": 3.3755,
+      "avg_pip_flexion_2d": 5.33,
+      "angles": {
+        "thumb_mcp_flexion_2d": 155.82,
+        "thumb_ip_flexion_2d": 130.31,
+        "index_mcp_flexion_2d": 162.0,
+        "index_pip_flexion_2d": 0.6,
+        "index_dip_flexion_2d": 178.04,
+        "middle_mcp_flexion_2d": 171.27,
+        "middle_pip_flexion_2d": 3.35,
+        "middle_dip_flexion_2d": 176.41,
+        "ring_mcp_flexion_2d": 177.47,
+        "ring_pip_flexion_2d": 4.4,
+        "ring_dip_flexion_2d": 176.19,
+        "pinky_mcp_flexion_2d": 168.0,
+        "pinky_pip_flexion_2d": 12.71,
+        "pinky_dip_flexion_2d": 178.15,
+        "thumb_mcp_flexion_3d": 148.41,
+        "thumb_ip_flexion_3d": 106.74,
+        "index_mcp_flexion_3d": 107.51,
+        "index_pip_flexion_3d": 88.44,
+        "index_dip_flexion_3d": 108.04,
+        "middle_mcp_flexion_3d": 107.1,
+        "middle_pip_flexion_3d": 86.79,
+        "middle_dip_flexion_3d": 78.7,
+        "ring_mcp_flexion_3d": 104.97,
+        "ring_pip_flexion_3d": 90.83,
+        "ring_dip_flexion_3d": 98.95,
+        "pinky_mcp_flexion_3d": 120.71,
+        "pinky_pip_flexion_3d": 98.84,
+        "pinky_dip_flexion_3d": 99.23
+      },
+      "tracking_quality": 0.9997,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.33309781551361084,
+          "y": 0.7340574264526367,
+          "z": -2.6640657324605854e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.37557289004325867,
+          "y": 0.7175095677375793,
+          "z": -0.014202513732016087
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4165559709072113,
+          "y": 0.6478629112243652,
+          "z": -0.017785990610718727
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.42514193058013916,
+          "y": 0.5699757933616638,
+          "z": -0.02042142115533352
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.40000516176223755,
+          "y": 0.5433969497680664,
+          "z": -0.01926824450492859
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.39414530992507935,
+          "y": 0.5675907135009766,
+          "z": -0.0034979763440787792
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.3960689902305603,
+          "y": 0.5160998106002808,
+          "z": -0.0203202236443758
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.3930250406265259,
+          "y": 0.5796027779579163,
+          "z": -0.027047174051404
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.39267027378082275,
+          "y": 0.6055818200111389,
+          "z": -0.029317587614059448
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.36633041501045227,
+          "y": 0.5636892914772034,
+          "z": -0.0034764015581458807
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.36836525797843933,
+          "y": 0.5131972432136536,
+          "z": -0.021728411316871643
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.369784951210022,
+          "y": 0.5910849571228027,
+          "z": -0.022508585825562477
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3691522777080536,
+          "y": 0.6053063273429871,
+          "z": -0.018198931589722633
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3400619626045227,
+          "y": 0.5695469975471497,
+          "z": -0.0064914594404399395
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3399703800678253,
+          "y": 0.5194352865219116,
+          "z": -0.026674553751945496
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3457939624786377,
+          "y": 0.5933205485343933,
+          "z": -0.016683129593729973
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3460070788860321,
+          "y": 0.6107228994369507,
+          "z": -0.004960339982062578
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3107950687408447,
+          "y": 0.5799493193626404,
+          "z": -0.010608617216348648
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.31299102306365967,
+          "y": 0.5465667247772217,
+          "z": -0.022337932139635086
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.3210948407649994,
+          "y": 0.5980585813522339,
+          "z": -0.013484177179634571
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.32330167293548584,
+          "y": 0.6157793998718262,
+          "z": -0.0037584577221423388
+        }
+      }
+    },
+    {
+      "progress": 0.33333,
+      "source_frame_index": 111,
+      "source_time_s": 3.7097,
+      "avg_pip_flexion_2d": 8.27,
+      "angles": {
+        "thumb_mcp_flexion_2d": 152.8,
+        "thumb_ip_flexion_2d": 120.14,
+        "index_mcp_flexion_2d": 161.44,
+        "index_pip_flexion_2d": 0.4,
+        "index_dip_flexion_2d": 177.86,
+        "middle_mcp_flexion_2d": 173.0,
+        "middle_pip_flexion_2d": 5.12,
+        "middle_dip_flexion_2d": 167.68,
+        "ring_mcp_flexion_2d": 179.81,
+        "ring_pip_flexion_2d": 6.0,
+        "ring_dip_flexion_2d": 171.99,
+        "pinky_mcp_flexion_2d": 164.07,
+        "pinky_pip_flexion_2d": 14.78,
+        "pinky_dip_flexion_2d": 174.02,
+        "thumb_mcp_flexion_3d": 142.17,
+        "thumb_ip_flexion_3d": 102.91,
+        "index_mcp_flexion_3d": 101.14,
+        "index_pip_flexion_3d": 91.31,
+        "index_dip_flexion_3d": 107.05,
+        "middle_mcp_flexion_3d": 100.98,
+        "middle_pip_flexion_3d": 91.53,
+        "middle_dip_flexion_3d": 69.89,
+        "ring_mcp_flexion_3d": 98.64,
+        "ring_pip_flexion_3d": 93.26,
+        "ring_dip_flexion_3d": 95.91,
+        "pinky_mcp_flexion_3d": 110.06,
+        "pinky_pip_flexion_3d": 103.39,
+        "pinky_dip_flexion_3d": 96.63
+      },
+      "tracking_quality": 0.9998,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3328176438808441,
+          "y": 0.728996753692627,
+          "z": -2.5761346478248015e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3762493133544922,
+          "y": 0.718866765499115,
+          "z": -0.01284673810005188
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4183066189289093,
+          "y": 0.6505392789840698,
+          "z": -0.015109558589756489
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.42413124442100525,
+          "y": 0.5750539302825928,
+          "z": -0.01584787480533123
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.3970986604690552,
+          "y": 0.5564414262771606,
+          "z": -0.012958473525941372
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3944444954395294,
+          "y": 0.5761009454727173,
+          "z": -0.0052542248740792274
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.39734694361686707,
+          "y": 0.5272099375724792,
+          "z": -0.020580802112817764
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.39412033557891846,
+          "y": 0.5888477563858032,
+          "z": -0.026365989819169044
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.3937910199165344,
+          "y": 0.6107767224311829,
+          "z": -0.028765762224793434
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3672122061252594,
+          "y": 0.5734428763389587,
+          "z": -0.004757072776556015
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3718036413192749,
+          "y": 0.5254403352737427,
+          "z": -0.02011740393936634
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.37133756279945374,
+          "y": 0.6020573377609253,
+          "z": -0.01948542520403862
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3697081208229065,
+          "y": 0.6093086004257202,
+          "z": -0.015621718019247055
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.34144720435142517,
+          "y": 0.5778980851173401,
+          "z": -0.00689030671492219
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3439972996711731,
+          "y": 0.530440092086792,
+          "z": -0.024774683639407158
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34771212935447693,
+          "y": 0.6030736565589905,
+          "z": -0.013892394490540028
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3464932441711426,
+          "y": 0.6167780756950378,
+          "z": -0.0028686015866696835
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31251299381256104,
+          "y": 0.5846096873283386,
+          "z": -0.00989612564444542
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3170176148414612,
+          "y": 0.5522676110267639,
+          "z": -0.020647462457418442
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.32334867119789124,
+          "y": 0.6049476861953735,
+          "z": -0.01152648963034153
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.3236011862754822,
+          "y": 0.6215319037437439,
+          "z": -0.0024904387537389994
+        }
+      }
+    },
+    {
+      "progress": 0.36667,
+      "source_frame_index": 120,
+      "source_time_s": 4.0105,
+      "avg_pip_flexion_2d": 11.04,
+      "angles": {
+        "thumb_mcp_flexion_2d": 152.21,
+        "thumb_ip_flexion_2d": 115.71,
+        "index_mcp_flexion_2d": 164.64,
+        "index_pip_flexion_2d": 3.86,
+        "index_dip_flexion_2d": 178.9,
+        "middle_mcp_flexion_2d": 176.05,
+        "middle_pip_flexion_2d": 8.2,
+        "middle_dip_flexion_2d": 157.56,
+        "ring_mcp_flexion_2d": 176.1,
+        "ring_pip_flexion_2d": 9.88,
+        "ring_dip_flexion_2d": 164.06,
+        "pinky_mcp_flexion_2d": 155.2,
+        "pinky_pip_flexion_2d": 22.62,
+        "pinky_dip_flexion_2d": 166.86,
+        "thumb_mcp_flexion_3d": 141.2,
+        "thumb_ip_flexion_3d": 99.09,
+        "index_mcp_flexion_3d": 103.92,
+        "index_pip_flexion_3d": 89.23,
+        "index_dip_flexion_3d": 107.88,
+        "middle_mcp_flexion_3d": 103.73,
+        "middle_pip_flexion_3d": 92.3,
+        "middle_dip_flexion_3d": 69.49,
+        "ring_mcp_flexion_3d": 99.71,
+        "ring_pip_flexion_3d": 94.21,
+        "ring_dip_flexion_3d": 94.63,
+        "pinky_mcp_flexion_3d": 108.18,
+        "pinky_pip_flexion_3d": 106.57,
+        "pinky_dip_flexion_3d": 94.77
+      },
+      "tracking_quality": 0.9998,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.33344176411628723,
+          "y": 0.7275183200836182,
+          "z": -2.3378062508072617e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.37630772590637207,
+          "y": 0.7228946685791016,
+          "z": -0.014766448177397251
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.41890016198158264,
+          "y": 0.6541939973831177,
+          "z": -0.017847873270511627
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.42416590452194214,
+          "y": 0.579003095626831,
+          "z": -0.019050396978855133
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.39526528120040894,
+          "y": 0.562504768371582,
+          "z": -0.01686897501349449
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.39269429445266724,
+          "y": 0.5789307355880737,
+          "z": -0.007673597428947687
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.3976834714412689,
+          "y": 0.5343354940414429,
+          "z": -0.02275126613676548
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.3950362205505371,
+          "y": 0.5943104028701782,
+          "z": -0.02823593281209469
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.39376094937324524,
+          "y": 0.6144367456436157,
+          "z": -0.030625158920884132
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.36558815836906433,
+          "y": 0.5762913227081299,
+          "z": -0.006494299042969942
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.37193551659584045,
+          "y": 0.531417191028595,
+          "z": -0.022039737552404404
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3721335232257843,
+          "y": 0.606626033782959,
+          "z": -0.021502742543816566
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3692609667778015,
+          "y": 0.6136334538459778,
+          "z": -0.01777142845094204
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.339883953332901,
+          "y": 0.5813934803009033,
+          "z": -0.00798797607421875
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.34481850266456604,
+          "y": 0.5375697612762451,
+          "z": -0.02634180337190628
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34912508726119995,
+          "y": 0.6088364124298096,
+          "z": -0.01585671864449978
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3461427390575409,
+          "y": 0.622307538986206,
+          "z": -0.005152116995304823
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31069159507751465,
+          "y": 0.5883078575134277,
+          "z": -0.010467231273651123
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3186914920806885,
+          "y": 0.5595000386238098,
+          "z": -0.022071659564971924
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.3250431716442108,
+          "y": 0.6105248332023621,
+          "z": -0.013639822602272034
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.32342612743377686,
+          "y": 0.6257870197296143,
+          "z": -0.005146468058228493
+        }
+      }
+    },
+    {
+      "progress": 0.4,
+      "source_frame_index": 130,
+      "source_time_s": 4.3447,
+      "avg_pip_flexion_2d": 10.98,
+      "angles": {
+        "thumb_mcp_flexion_2d": 151.07,
+        "thumb_ip_flexion_2d": 117.26,
+        "index_mcp_flexion_2d": 165.92,
+        "index_pip_flexion_2d": 4.4,
+        "index_dip_flexion_2d": 175.22,
+        "middle_mcp_flexion_2d": 176.58,
+        "middle_pip_flexion_2d": 8.48,
+        "middle_dip_flexion_2d": 149.06,
+        "ring_mcp_flexion_2d": 176.01,
+        "ring_pip_flexion_2d": 9.95,
+        "ring_dip_flexion_2d": 158.51,
+        "pinky_mcp_flexion_2d": 154.87,
+        "pinky_pip_flexion_2d": 23.04,
+        "pinky_dip_flexion_2d": 163.22,
+        "thumb_mcp_flexion_3d": 140.35,
+        "thumb_ip_flexion_3d": 101.29,
+        "index_mcp_flexion_3d": 102.61,
+        "index_pip_flexion_3d": 89.66,
+        "index_dip_flexion_3d": 106.25,
+        "middle_mcp_flexion_3d": 101.23,
+        "middle_pip_flexion_3d": 92.52,
+        "middle_dip_flexion_3d": 69.22,
+        "ring_mcp_flexion_3d": 96.73,
+        "ring_pip_flexion_3d": 97.37,
+        "ring_dip_flexion_3d": 91.67,
+        "pinky_mcp_flexion_3d": 104.5,
+        "pinky_pip_flexion_3d": 109.42,
+        "pinky_dip_flexion_3d": 89.2
+      },
+      "tracking_quality": 0.9998,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.33434873819351196,
+          "y": 0.7295653820037842,
+          "z": -2.2009510303178104e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.376800000667572,
+          "y": 0.7204669713973999,
+          "z": -0.015486377291381359
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4190644919872284,
+          "y": 0.6540868282318115,
+          "z": -0.018957149237394333
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4236360490322113,
+          "y": 0.580425500869751,
+          "z": -0.020563572645187378
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.3946158289909363,
+          "y": 0.5631207823753357,
+          "z": -0.018668681383132935
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.39302435517311096,
+          "y": 0.5805855989456177,
+          "z": -0.0062142289243638515
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.3988054692745209,
+          "y": 0.5361873507499695,
+          "z": -0.021531444042921066
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.39567363262176514,
+          "y": 0.5955155491828918,
+          "z": -0.027135269716382027
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.39313995838165283,
+          "y": 0.6140177845954895,
+          "z": -0.02945040725171566
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3663678467273712,
+          "y": 0.57703697681427,
+          "z": -0.004955845419317484
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3729684054851532,
+          "y": 0.5325098633766174,
+          "z": -0.021198101341724396
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.37302571535110474,
+          "y": 0.6087156534194946,
+          "z": -0.021264245733618736
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.36981284618377686,
+          "y": 0.6140836477279663,
+          "z": -0.017482301220297813
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.34086254239082336,
+          "y": 0.5815152525901794,
+          "z": -0.006597587838768959
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3458032011985779,
+          "y": 0.5382274985313416,
+          "z": -0.025501811876893044
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3500799834728241,
+          "y": 0.6093761324882507,
+          "z": -0.015605409629642963
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3466896414756775,
+          "y": 0.6197805404663086,
+          "z": -0.004896806087344885
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3117705285549164,
+          "y": 0.5884888172149658,
+          "z": -0.009295710362493992
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3199980854988098,
+          "y": 0.5598709583282471,
+          "z": -0.02043784409761429
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.3261224627494812,
+          "y": 0.6097296476364136,
+          "z": -0.011819596402347088
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.32381948828697205,
+          "y": 0.6230877637863159,
+          "z": -0.003122979775071144
+        }
+      }
+    },
+    {
+      "progress": 0.43333,
+      "source_frame_index": 139,
+      "source_time_s": 4.6455,
+      "avg_pip_flexion_2d": 12.37,
+      "angles": {
+        "thumb_mcp_flexion_2d": 152.9,
+        "thumb_ip_flexion_2d": 117.05,
+        "index_mcp_flexion_2d": 167.83,
+        "index_pip_flexion_2d": 5.72,
+        "index_dip_flexion_2d": 173.8,
+        "middle_mcp_flexion_2d": 178.0,
+        "middle_pip_flexion_2d": 9.4,
+        "middle_dip_flexion_2d": 151.56,
+        "ring_mcp_flexion_2d": 174.6,
+        "ring_pip_flexion_2d": 11.25,
+        "ring_dip_flexion_2d": 159.54,
+        "pinky_mcp_flexion_2d": 154.47,
+        "pinky_pip_flexion_2d": 24.11,
+        "pinky_dip_flexion_2d": 163.74,
+        "thumb_mcp_flexion_3d": 142.78,
+        "thumb_ip_flexion_3d": 98.3,
+        "index_mcp_flexion_3d": 101.72,
+        "index_pip_flexion_3d": 87.03,
+        "index_dip_flexion_3d": 107.15,
+        "middle_mcp_flexion_3d": 101.43,
+        "middle_pip_flexion_3d": 91.17,
+        "middle_dip_flexion_3d": 70.04,
+        "ring_mcp_flexion_3d": 97.8,
+        "ring_pip_flexion_3d": 94.37,
+        "ring_dip_flexion_3d": 93.33,
+        "pinky_mcp_flexion_3d": 109.25,
+        "pinky_pip_flexion_3d": 103.71,
+        "pinky_dip_flexion_3d": 91.76
+      },
+      "tracking_quality": 0.9998,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3346550166606903,
+          "y": 0.7306260466575623,
+          "z": -2.3076071897776274e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.37788131833076477,
+          "y": 0.7210768461227417,
+          "z": -0.014501259662210941
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4192230701446533,
+          "y": 0.6530587077140808,
+          "z": -0.01730969548225403
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4246128499507904,
+          "y": 0.5795232057571411,
+          "z": -0.018456479534506798
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.39539146423339844,
+          "y": 0.5617997050285339,
+          "z": -0.016347242519259453
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3923690617084503,
+          "y": 0.58051997423172,
+          "z": -0.006075409706681967
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.39939290285110474,
+          "y": 0.5354725122451782,
+          "z": -0.020589862018823624
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.396090567111969,
+          "y": 0.595626950263977,
+          "z": -0.025744939222931862
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.39303621649742126,
+          "y": 0.6141949892044067,
+          "z": -0.02790076844394207
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3659623861312866,
+          "y": 0.5765128135681152,
+          "z": -0.005395751446485519
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3734428882598877,
+          "y": 0.5317299962043762,
+          "z": -0.021889539435505867
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3733289837837219,
+          "y": 0.6060290932655334,
+          "z": -0.02297056093811989
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3688664436340332,
+          "y": 0.6142401695251465,
+          "z": -0.019882213324308395
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.34045612812042236,
+          "y": 0.5817321538925171,
+          "z": -0.007228131406009197
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3464084267616272,
+          "y": 0.5373181700706482,
+          "z": -0.026139551773667336
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3509005904197693,
+          "y": 0.6083890199661255,
+          "z": -0.016784410923719406
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.34696200489997864,
+          "y": 0.621394693851471,
+          "z": -0.006397251505404711
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31152164936065674,
+          "y": 0.5898668169975281,
+          "z": -0.00996429193764925
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.32015737891197205,
+          "y": 0.5601391196250916,
+          "z": -0.021256422623991966
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.3270718455314636,
+          "y": 0.6098660230636597,
+          "z": -0.012623459100723267
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.3249403238296509,
+          "y": 0.6244056224822998,
+          "z": -0.0038137773517519236
+        }
+      }
+    },
+    {
+      "progress": 0.46667,
+      "source_frame_index": 149,
+      "source_time_s": 4.9797,
+      "avg_pip_flexion_2d": 11.01,
+      "angles": {
+        "thumb_mcp_flexion_2d": 151.14,
+        "thumb_ip_flexion_2d": 118.04,
+        "index_mcp_flexion_2d": 165.91,
+        "index_pip_flexion_2d": 4.68,
+        "index_dip_flexion_2d": 175.06,
+        "middle_mcp_flexion_2d": 175.96,
+        "middle_pip_flexion_2d": 8.3,
+        "middle_dip_flexion_2d": 152.25,
+        "ring_mcp_flexion_2d": 176.25,
+        "ring_pip_flexion_2d": 10.14,
+        "ring_dip_flexion_2d": 161.03,
+        "pinky_mcp_flexion_2d": 155.87,
+        "pinky_pip_flexion_2d": 22.59,
+        "pinky_dip_flexion_2d": 164.79,
+        "thumb_mcp_flexion_3d": 140.25,
+        "thumb_ip_flexion_3d": 100.84,
+        "index_mcp_flexion_3d": 101.45,
+        "index_pip_flexion_3d": 90.88,
+        "index_dip_flexion_3d": 104.37,
+        "middle_mcp_flexion_3d": 101.21,
+        "middle_pip_flexion_3d": 92.44,
+        "middle_dip_flexion_3d": 69.19,
+        "ring_mcp_flexion_3d": 97.84,
+        "ring_pip_flexion_3d": 95.96,
+        "ring_dip_flexion_3d": 93.47,
+        "pinky_mcp_flexion_3d": 109.74,
+        "pinky_pip_flexion_3d": 104.19,
+        "pinky_dip_flexion_3d": 93.6
+      },
+      "tracking_quality": 0.9998,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3351062536239624,
+          "y": 0.7326450943946838,
+          "z": -2.1758759771728364e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.377942830324173,
+          "y": 0.7214479446411133,
+          "z": -0.015245732851326466
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.41938188672065735,
+          "y": 0.6542246341705322,
+          "z": -0.01880958490073681
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.42292606830596924,
+          "y": 0.5814166069030762,
+          "z": -0.02063646726310253
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.3945695459842682,
+          "y": 0.564495325088501,
+          "z": -0.018977252766489983
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3929876685142517,
+          "y": 0.5812433362007141,
+          "z": -0.0062232110649347305
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.39833617210388184,
+          "y": 0.5366001725196838,
+          "z": -0.021186238154768944
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.3960825502872467,
+          "y": 0.5966452956199646,
+          "z": -0.026461314409971237
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.39365413784980774,
+          "y": 0.6161613464355469,
+          "z": -0.028485862538218498
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.36639636754989624,
+          "y": 0.5781291127204895,
+          "z": -0.004980918485671282
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.37215468287467957,
+          "y": 0.5338414907455444,
+          "z": -0.020479049533605576
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.37332409620285034,
+          "y": 0.6092249155044556,
+          "z": -0.02019035816192627
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.37018096446990967,
+          "y": 0.6154316663742065,
+          "z": -0.016353312879800797
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.34091711044311523,
+          "y": 0.5831086039543152,
+          "z": -0.006596072111278772
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3455861210823059,
+          "y": 0.5385375618934631,
+          "z": -0.02478785812854767
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3507409393787384,
+          "y": 0.6094090938568115,
+          "z": -0.014708691276609898
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.34753167629241943,
+          "y": 0.6215487122535706,
+          "z": -0.004030490759760141
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31190189719200134,
+          "y": 0.590806782245636,
+          "z": -0.00927736796438694
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3200432062149048,
+          "y": 0.5600773096084595,
+          "z": -0.02010449953377247
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.3267914056777954,
+          "y": 0.6096528768539429,
+          "z": -0.011350642889738083
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.3248502016067505,
+          "y": 0.6244845986366272,
+          "z": -0.002537735039368272
+        }
+      }
+    },
+    {
+      "progress": 0.5,
+      "source_frame_index": 159,
+      "source_time_s": 5.3139,
+      "avg_pip_flexion_2d": 10.99,
+      "angles": {
+        "thumb_mcp_flexion_2d": 152.57,
+        "thumb_ip_flexion_2d": 115.51,
+        "index_mcp_flexion_2d": 165.02,
+        "index_pip_flexion_2d": 3.83,
+        "index_dip_flexion_2d": 176.84,
+        "middle_mcp_flexion_2d": 175.51,
+        "middle_pip_flexion_2d": 7.76,
+        "middle_dip_flexion_2d": 152.32,
+        "ring_mcp_flexion_2d": 176.82,
+        "ring_pip_flexion_2d": 9.39,
+        "ring_dip_flexion_2d": 161.35,
+        "pinky_mcp_flexion_2d": 156.21,
+        "pinky_pip_flexion_2d": 21.52,
+        "pinky_dip_flexion_2d": 164.89,
+        "thumb_mcp_flexion_3d": 139.6,
+        "thumb_ip_flexion_3d": 100.74,
+        "index_mcp_flexion_3d": 102.31,
+        "index_pip_flexion_3d": 91.13,
+        "index_dip_flexion_3d": 104.74,
+        "middle_mcp_flexion_3d": 101.14,
+        "middle_pip_flexion_3d": 93.51,
+        "middle_dip_flexion_3d": 68.76,
+        "ring_mcp_flexion_3d": 98.21,
+        "ring_pip_flexion_3d": 96.42,
+        "ring_dip_flexion_3d": 91.86,
+        "pinky_mcp_flexion_3d": 109.47,
+        "pinky_pip_flexion_3d": 104.4,
+        "pinky_dip_flexion_3d": 91.89
+      },
+      "tracking_quality": 0.9998,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.33414319157600403,
+          "y": 0.7319115400314331,
+          "z": -2.340848510584692e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.37605273723602295,
+          "y": 0.7256093621253967,
+          "z": -0.014840355142951012
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.41788458824157715,
+          "y": 0.6558980345726013,
+          "z": -0.017644114792346954
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.42248597741127014,
+          "y": 0.5815361738204956,
+          "z": -0.01854626089334488
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.3936142027378082,
+          "y": 0.5655003190040588,
+          "z": -0.015944167971611023
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3916919231414795,
+          "y": 0.5818376541137695,
+          "z": -0.00658480916172266
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.3963544964790344,
+          "y": 0.5375112891197205,
+          "z": -0.02140680141746998
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.39408496022224426,
+          "y": 0.597341001033783,
+          "z": -0.026358097791671753
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.3922921121120453,
+          "y": 0.6165445446968079,
+          "z": -0.028237948194146156
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.36525020003318787,
+          "y": 0.5785075426101685,
+          "z": -0.005351688247174025
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3705790340900421,
+          "y": 0.5349441766738892,
+          "z": -0.020269647240638733
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.37162214517593384,
+          "y": 0.6109906435012817,
+          "z": -0.018914557993412018
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.36900949478149414,
+          "y": 0.6161407232284546,
+          "z": -0.01447021123021841
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3399682641029358,
+          "y": 0.5830757021903992,
+          "z": -0.0070173065178096294
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3440416157245636,
+          "y": 0.5401712656021118,
+          "z": -0.025010522454977036
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34899455308914185,
+          "y": 0.611657440662384,
+          "z": -0.014226517640054226
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.34599682688713074,
+          "y": 0.6230988502502441,
+          "z": -0.003237172495573759
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31112754344940186,
+          "y": 0.5901954174041748,
+          "z": -0.009730127640068531
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3187709450721741,
+          "y": 0.5607873797416687,
+          "z": -0.02079092338681221
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.32492995262145996,
+          "y": 0.611336350440979,
+          "z": -0.012037580832839012
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.32288679480552673,
+          "y": 0.6255763173103333,
+          "z": -0.0032975953072309494
+        }
+      }
+    },
+    {
+      "progress": 0.53333,
+      "source_frame_index": 168,
+      "source_time_s": 5.6147,
+      "avg_pip_flexion_2d": 11.27,
+      "angles": {
+        "thumb_mcp_flexion_2d": 152.33,
+        "thumb_ip_flexion_2d": 117.39,
+        "index_mcp_flexion_2d": 167.15,
+        "index_pip_flexion_2d": 5.03,
+        "index_dip_flexion_2d": 174.99,
+        "middle_mcp_flexion_2d": 177.76,
+        "middle_pip_flexion_2d": 8.93,
+        "middle_dip_flexion_2d": 136.95,
+        "ring_mcp_flexion_2d": 174.67,
+        "ring_pip_flexion_2d": 10.51,
+        "ring_dip_flexion_2d": 156.52,
+        "pinky_mcp_flexion_2d": 154.06,
+        "pinky_pip_flexion_2d": 22.87,
+        "pinky_dip_flexion_2d": 161.69,
+        "thumb_mcp_flexion_3d": 143.18,
+        "thumb_ip_flexion_3d": 98.66,
+        "index_mcp_flexion_3d": 97.95,
+        "index_pip_flexion_3d": 90.63,
+        "index_dip_flexion_3d": 104.31,
+        "middle_mcp_flexion_3d": 97.06,
+        "middle_pip_flexion_3d": 92.62,
+        "middle_dip_flexion_3d": 69.74,
+        "ring_mcp_flexion_3d": 93.49,
+        "ring_pip_flexion_3d": 97.75,
+        "ring_dip_flexion_3d": 90.65,
+        "pinky_mcp_flexion_3d": 102.34,
+        "pinky_pip_flexion_3d": 107.76,
+        "pinky_dip_flexion_3d": 88.26
+      },
+      "tracking_quality": 0.9998,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.33620554208755493,
+          "y": 0.7303188443183899,
+          "z": -2.3060113107931102e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3766549825668335,
+          "y": 0.7250609397888184,
+          "z": -0.01601899228990078
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4189992845058441,
+          "y": 0.6560401916503906,
+          "z": -0.01906764879822731
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4239610731601715,
+          "y": 0.582442045211792,
+          "z": -0.01971207745373249
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.3948736786842346,
+          "y": 0.5647916197776794,
+          "z": -0.016718702390789986
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3921698033809662,
+          "y": 0.5817736387252808,
+          "z": -0.00852843839675188
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.39817142486572266,
+          "y": 0.5379167199134827,
+          "z": -0.02315950021147728
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.39522600173950195,
+          "y": 0.5988857746124268,
+          "z": -0.027974823489785194
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.3928671181201935,
+          "y": 0.6161518692970276,
+          "z": -0.029842006042599678
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3659306764602661,
+          "y": 0.578163743019104,
+          "z": -0.006489133462309837
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.37259846925735474,
+          "y": 0.5351464152336121,
+          "z": -0.021140923723578453
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3727545738220215,
+          "y": 0.6110547184944153,
+          "z": -0.01999705284833908
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.36920231580734253,
+          "y": 0.6148728728294373,
+          "z": -0.015885327011346817
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3407618999481201,
+          "y": 0.5821666717529297,
+          "z": -0.007270243484526873
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.34596508741378784,
+          "y": 0.5403409600257874,
+          "z": -0.02431046962738037
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.35018491744995117,
+          "y": 0.6109121441841125,
+          "z": -0.013629191555082798
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3466295897960663,
+          "y": 0.6206519603729248,
+          "z": -0.003120423760265112
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3122254014015198,
+          "y": 0.5877963304519653,
+          "z": -0.009187341667711735
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.32041406631469727,
+          "y": 0.5599457025527954,
+          "z": -0.019151564687490463
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.32603898644447327,
+          "y": 0.6094571948051453,
+          "z": -0.010175625793635845
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.32334649562835693,
+          "y": 0.6223175525665283,
+          "z": -0.0016091222641989589
+        }
+      }
+    },
+    {
+      "progress": 0.56667,
+      "source_frame_index": 178,
+      "source_time_s": 5.9489,
+      "avg_pip_flexion_2d": 7.07,
+      "angles": {
+        "thumb_mcp_flexion_2d": 152.59,
+        "thumb_ip_flexion_2d": 144.78,
+        "index_mcp_flexion_2d": 166.53,
+        "index_pip_flexion_2d": 0.38,
+        "index_dip_flexion_2d": 178.92,
+        "middle_mcp_flexion_2d": 174.92,
+        "middle_pip_flexion_2d": 3.27,
+        "middle_dip_flexion_2d": 178.72,
+        "ring_mcp_flexion_2d": 178.52,
+        "ring_pip_flexion_2d": 6.14,
+        "ring_dip_flexion_2d": 177.47,
+        "pinky_mcp_flexion_2d": 163.51,
+        "pinky_pip_flexion_2d": 17.71,
+        "pinky_dip_flexion_2d": 175.92,
+        "thumb_mcp_flexion_3d": 145.79,
+        "thumb_ip_flexion_3d": 122.34,
+        "index_mcp_flexion_3d": 109.88,
+        "index_pip_flexion_3d": 82.51,
+        "index_dip_flexion_3d": 125.25,
+        "middle_mcp_flexion_3d": 112.96,
+        "middle_pip_flexion_3d": 81.93,
+        "middle_dip_flexion_3d": 89.52,
+        "ring_mcp_flexion_3d": 110.66,
+        "ring_pip_flexion_3d": 88.77,
+        "ring_dip_flexion_3d": 108.02,
+        "pinky_mcp_flexion_3d": 127.43,
+        "pinky_pip_flexion_3d": 96.88,
+        "pinky_dip_flexion_3d": 107.52
+      },
+      "tracking_quality": 0.9996,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.33431872725486755,
+          "y": 0.7408711910247803,
+          "z": -2.134332959258245e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3800210952758789,
+          "y": 0.7085351943969727,
+          "z": -0.010849817655980587
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4193287491798401,
+          "y": 0.6521226763725281,
+          "z": -0.014268435537815094
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.42868170142173767,
+          "y": 0.5806392431259155,
+          "z": -0.01805405505001545
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.4079553186893463,
+          "y": 0.5412788987159729,
+          "z": -0.019868237897753716
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.39398884773254395,
+          "y": 0.5726227760314941,
+          "z": 0.001008804771117866
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.3998855650424957,
+          "y": 0.5170445442199707,
+          "z": -0.016026301309466362
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.3947579860687256,
+          "y": 0.5686453580856323,
+          "z": -0.02560177631676197
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.3901483416557312,
+          "y": 0.607570230960846,
+          "z": -0.028802283108234406
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3683299422264099,
+          "y": 0.5626710057258606,
+          "z": -0.0002545402094256133
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3741447329521179,
+          "y": 0.5046446323394775,
+          "z": -0.018696680665016174
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.371174156665802,
+          "y": 0.5739063620567322,
+          "z": -0.023796604946255684
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.36869099736213684,
+          "y": 0.6119070053100586,
+          "z": -0.021765070036053658
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.34258338809013367,
+          "y": 0.5656121969223022,
+          "z": -0.0040522124618291855
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3468395173549652,
+          "y": 0.5073776245117188,
+          "z": -0.023969972506165504
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34925708174705505,
+          "y": 0.5779762864112854,
+          "z": -0.017734521999955177
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.34887248277664185,
+          "y": 0.6163856387138367,
+          "z": -0.007274055387824774
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3129696249961853,
+          "y": 0.5796850919723511,
+          "z": -0.008505117148160934
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.32022687792778015,
+          "y": 0.5335806012153625,
+          "z": -0.0219105314463377
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.32791975140571594,
+          "y": 0.58350670337677,
+          "z": -0.014538384042680264
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.33055558800697327,
+          "y": 0.6157083511352539,
+          "z": -0.004461830947548151
+        }
+      }
+    },
+    {
+      "progress": 0.6,
+      "source_frame_index": 187,
+      "source_time_s": 6.2497,
+      "avg_pip_flexion_2d": 127.75,
+      "angles": {
+        "thumb_mcp_flexion_2d": 156.61,
+        "thumb_ip_flexion_2d": 155.73,
+        "index_mcp_flexion_2d": 167.76,
+        "index_pip_flexion_2d": 179.4,
+        "index_dip_flexion_2d": 89.1,
+        "middle_mcp_flexion_2d": 170.79,
+        "middle_pip_flexion_2d": 161.47,
+        "middle_dip_flexion_2d": 26.71,
+        "ring_mcp_flexion_2d": 175.24,
+        "ring_pip_flexion_2d": 147.56,
+        "ring_dip_flexion_2d": 35.25,
+        "pinky_mcp_flexion_2d": 176.26,
+        "pinky_pip_flexion_2d": 131.52,
+        "pinky_dip_flexion_2d": 62.78,
+        "thumb_mcp_flexion_3d": 153.73,
+        "thumb_ip_flexion_3d": 133.59,
+        "index_mcp_flexion_3d": 138.04,
+        "index_pip_flexion_3d": 145.22,
+        "index_dip_flexion_3d": 135.67,
+        "middle_mcp_flexion_3d": 141.89,
+        "middle_pip_flexion_3d": 115.03,
+        "middle_dip_flexion_3d": 140.93,
+        "ring_mcp_flexion_3d": 149.84,
+        "ring_pip_flexion_3d": 111.27,
+        "ring_dip_flexion_3d": 138.91,
+        "pinky_mcp_flexion_3d": 167.5,
+        "pinky_pip_flexion_3d": 122.13,
+        "pinky_dip_flexion_3d": 107.54
+      },
+      "tracking_quality": 0.9952,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3313215970993042,
+          "y": 0.7434508800506592,
+          "z": 1.334663721763718e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3815339505672455,
+          "y": 0.7103721499443054,
+          "z": -0.013182793743908405
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4198748767375946,
+          "y": 0.6583300828933716,
+          "z": -0.012769782915711403
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4359671175479889,
+          "y": 0.5885611176490784,
+          "z": -0.012669687159359455
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.42657437920570374,
+          "y": 0.5414860248565674,
+          "z": -0.012607640586793423
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.39767220616340637,
+          "y": 0.5674204230308533,
+          "z": 0.008711786940693855
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.40648603439331055,
+          "y": 0.5078201293945312,
+          "z": 0.002326826797798276
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.40962740778923035,
+          "y": 0.48800718784332275,
+          "z": -0.008896872401237488
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4113229215145111,
+          "y": 0.4883033335208893,
+          "z": -0.016544004902243614
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3717140257358551,
+          "y": 0.5555832386016846,
+          "z": 0.009864330291748047
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3755992650985718,
+          "y": 0.4795924723148346,
+          "z": 0.0029048246797174215
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.37821364402770996,
+          "y": 0.4729415476322174,
+          "z": -0.01235042605549097
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3804594874382019,
+          "y": 0.49739789962768555,
+          "z": -0.023201435804367065
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3453378677368164,
+          "y": 0.5575957894325256,
+          "z": 0.00846235640347004
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3447705805301666,
+          "y": 0.48560860753059387,
+          "z": -0.0016442708438262343
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34747040271759033,
+          "y": 0.48128536343574524,
+          "z": -0.017162643373012543
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3496764600276947,
+          "y": 0.519991397857666,
+          "z": -0.02670695260167122
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31495964527130127,
+          "y": 0.570252001285553,
+          "z": 0.006037781946361065
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.313238263130188,
+          "y": 0.5108124017715454,
+          "z": -0.004600965417921543
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.32028254866600037,
+          "y": 0.5042016506195068,
+          "z": -0.014076539315283298
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.32888710498809814,
+          "y": 0.5342807173728943,
+          "z": -0.019647322595119476
+        }
+      }
+    },
+    {
+      "progress": 0.63333,
+      "source_frame_index": 197,
+      "source_time_s": 6.5839,
+      "avg_pip_flexion_2d": 174.49,
+      "angles": {
+        "thumb_mcp_flexion_2d": 162.88,
+        "thumb_ip_flexion_2d": 164.06,
+        "index_mcp_flexion_2d": 173.78,
+        "index_pip_flexion_2d": 174.88,
+        "index_dip_flexion_2d": 178.6,
+        "middle_mcp_flexion_2d": 173.0,
+        "middle_pip_flexion_2d": 179.59,
+        "middle_dip_flexion_2d": 179.41,
+        "ring_mcp_flexion_2d": 176.29,
+        "ring_pip_flexion_2d": 174.81,
+        "ring_dip_flexion_2d": 176.05,
+        "pinky_mcp_flexion_2d": 179.51,
+        "pinky_pip_flexion_2d": 170.01,
+        "pinky_dip_flexion_2d": 170.76,
+        "thumb_mcp_flexion_3d": 167.81,
+        "thumb_ip_flexion_3d": 142.69,
+        "index_mcp_flexion_3d": 154.74,
+        "index_pip_flexion_3d": 167.04,
+        "index_dip_flexion_3d": 142.46,
+        "middle_mcp_flexion_3d": 151.15,
+        "middle_pip_flexion_3d": 144.52,
+        "middle_dip_flexion_3d": 177.8,
+        "ring_mcp_flexion_3d": 148.41,
+        "ring_pip_flexion_3d": 153.94,
+        "ring_dip_flexion_3d": 174.18,
+        "pinky_mcp_flexion_3d": 170.44,
+        "pinky_pip_flexion_3d": 154.0,
+        "pinky_dip_flexion_3d": 152.49
+      },
+      "tracking_quality": 0.9978,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3326238691806793,
+          "y": 0.7327497601509094,
+          "z": 3.178170686624071e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3821656405925751,
+          "y": 0.7046776413917542,
+          "z": -0.017730318009853363
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.42229005694389343,
+          "y": 0.6578096151351929,
+          "z": -0.021080465987324715
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4455912709236145,
+          "y": 0.6040835380554199,
+          "z": -0.02363342046737671
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.45227310061454773,
+          "y": 0.553402304649353,
+          "z": -0.02583899162709713
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3978008031845093,
+          "y": 0.5581635236740112,
+          "z": -0.001421934342943132
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4154415428638458,
+          "y": 0.48871809244155884,
+          "z": -0.009268543682992458
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4226395785808563,
+          "y": 0.44392654299736023,
+          "z": -0.018612578511238098
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.42804038524627686,
+          "y": 0.4041513204574585,
+          "z": -0.025760820135474205
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3706054091453552,
+          "y": 0.5436192750930786,
+          "z": -0.0004460407071746886
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.376666784286499,
+          "y": 0.46411216259002686,
+          "z": -0.007201280910521746
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3807925283908844,
+          "y": 0.414713054895401,
+          "z": -0.01824146881699562
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.38461264967918396,
+          "y": 0.3740246891975403,
+          "z": -0.02689221501350403
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3432060778141022,
+          "y": 0.5456052422523499,
+          "z": -0.002539072884246707
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3426515758037567,
+          "y": 0.4779652953147888,
+          "z": -0.011670813895761967
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34595197439193726,
+          "y": 0.4379647374153137,
+          "z": -0.020732169970870018
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3508348762989044,
+          "y": 0.40592896938323975,
+          "z": -0.026911774650216103
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.314007043838501,
+          "y": 0.5583435893058777,
+          "z": -0.006651716306805611
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3085033893585205,
+          "y": 0.5022603869438171,
+          "z": -0.016002094373106956
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.31093621253967285,
+          "y": 0.47051993012428284,
+          "z": -0.020743029192090034
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.3171520233154297,
+          "y": 0.4448637366294861,
+          "z": -0.023435750976204872
+        }
+      }
+    },
+    {
+      "progress": 0.66667,
+      "source_frame_index": 207,
+      "source_time_s": 6.9181,
+      "avg_pip_flexion_2d": 177.62,
+      "angles": {
+        "thumb_mcp_flexion_2d": 165.28,
+        "thumb_ip_flexion_2d": 169.15,
+        "index_mcp_flexion_2d": 175.59,
+        "index_pip_flexion_2d": 177.21,
+        "index_dip_flexion_2d": 178.27,
+        "middle_mcp_flexion_2d": 174.94,
+        "middle_pip_flexion_2d": 179.4,
+        "middle_dip_flexion_2d": 179.43,
+        "ring_mcp_flexion_2d": 177.81,
+        "ring_pip_flexion_2d": 177.24,
+        "ring_dip_flexion_2d": 178.59,
+        "pinky_mcp_flexion_2d": 179.37,
+        "pinky_pip_flexion_2d": 176.42,
+        "pinky_dip_flexion_2d": 176.31,
+        "thumb_mcp_flexion_3d": 167.35,
+        "thumb_ip_flexion_3d": 144.07,
+        "index_mcp_flexion_3d": 154.73,
+        "index_pip_flexion_3d": 167.82,
+        "index_dip_flexion_3d": 143.48,
+        "middle_mcp_flexion_3d": 154.88,
+        "middle_pip_flexion_3d": 145.04,
+        "middle_dip_flexion_3d": 174.17,
+        "ring_mcp_flexion_3d": 155.38,
+        "ring_pip_flexion_3d": 160.46,
+        "ring_dip_flexion_3d": 176.53,
+        "pinky_mcp_flexion_3d": 177.21,
+        "pinky_pip_flexion_3d": 160.96,
+        "pinky_dip_flexion_3d": 158.16
+      },
+      "tracking_quality": 0.9968,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.33083823323249817,
+          "y": 0.7376537919044495,
+          "z": 3.259331720073533e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3825382590293884,
+          "y": 0.7118203043937683,
+          "z": -0.01789410226047039
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4250795245170593,
+          "y": 0.6628808379173279,
+          "z": -0.02224126085639
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.45081257820129395,
+          "y": 0.6107683181762695,
+          "z": -0.025913972407579422
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.4630512595176697,
+          "y": 0.5664315819740295,
+          "z": -0.02946765162050724
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3966631293296814,
+          "y": 0.5532194375991821,
+          "z": -0.005035890266299248
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4163915812969208,
+          "y": 0.4807784855365753,
+          "z": -0.015130904503166676
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4265417158603668,
+          "y": 0.434785932302475,
+          "z": -0.02578812651336193
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.43454402685165405,
+          "y": 0.3925108313560486,
+          "z": -0.03398792818188667
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.36867231130599976,
+          "y": 0.5369125604629517,
+          "z": -0.005357545800507069
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.37741363048553467,
+          "y": 0.4480530619621277,
+          "z": -0.014468383975327015
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.38364309072494507,
+          "y": 0.3908962607383728,
+          "z": -0.026464538648724556
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3884519040584564,
+          "y": 0.3422623872756958,
+          "z": -0.03567667305469513
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.34124433994293213,
+          "y": 0.5393253564834595,
+          "z": -0.008676184341311455
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3424050211906433,
+          "y": 0.45794397592544556,
+          "z": -0.019694367423653603
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34580910205841064,
+          "y": 0.40353769063949585,
+          "z": -0.030479671433568
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.34993818402290344,
+          "y": 0.35627758502960205,
+          "z": -0.03800295665860176
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3123248815536499,
+          "y": 0.5551397800445557,
+          "z": -0.013926608487963676
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.306682288646698,
+          "y": 0.49270811676979065,
+          "z": -0.02574770897626877
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.3055115044116974,
+          "y": 0.45043033361434937,
+          "z": -0.032336682081222534
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.3069953918457031,
+          "y": 0.4099685251712799,
+          "z": -0.03639580309391022
+        }
+      }
+    },
+    {
+      "progress": 0.7,
+      "source_frame_index": 216,
+      "source_time_s": 7.2189,
+      "avg_pip_flexion_2d": 178.34,
+      "angles": {
+        "thumb_mcp_flexion_2d": 166.46,
+        "thumb_ip_flexion_2d": 174.4,
+        "index_mcp_flexion_2d": 176.47,
+        "index_pip_flexion_2d": 177.45,
+        "index_dip_flexion_2d": 177.83,
+        "middle_mcp_flexion_2d": 174.96,
+        "middle_pip_flexion_2d": 179.45,
+        "middle_dip_flexion_2d": 178.8,
+        "ring_mcp_flexion_2d": 178.23,
+        "ring_pip_flexion_2d": 177.84,
+        "ring_dip_flexion_2d": 179.79,
+        "pinky_mcp_flexion_2d": 178.94,
+        "pinky_pip_flexion_2d": 178.88,
+        "pinky_dip_flexion_2d": 177.52,
+        "thumb_mcp_flexion_3d": 167.13,
+        "thumb_ip_flexion_3d": 147.58,
+        "index_mcp_flexion_3d": 154.33,
+        "index_pip_flexion_3d": 166.88,
+        "index_dip_flexion_3d": 143.29,
+        "middle_mcp_flexion_3d": 155.17,
+        "middle_pip_flexion_3d": 142.54,
+        "middle_dip_flexion_3d": 172.62,
+        "ring_mcp_flexion_3d": 155.69,
+        "ring_pip_flexion_3d": 160.25,
+        "ring_dip_flexion_3d": 175.91,
+        "pinky_mcp_flexion_3d": 177.24,
+        "pinky_pip_flexion_3d": 163.39,
+        "pinky_dip_flexion_3d": 156.04
+      },
+      "tracking_quality": 0.9959,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.32942113280296326,
+          "y": 0.7366088628768921,
+          "z": 3.165120574522007e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3815459609031677,
+          "y": 0.7138299345970154,
+          "z": -0.018171995878219604
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.42531251907348633,
+          "y": 0.6638612151145935,
+          "z": -0.02234942466020584
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.45242857933044434,
+          "y": 0.6121545433998108,
+          "z": -0.025673512369394302
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.46873024106025696,
+          "y": 0.5719605088233948,
+          "z": -0.028716737404465675
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3964264690876007,
+          "y": 0.5492147207260132,
+          "z": -0.004817885812371969
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.41726791858673096,
+          "y": 0.47721484303474426,
+          "z": -0.013576655648648739
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.42821747064590454,
+          "y": 0.43192145228385925,
+          "z": -0.023178691044449806
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4365418553352356,
+          "y": 0.3906994163990021,
+          "z": -0.030898038297891617
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3686075508594513,
+          "y": 0.5323558449745178,
+          "z": -0.004948764573782682
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.37768954038619995,
+          "y": 0.443189799785614,
+          "z": -0.0131813520565629
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3840131163597107,
+          "y": 0.38646548986434937,
+          "z": -0.024376587942242622
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.38833001255989075,
+          "y": 0.3387032449245453,
+          "z": -0.03306400775909424
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.34124699234962463,
+          "y": 0.5344558954238892,
+          "z": -0.008163897320628166
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3435419797897339,
+          "y": 0.4513816237449646,
+          "z": -0.01926414854824543
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3472162187099457,
+          "y": 0.3952382802963257,
+          "z": -0.030765656381845474
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3506205677986145,
+          "y": 0.34596800804138184,
+          "z": -0.03869358077645302
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31246161460876465,
+          "y": 0.550132691860199,
+          "z": -0.013250148855149746
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3053050637245178,
+          "y": 0.48488980531692505,
+          "z": -0.026017455384135246
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.30125319957733154,
+          "y": 0.43983668088912964,
+          "z": -0.03376917913556099
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.2992095947265625,
+          "y": 0.3958809971809387,
+          "z": -0.03855976089835167
+        }
+      }
+    },
+    {
+      "progress": 0.73333,
+      "source_frame_index": 226,
+      "source_time_s": 7.5531,
+      "avg_pip_flexion_2d": 178.59,
+      "angles": {
+        "thumb_mcp_flexion_2d": 175.52,
+        "thumb_ip_flexion_2d": 172.99,
+        "index_mcp_flexion_2d": 177.32,
+        "index_pip_flexion_2d": 177.89,
+        "index_dip_flexion_2d": 177.46,
+        "middle_mcp_flexion_2d": 175.82,
+        "middle_pip_flexion_2d": 179.32,
+        "middle_dip_flexion_2d": 177.92,
+        "ring_mcp_flexion_2d": 178.77,
+        "ring_pip_flexion_2d": 178.34,
+        "ring_dip_flexion_2d": 179.89,
+        "pinky_mcp_flexion_2d": 178.68,
+        "pinky_pip_flexion_2d": 178.98,
+        "pinky_dip_flexion_2d": 177.37,
+        "thumb_mcp_flexion_3d": 171.84,
+        "thumb_ip_flexion_3d": 152.92,
+        "index_mcp_flexion_3d": 154.26,
+        "index_pip_flexion_3d": 165.15,
+        "index_dip_flexion_3d": 141.83,
+        "middle_mcp_flexion_3d": 154.05,
+        "middle_pip_flexion_3d": 142.58,
+        "middle_dip_flexion_3d": 172.96,
+        "ring_mcp_flexion_3d": 155.46,
+        "ring_pip_flexion_3d": 159.17,
+        "ring_dip_flexion_3d": 173.55,
+        "pinky_mcp_flexion_3d": 178.5,
+        "pinky_pip_flexion_3d": 163.97,
+        "pinky_dip_flexion_3d": 153.16
+      },
+      "tracking_quality": 0.996,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3312368392944336,
+          "y": 0.7403431534767151,
+          "z": 3.05055607441318e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.382144570350647,
+          "y": 0.7166608572006226,
+          "z": -0.016416039317846298
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.42473408579826355,
+          "y": 0.6599870324134827,
+          "z": -0.020631833001971245
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.455353707075119,
+          "y": 0.6118113398551941,
+          "z": -0.024400584399700165
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.479423850774765,
+          "y": 0.5825550556182861,
+          "z": -0.028045428916811943
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.39679211378097534,
+          "y": 0.548251211643219,
+          "z": -0.0051318067125976086
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4174346327781677,
+          "y": 0.4770142734050751,
+          "z": -0.013697446323931217
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4285944700241089,
+          "y": 0.43241775035858154,
+          "z": -0.022897902876138687
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.43667057156562805,
+          "y": 0.39276832342147827,
+          "z": -0.03045584447681904
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3682222366333008,
+          "y": 0.530719518661499,
+          "z": -0.006349756382405758
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3773919641971588,
+          "y": 0.4409218430519104,
+          "z": -0.01415723841637373
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3836390972137451,
+          "y": 0.3861573338508606,
+          "z": -0.02399134822189808
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3871511220932007,
+          "y": 0.34080398082733154,
+          "z": -0.031692154705524445
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.34033137559890747,
+          "y": 0.5328439474105835,
+          "z": -0.010476876050233841
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.34221452474594116,
+          "y": 0.4482802450656891,
+          "z": -0.02077212743461132
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34503817558288574,
+          "y": 0.3932543992996216,
+          "z": -0.03092147782444954
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3474581241607666,
+          "y": 0.34421446919441223,
+          "z": -0.03815317526459694
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3113407492637634,
+          "y": 0.5498785972595215,
+          "z": -0.016404684633016586
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3030208349227905,
+          "y": 0.48474618792533875,
+          "z": -0.028189562261104584
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.29813671112060547,
+          "y": 0.44020116329193115,
+          "z": -0.03487420827150345
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.2953401803970337,
+          "y": 0.39609095454216003,
+          "z": -0.03915541619062424
+        }
+      }
+    },
+    {
+      "progress": 0.76667,
+      "source_frame_index": 235,
+      "source_time_s": 7.8539,
+      "avg_pip_flexion_2d": 178.6,
+      "angles": {
+        "thumb_mcp_flexion_2d": 175.8,
+        "thumb_ip_flexion_2d": 171.37,
+        "index_mcp_flexion_2d": 177.14,
+        "index_pip_flexion_2d": 177.95,
+        "index_dip_flexion_2d": 177.47,
+        "middle_mcp_flexion_2d": 175.51,
+        "middle_pip_flexion_2d": 179.51,
+        "middle_dip_flexion_2d": 177.9,
+        "ring_mcp_flexion_2d": 178.38,
+        "ring_pip_flexion_2d": 178.37,
+        "ring_dip_flexion_2d": 179.69,
+        "pinky_mcp_flexion_2d": 178.35,
+        "pinky_pip_flexion_2d": 179.17,
+        "pinky_dip_flexion_2d": 177.72,
+        "thumb_mcp_flexion_3d": 172.11,
+        "thumb_ip_flexion_3d": 154.4,
+        "index_mcp_flexion_3d": 153.59,
+        "index_pip_flexion_3d": 164.54,
+        "index_dip_flexion_3d": 141.6,
+        "middle_mcp_flexion_3d": 153.09,
+        "middle_pip_flexion_3d": 142.75,
+        "middle_dip_flexion_3d": 173.57,
+        "ring_mcp_flexion_3d": 154.54,
+        "ring_pip_flexion_3d": 159.32,
+        "ring_dip_flexion_3d": 173.66,
+        "pinky_mcp_flexion_3d": 177.01,
+        "pinky_pip_flexion_3d": 165.03,
+        "pinky_dip_flexion_3d": 153.28
+      },
+      "tracking_quality": 0.9954,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3303246796131134,
+          "y": 0.7429601550102234,
+          "z": 3.0509212933793606e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.38229790329933167,
+          "y": 0.7183315753936768,
+          "z": -0.01663932390511036
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.42453646659851074,
+          "y": 0.6619817018508911,
+          "z": -0.02095060423016548
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.45555591583251953,
+          "y": 0.6135768890380859,
+          "z": -0.024892788380384445
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.4802781939506531,
+          "y": 0.5854163765907288,
+          "z": -0.0287459883838892
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.39634275436401367,
+          "y": 0.5506913661956787,
+          "z": -0.004747239872813225
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4169023036956787,
+          "y": 0.479406476020813,
+          "z": -0.013095705769956112
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.42808616161346436,
+          "y": 0.43466460704803467,
+          "z": -0.022370511665940285
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4362744092941284,
+          "y": 0.3944215774536133,
+          "z": -0.030106475576758385
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3678375780582428,
+          "y": 0.5328769683837891,
+          "z": -0.005817478522658348
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.37671783566474915,
+          "y": 0.44292908906936646,
+          "z": -0.013423209078609943
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.38267311453819275,
+          "y": 0.3874199390411377,
+          "z": -0.023384880274534225
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3859560191631317,
+          "y": 0.34075379371643066,
+          "z": -0.03126849606633186
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3400458097457886,
+          "y": 0.5348073840141296,
+          "z": -0.009849377907812595
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3415972590446472,
+          "y": 0.4505729675292969,
+          "z": -0.020072266459465027
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34420645236968994,
+          "y": 0.39493536949157715,
+          "z": -0.030559908598661423
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.34627565741539,
+          "y": 0.3449927866458893,
+          "z": -0.03805801644921303
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3110849857330322,
+          "y": 0.5515522360801697,
+          "z": -0.01572580635547638
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.30257976055145264,
+          "y": 0.4860129952430725,
+          "z": -0.027486314997076988
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.297410249710083,
+          "y": 0.44106119871139526,
+          "z": -0.034382011741399765
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.29408276081085205,
+          "y": 0.39661306142807007,
+          "z": -0.03887305036187172
+        }
+      }
+    },
+    {
+      "progress": 0.8,
+      "source_frame_index": 245,
+      "source_time_s": 8.1881,
+      "avg_pip_flexion_2d": 178.65,
+      "angles": {
+        "thumb_mcp_flexion_2d": 175.88,
+        "thumb_ip_flexion_2d": 170.29,
+        "index_mcp_flexion_2d": 177.83,
+        "index_pip_flexion_2d": 177.84,
+        "index_dip_flexion_2d": 177.28,
+        "middle_mcp_flexion_2d": 176.3,
+        "middle_pip_flexion_2d": 179.4,
+        "middle_dip_flexion_2d": 177.65,
+        "ring_mcp_flexion_2d": 178.81,
+        "ring_pip_flexion_2d": 178.17,
+        "ring_dip_flexion_2d": 179.64,
+        "pinky_mcp_flexion_2d": 178.6,
+        "pinky_pip_flexion_2d": 178.73,
+        "pinky_dip_flexion_2d": 177.57,
+        "thumb_mcp_flexion_3d": 172.25,
+        "thumb_ip_flexion_3d": 154.36,
+        "index_mcp_flexion_3d": 153.5,
+        "index_pip_flexion_3d": 163.8,
+        "index_dip_flexion_3d": 142.77,
+        "middle_mcp_flexion_3d": 152.06,
+        "middle_pip_flexion_3d": 143.76,
+        "middle_dip_flexion_3d": 174.26,
+        "ring_mcp_flexion_3d": 153.43,
+        "ring_pip_flexion_3d": 159.96,
+        "ring_dip_flexion_3d": 172.87,
+        "pinky_mcp_flexion_3d": 176.47,
+        "pinky_pip_flexion_3d": 165.65,
+        "pinky_dip_flexion_3d": 153.2
+      },
+      "tracking_quality": 0.9957,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3320417106151581,
+          "y": 0.7457989454269409,
+          "z": 3.117135349839373e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.382548451423645,
+          "y": 0.7211373448371887,
+          "z": -0.017632082104682922
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.424407035112381,
+          "y": 0.6641581058502197,
+          "z": -0.022864297032356262
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.45534852147102356,
+          "y": 0.614998459815979,
+          "z": -0.027506515383720398
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.480949342250824,
+          "y": 0.5864644646644592,
+          "z": -0.03198833018541336
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3960977792739868,
+          "y": 0.5521383881568909,
+          "z": -0.0066361683420836926
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4169140160083771,
+          "y": 0.48018527030944824,
+          "z": -0.015780484303832054
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4281250536441803,
+          "y": 0.43512651324272156,
+          "z": -0.025430625304579735
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4361951947212219,
+          "y": 0.3945731818675995,
+          "z": -0.033342018723487854
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3675914704799652,
+          "y": 0.5345835089683533,
+          "z": -0.00750349648296833
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3768569231033325,
+          "y": 0.4442043900489807,
+          "z": -0.01582535356283188
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3831486999988556,
+          "y": 0.3885461390018463,
+          "z": -0.025956494733691216
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.386511892080307,
+          "y": 0.34158238768577576,
+          "z": -0.03391975536942482
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3398711085319519,
+          "y": 0.5369278192520142,
+          "z": -0.01135016418993473
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3412923216819763,
+          "y": 0.4519990086555481,
+          "z": -0.022015614435076714
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.34398630261421204,
+          "y": 0.396695077419281,
+          "z": -0.032251156866550446
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.34609395265579224,
+          "y": 0.3469870686531067,
+          "z": -0.03951837867498398
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31116020679473877,
+          "y": 0.5542921423912048,
+          "z": -0.017108313739299774
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.30230283737182617,
+          "y": 0.48808956146240234,
+          "z": -0.02904779650270939
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.29727262258529663,
+          "y": 0.44290584325790405,
+          "z": -0.03577190637588501
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.29421019554138184,
+          "y": 0.39820316433906555,
+          "z": -0.040108516812324524
+        }
+      }
+    },
+    {
+      "progress": 0.83333,
+      "source_frame_index": 255,
+      "source_time_s": 8.5223,
+      "avg_pip_flexion_2d": 178.7,
+      "angles": {
+        "thumb_mcp_flexion_2d": 176.11,
+        "thumb_ip_flexion_2d": 171.22,
+        "index_mcp_flexion_2d": 177.51,
+        "index_pip_flexion_2d": 177.67,
+        "index_dip_flexion_2d": 177.74,
+        "middle_mcp_flexion_2d": 175.8,
+        "middle_pip_flexion_2d": 179.66,
+        "middle_dip_flexion_2d": 178.18,
+        "ring_mcp_flexion_2d": 178.49,
+        "ring_pip_flexion_2d": 178.51,
+        "ring_dip_flexion_2d": 179.9,
+        "pinky_mcp_flexion_2d": 178.91,
+        "pinky_pip_flexion_2d": 179.08,
+        "pinky_dip_flexion_2d": 177.19,
+        "thumb_mcp_flexion_3d": 171.79,
+        "thumb_ip_flexion_3d": 155.36,
+        "index_mcp_flexion_3d": 153.8,
+        "index_pip_flexion_3d": 164.48,
+        "index_dip_flexion_3d": 144.33,
+        "middle_mcp_flexion_3d": 153.24,
+        "middle_pip_flexion_3d": 143.05,
+        "middle_dip_flexion_3d": 174.01,
+        "ring_mcp_flexion_3d": 154.36,
+        "ring_pip_flexion_3d": 160.46,
+        "ring_dip_flexion_3d": 173.46,
+        "pinky_mcp_flexion_3d": 177.52,
+        "pinky_pip_flexion_3d": 165.27,
+        "pinky_dip_flexion_3d": 153.2
+      },
+      "tracking_quality": 0.9961,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.33364731073379517,
+          "y": 0.7442773580551147,
+          "z": 3.3041925462384825e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3837498128414154,
+          "y": 0.7166829109191895,
+          "z": -0.017663728445768356
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.42601317167282104,
+          "y": 0.661461353302002,
+          "z": -0.023478588089346886
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4575973153114319,
+          "y": 0.6138104796409607,
+          "z": -0.028763649985194206
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.48369094729423523,
+          "y": 0.585147500038147,
+          "z": -0.033927444368600845
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.3986446261405945,
+          "y": 0.550150454044342,
+          "z": -0.006627798546105623
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4194599986076355,
+          "y": 0.4776511788368225,
+          "z": -0.01617438532412052
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4304516911506653,
+          "y": 0.4325147569179535,
+          "z": -0.02629462257027626
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4387853741645813,
+          "y": 0.39127033948898315,
+          "z": -0.034549374133348465
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3700810968875885,
+          "y": 0.5320804119110107,
+          "z": -0.007697404362261295
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3787957727909088,
+          "y": 0.4422151446342468,
+          "z": -0.016342768445611
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3845360279083252,
+          "y": 0.38643884658813477,
+          "z": -0.027191175147891045
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.38794785737991333,
+          "y": 0.3383345603942871,
+          "z": -0.03567448630928993
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3419611155986786,
+          "y": 0.5341072678565979,
+          "z": -0.011706800200045109
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.34308934211730957,
+          "y": 0.4487014412879944,
+          "z": -0.022628117352724075
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3452785313129425,
+          "y": 0.39292722940444946,
+          "z": -0.03321551904082298
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.3473705053329468,
+          "y": 0.3419572710990906,
+          "z": -0.04070834070444107
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31285572052001953,
+          "y": 0.5514185428619385,
+          "z": -0.01760740578174591
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3044002056121826,
+          "y": 0.4849037528038025,
+          "z": -0.029624847695231438
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.299405574798584,
+          "y": 0.4398426413536072,
+          "z": -0.036265622824430466
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.29661843180656433,
+          "y": 0.3945145606994629,
+          "z": -0.04047304019331932
+        }
+      }
+    },
+    {
+      "progress": 0.86667,
+      "source_frame_index": 264,
+      "source_time_s": 8.8231,
+      "avg_pip_flexion_2d": 178.43,
+      "angles": {
+        "thumb_mcp_flexion_2d": 173.89,
+        "thumb_ip_flexion_2d": 170.11,
+        "index_mcp_flexion_2d": 176.78,
+        "index_pip_flexion_2d": 177.61,
+        "index_dip_flexion_2d": 177.8,
+        "middle_mcp_flexion_2d": 175.34,
+        "middle_pip_flexion_2d": 179.18,
+        "middle_dip_flexion_2d": 178.38,
+        "ring_mcp_flexion_2d": 178.18,
+        "ring_pip_flexion_2d": 178.2,
+        "ring_dip_flexion_2d": 179.72,
+        "pinky_mcp_flexion_2d": 178.33,
+        "pinky_pip_flexion_2d": 178.69,
+        "pinky_dip_flexion_2d": 177.17,
+        "thumb_mcp_flexion_3d": 171.28,
+        "thumb_ip_flexion_3d": 156.88,
+        "index_mcp_flexion_3d": 153.64,
+        "index_pip_flexion_3d": 164.8,
+        "index_dip_flexion_3d": 144.63,
+        "middle_mcp_flexion_3d": 153.28,
+        "middle_pip_flexion_3d": 142.8,
+        "middle_dip_flexion_3d": 172.1,
+        "ring_mcp_flexion_3d": 154.64,
+        "ring_pip_flexion_3d": 161.54,
+        "ring_dip_flexion_3d": 170.95,
+        "pinky_mcp_flexion_3d": 177.79,
+        "pinky_pip_flexion_3d": 165.12,
+        "pinky_dip_flexion_3d": 153.54
+      },
+      "tracking_quality": 0.996,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3354130983352661,
+          "y": 0.7304395437240601,
+          "z": 3.163024757668609e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.38667014241218567,
+          "y": 0.7056900858879089,
+          "z": -0.017215115949511528
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4299941956996918,
+          "y": 0.6524457335472107,
+          "z": -0.022459080442786217
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.46070748567581177,
+          "y": 0.6051958799362183,
+          "z": -0.02716825157403946
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.48608410358428955,
+          "y": 0.5779014825820923,
+          "z": -0.03184223175048828
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.4024807810783386,
+          "y": 0.541996419429779,
+          "z": -0.006803434807807207
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4234209954738617,
+          "y": 0.4706984758377075,
+          "z": -0.016256282106041908
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4345671236515045,
+          "y": 0.4259239435195923,
+          "z": -0.026060044765472412
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.44304782152175903,
+          "y": 0.38526803255081177,
+          "z": -0.034087877720594406
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.37378358840942383,
+          "y": 0.5236955285072327,
+          "z": -0.007862221449613571
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.3829669654369354,
+          "y": 0.43417197465896606,
+          "z": -0.016596296802163124
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.38940927386283875,
+          "y": 0.3791428208351135,
+          "z": -0.02720562554895878
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3935670554637909,
+          "y": 0.33216139674186707,
+          "z": -0.035447489470243454
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.345864474773407,
+          "y": 0.5250101089477539,
+          "z": -0.011765312403440475
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3474769592285156,
+          "y": 0.4403661787509918,
+          "z": -0.02275606244802475
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.35027822852134705,
+          "y": 0.384891152381897,
+          "z": -0.03324466571211815
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.35305559635162354,
+          "y": 0.33479976654052734,
+          "z": -0.04063471406698227
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.31695881485939026,
+          "y": 0.5415409207344055,
+          "z": -0.01749592460691929
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.3085894286632538,
+          "y": 0.47574782371520996,
+          "z": -0.029624970629811287
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.3039450943470001,
+          "y": 0.43109118938446045,
+          "z": -0.03641620650887489
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.3015173077583313,
+          "y": 0.38633137941360474,
+          "z": -0.04071737453341484
+        }
+      }
+    },
+    {
+      "progress": 0.9,
+      "source_frame_index": 274,
+      "source_time_s": 9.1573,
+      "avg_pip_flexion_2d": 178.7,
+      "angles": {
+        "thumb_mcp_flexion_2d": 173.52,
+        "thumb_ip_flexion_2d": 172.49,
+        "index_mcp_flexion_2d": 176.58,
+        "index_pip_flexion_2d": 177.12,
+        "index_dip_flexion_2d": 177.47,
+        "middle_mcp_flexion_2d": 175.44,
+        "middle_pip_flexion_2d": 179.87,
+        "middle_dip_flexion_2d": 177.91,
+        "ring_mcp_flexion_2d": 178.16,
+        "ring_pip_flexion_2d": 179.0,
+        "ring_dip_flexion_2d": 179.88,
+        "pinky_mcp_flexion_2d": 177.95,
+        "pinky_pip_flexion_2d": 178.94,
+        "pinky_dip_flexion_2d": 177.01,
+        "thumb_mcp_flexion_3d": 171.79,
+        "thumb_ip_flexion_3d": 159.25,
+        "index_mcp_flexion_3d": 155.25,
+        "index_pip_flexion_3d": 166.25,
+        "index_dip_flexion_3d": 142.55,
+        "middle_mcp_flexion_3d": 155.4,
+        "middle_pip_flexion_3d": 141.65,
+        "middle_dip_flexion_3d": 172.68,
+        "ring_mcp_flexion_3d": 154.62,
+        "ring_pip_flexion_3d": 161.99,
+        "ring_dip_flexion_3d": 171.32,
+        "pinky_mcp_flexion_3d": 178.23,
+        "pinky_pip_flexion_3d": 164.38,
+        "pinky_dip_flexion_3d": 155.68
+      },
+      "tracking_quality": 0.9953,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3236626982688904,
+          "y": 0.7360057234764099,
+          "z": 3.2020335538618383e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.37446990609169006,
+          "y": 0.7102799415588379,
+          "z": -0.01726566068828106
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.41869235038757324,
+          "y": 0.655656635761261,
+          "z": -0.021990366280078888
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.450542688369751,
+          "y": 0.6056848764419556,
+          "z": -0.026242688298225403
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.475881427526474,
+          "y": 0.5755063891410828,
+          "z": -0.030387206003069878
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.39123255014419556,
+          "y": 0.5425645112991333,
+          "z": -0.004613243043422699
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4120718240737915,
+          "y": 0.4690917134284973,
+          "z": -0.013074187561869621
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4225847125053406,
+          "y": 0.4234082102775574,
+          "z": -0.022404422983527184
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4302493929862976,
+          "y": 0.38177964091300964,
+          "z": -0.03018414042890072
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.362430214881897,
+          "y": 0.5250932574272156,
+          "z": -0.005697648506611586
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.37170377373695374,
+          "y": 0.43470990657806396,
+          "z": -0.013559000566601753
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3775961697101593,
+          "y": 0.3784850835800171,
+          "z": -0.024091413244605064
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3808249533176422,
+          "y": 0.3309774398803711,
+          "z": -0.0323636457324028
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.33415770530700684,
+          "y": 0.5276268720626831,
+          "z": -0.00978935044258833
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3357093930244446,
+          "y": 0.4420446753501892,
+          "z": -0.020255785435438156
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3377210795879364,
+          "y": 0.3854992985725403,
+          "z": -0.030905915424227715
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.33962851762771606,
+          "y": 0.3349887728691101,
+          "z": -0.03851815313100815
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.30465272068977356,
+          "y": 0.54548180103302,
+          "z": -0.015761209651827812
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.29572099447250366,
+          "y": 0.4798530638217926,
+          "z": -0.02741534821689129
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.2904455065727234,
+          "y": 0.4348815679550171,
+          "z": -0.03410148620605469
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.28755301237106323,
+          "y": 0.3901841342449188,
+          "z": -0.038399580866098404
+        }
+      }
+    },
+    {
+      "progress": 0.93333,
+      "source_frame_index": 283,
+      "source_time_s": 9.4581,
+      "avg_pip_flexion_2d": 178.66,
+      "angles": {
+        "thumb_mcp_flexion_2d": 172.7,
+        "thumb_ip_flexion_2d": 172.5,
+        "index_mcp_flexion_2d": 177.67,
+        "index_pip_flexion_2d": 177.18,
+        "index_dip_flexion_2d": 177.0,
+        "middle_mcp_flexion_2d": 176.6,
+        "middle_pip_flexion_2d": 179.73,
+        "middle_dip_flexion_2d": 177.74,
+        "ring_mcp_flexion_2d": 179.16,
+        "ring_pip_flexion_2d": 178.28,
+        "ring_dip_flexion_2d": 179.8,
+        "pinky_mcp_flexion_2d": 178.77,
+        "pinky_pip_flexion_2d": 179.37,
+        "pinky_dip_flexion_2d": 177.67,
+        "thumb_mcp_flexion_3d": 170.73,
+        "thumb_ip_flexion_3d": 153.34,
+        "index_mcp_flexion_3d": 153.72,
+        "index_pip_flexion_3d": 168.3,
+        "index_dip_flexion_3d": 142.7,
+        "middle_mcp_flexion_3d": 155.02,
+        "middle_pip_flexion_3d": 144.91,
+        "middle_dip_flexion_3d": 173.19,
+        "ring_mcp_flexion_3d": 155.72,
+        "ring_pip_flexion_3d": 161.84,
+        "ring_dip_flexion_3d": 172.61,
+        "pinky_mcp_flexion_3d": 176.93,
+        "pinky_pip_flexion_3d": 164.52,
+        "pinky_dip_flexion_3d": 152.29
+      },
+      "tracking_quality": 0.9958,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.31665313243865967,
+          "y": 0.7539113759994507,
+          "z": 3.3174367786159564e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3674808144569397,
+          "y": 0.7259609699249268,
+          "z": -0.018698954954743385
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4091061055660248,
+          "y": 0.6704145073890686,
+          "z": -0.02508111670613289
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.43882113695144653,
+          "y": 0.6180012822151184,
+          "z": -0.030706271529197693
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.4637456238269806,
+          "y": 0.584990918636322,
+          "z": -0.03618626669049263
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.37897518277168274,
+          "y": 0.5552351474761963,
+          "z": -0.008655767887830734
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.39913409948349,
+          "y": 0.4804445803165436,
+          "z": -0.018943045288324356
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4094918966293335,
+          "y": 0.43278568983078003,
+          "z": -0.029311230406165123
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.41660425066947937,
+          "y": 0.389148086309433,
+          "z": -0.03765363246202469
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3494476079940796,
+          "y": 0.5379080772399902,
+          "z": -0.009673655033111572
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.35792458057403564,
+          "y": 0.44527629017829895,
+          "z": -0.01915149576961994
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3630201816558838,
+          "y": 0.38653290271759033,
+          "z": -0.030232511460781097
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.36541256308555603,
+          "y": 0.3356955647468567,
+          "z": -0.03879883512854576
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3206615149974823,
+          "y": 0.5414862632751465,
+          "z": -0.013648714870214462
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3210209012031555,
+          "y": 0.45575085282325745,
+          "z": -0.02544822171330452
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.32297685742378235,
+          "y": 0.39853209257125854,
+          "z": -0.03654211387038231
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.32456156611442566,
+          "y": 0.3469998240470886,
+          "z": -0.04426714777946472
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.2908857464790344,
+          "y": 0.5609686970710754,
+          "z": -0.01954767294228077
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.28057578206062317,
+          "y": 0.49467790126800537,
+          "z": -0.03234727308154106
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.27404797077178955,
+          "y": 0.44942259788513184,
+          "z": -0.0393899567425251
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.26942533254623413,
+          "y": 0.40452447533607483,
+          "z": -0.04378466308116913
+        }
+      }
+    },
+    {
+      "progress": 0.96667,
+      "source_frame_index": 293,
+      "source_time_s": 9.7923,
+      "avg_pip_flexion_2d": 178.65,
+      "angles": {
+        "thumb_mcp_flexion_2d": 173.68,
+        "thumb_ip_flexion_2d": 172.32,
+        "index_mcp_flexion_2d": 177.16,
+        "index_pip_flexion_2d": 177.35,
+        "index_dip_flexion_2d": 177.77,
+        "middle_mcp_flexion_2d": 175.91,
+        "middle_pip_flexion_2d": 179.87,
+        "middle_dip_flexion_2d": 178.23,
+        "ring_mcp_flexion_2d": 178.53,
+        "ring_pip_flexion_2d": 178.61,
+        "ring_dip_flexion_2d": 179.93,
+        "pinky_mcp_flexion_2d": 178.29,
+        "pinky_pip_flexion_2d": 179.09,
+        "pinky_dip_flexion_2d": 177.53,
+        "thumb_mcp_flexion_3d": 170.24,
+        "thumb_ip_flexion_3d": 153.03,
+        "index_mcp_flexion_3d": 155.05,
+        "index_pip_flexion_3d": 167.12,
+        "index_dip_flexion_3d": 144.05,
+        "middle_mcp_flexion_3d": 155.74,
+        "middle_pip_flexion_3d": 144.92,
+        "middle_dip_flexion_3d": 173.65,
+        "ring_mcp_flexion_3d": 157.54,
+        "ring_pip_flexion_3d": 160.39,
+        "ring_dip_flexion_3d": 173.24,
+        "pinky_mcp_flexion_3d": 176.58,
+        "pinky_pip_flexion_3d": 165.37,
+        "pinky_dip_flexion_3d": 153.2
+      },
+      "tracking_quality": 0.9961,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3248501718044281,
+          "y": 0.7654864192008972,
+          "z": 3.348670816194499e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.3757408559322357,
+          "y": 0.7359664440155029,
+          "z": -0.019820507615804672
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.418893039226532,
+          "y": 0.6780053377151489,
+          "z": -0.027072785422205925
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.44965144991874695,
+          "y": 0.6254683136940002,
+          "z": -0.033416666090488434
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.47579360008239746,
+          "y": 0.5920361280441284,
+          "z": -0.03966839611530304
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.38866764307022095,
+          "y": 0.5634787678718567,
+          "z": -0.0109382513910532
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.4088253974914551,
+          "y": 0.48662444949150085,
+          "z": -0.022096093744039536
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4191255569458008,
+          "y": 0.43835434317588806,
+          "z": -0.03302546963095665
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4268251657485962,
+          "y": 0.39384371042251587,
+          "z": -0.04175390675663948
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.35874634981155396,
+          "y": 0.5458552241325378,
+          "z": -0.011694131419062614
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.36642712354660034,
+          "y": 0.4521467983722687,
+          "z": -0.021672897040843964
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3714606761932373,
+          "y": 0.39243805408477783,
+          "z": -0.03317347541451454
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3742388188838959,
+          "y": 0.34033629298210144,
+          "z": -0.04218307510018349
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3297400176525116,
+          "y": 0.549176037311554,
+          "z": -0.015415029600262642
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3294773995876312,
+          "y": 0.46195727586746216,
+          "z": -0.027401013299822807
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3307076692581177,
+          "y": 0.404090940952301,
+          "z": -0.03843789920210838
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.33188411593437195,
+          "y": 0.351589560508728,
+          "z": -0.04626498371362686
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.3000863790512085,
+          "y": 0.5687896013259888,
+          "z": -0.02118348516523838
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.28952503204345703,
+          "y": 0.5012237429618835,
+          "z": -0.03416673466563225
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.2831161916255951,
+          "y": 0.45545005798339844,
+          "z": -0.0412319079041481
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.27871280908584595,
+          "y": 0.4096902012825012,
+          "z": -0.045678719878196716
+        }
+      }
+    },
+    {
+      "progress": 1.0,
+      "source_frame_index": 303,
+      "source_time_s": 10.1265,
+      "avg_pip_flexion_2d": 178.54,
+      "angles": {
+        "thumb_mcp_flexion_2d": 173.43,
+        "thumb_ip_flexion_2d": 171.86,
+        "index_mcp_flexion_2d": 176.93,
+        "index_pip_flexion_2d": 177.44,
+        "index_dip_flexion_2d": 177.65,
+        "middle_mcp_flexion_2d": 175.29,
+        "middle_pip_flexion_2d": 179.72,
+        "middle_dip_flexion_2d": 178.28,
+        "ring_mcp_flexion_2d": 177.62,
+        "ring_pip_flexion_2d": 178.27,
+        "ring_dip_flexion_2d": 179.7,
+        "pinky_mcp_flexion_2d": 177.57,
+        "pinky_pip_flexion_2d": 178.46,
+        "pinky_dip_flexion_2d": 177.14,
+        "thumb_mcp_flexion_3d": 170.72,
+        "thumb_ip_flexion_3d": 153.16,
+        "index_mcp_flexion_3d": 155.48,
+        "index_pip_flexion_3d": 168.3,
+        "index_dip_flexion_3d": 143.7,
+        "middle_mcp_flexion_3d": 155.8,
+        "middle_pip_flexion_3d": 146.86,
+        "middle_dip_flexion_3d": 174.37,
+        "ring_mcp_flexion_3d": 156.62,
+        "ring_pip_flexion_3d": 161.96,
+        "ring_dip_flexion_3d": 174.34,
+        "pinky_mcp_flexion_3d": 177.66,
+        "pinky_pip_flexion_3d": 165.09,
+        "pinky_dip_flexion_3d": 154.63
+      },
+      "tracking_quality": 0.9961,
+      "handedness_label": "Right",
+      "landmarks": {
+        "wrist": {
+          "name": "wrist",
+          "index": 0,
+          "x": 0.3213791847229004,
+          "y": 0.7690830230712891,
+          "z": 3.325272928123013e-07
+        },
+        "thumb_cmc": {
+          "name": "thumb_cmc",
+          "index": 1,
+          "x": 0.372972697019577,
+          "y": 0.739409327507019,
+          "z": -0.019321370869874954
+        },
+        "thumb_mcp": {
+          "name": "thumb_mcp",
+          "index": 2,
+          "x": 0.4157430827617645,
+          "y": 0.6803562641143799,
+          "z": -0.025955641642212868
+        },
+        "thumb_ip": {
+          "name": "thumb_ip",
+          "index": 3,
+          "x": 0.4461108446121216,
+          "y": 0.6263396143913269,
+          "z": -0.03180525079369545
+        },
+        "thumb_tip": {
+          "name": "thumb_tip",
+          "index": 4,
+          "x": 0.47176170349121094,
+          "y": 0.5928919315338135,
+          "z": -0.037571679800748825
+        },
+        "index_mcp": {
+          "name": "index_mcp",
+          "index": 5,
+          "x": 0.38474172353744507,
+          "y": 0.5663753151893616,
+          "z": -0.00994508434087038
+        },
+        "index_pip": {
+          "name": "index_pip",
+          "index": 6,
+          "x": 0.40434807538986206,
+          "y": 0.48938894271850586,
+          "z": -0.02087063156068325
+        },
+        "index_dip": {
+          "name": "index_dip",
+          "index": 7,
+          "x": 0.4144662618637085,
+          "y": 0.4406537711620331,
+          "z": -0.03163546323776245
+        },
+        "index_tip": {
+          "name": "index_tip",
+          "index": 8,
+          "x": 0.4219130873680115,
+          "y": 0.39557236433029175,
+          "z": -0.04032042622566223
+        },
+        "middle_mcp": {
+          "name": "middle_mcp",
+          "index": 9,
+          "x": 0.3545275628566742,
+          "y": 0.5492496490478516,
+          "z": -0.010849544778466225
+        },
+        "middle_pip": {
+          "name": "middle_pip",
+          "index": 10,
+          "x": 0.36092591285705566,
+          "y": 0.45451951026916504,
+          "z": -0.02076593041419983
+        },
+        "middle_dip": {
+          "name": "middle_dip",
+          "index": 11,
+          "x": 0.3652760982513428,
+          "y": 0.3945513367652893,
+          "z": -0.03216002136468887
+        },
+        "middle_tip": {
+          "name": "middle_tip",
+          "index": 12,
+          "x": 0.3675074577331543,
+          "y": 0.34202060103416443,
+          "z": -0.041052982211112976
+        },
+        "ring_mcp": {
+          "name": "ring_mcp",
+          "index": 13,
+          "x": 0.3256056606769562,
+          "y": 0.5534919500350952,
+          "z": -0.01470821164548397
+        },
+        "ring_pip": {
+          "name": "ring_pip",
+          "index": 14,
+          "x": 0.3237079679965973,
+          "y": 0.4671034812927246,
+          "z": -0.02662563882768154
+        },
+        "ring_dip": {
+          "name": "ring_dip",
+          "index": 15,
+          "x": 0.3241865038871765,
+          "y": 0.40922099351882935,
+          "z": -0.03748156875371933
+        },
+        "ring_tip": {
+          "name": "ring_tip",
+          "index": 16,
+          "x": 0.32489797472953796,
+          "y": 0.3563263416290283,
+          "z": -0.045173753052949905
+        },
+        "pinky_mcp": {
+          "name": "pinky_mcp",
+          "index": 17,
+          "x": 0.29619842767715454,
+          "y": 0.5739701986312866,
+          "z": -0.020618651062250137
+        },
+        "pinky_pip": {
+          "name": "pinky_pip",
+          "index": 18,
+          "x": 0.28474047780036926,
+          "y": 0.5075217485427856,
+          "z": -0.033377766609191895
+        },
+        "pinky_dip": {
+          "name": "pinky_dip",
+          "index": 19,
+          "x": 0.27817589044570923,
+          "y": 0.4622114896774292,
+          "z": -0.040324434638023376
+        },
+        "pinky_tip": {
+          "name": "pinky_tip",
+          "index": 20,
+          "x": 0.27388375997543335,
+          "y": 0.41662532091140747,
+          "z": -0.04473679140210152
+        }
+      }
+    }
+  ]
+}

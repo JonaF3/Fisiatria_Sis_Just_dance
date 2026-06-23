@@ -1,0 +1,8 @@
+numpy
+opencv-python
+pygame
+onnxruntime
+mutagen
+mediapipe
+psutil
+GPUtil

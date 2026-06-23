@@ -1,0 +1,614 @@
+{
+  "unknown_EXTREME": [
+    {
+      "score": 6632,
+      "stars": 1,
+      "date": "2026-05-23T21:08:33",
+      "player": "DERECK",
+      "combo": 6,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 374,
+      "stars": 0,
+      "date": "2026-05-24T23:49:09",
+      "player": "DERECK",
+      "combo": 2,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 367,
+      "stars": 0,
+      "date": "2026-05-23T11:35:43",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 0,
+      "stars": 0,
+      "date": "2026-05-25T11:13:49",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "unknown_EASY": [
+    {
+      "score": 4227,
+      "stars": 2,
+      "date": "2026-05-23T16:39:13",
+      "player": "DERECK",
+      "combo": 4,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 3827,
+      "stars": 1,
+      "date": "2026-05-25T14:07:31",
+      "player": "DERECK",
+      "combo": 4,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 39,
+      "stars": 0,
+      "date": "2026-05-25T11:19:33",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "unknown_HARD": [
+    {
+      "score": 380,
+      "stars": 0,
+      "date": "2026-05-23T16:40:59",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "talk_HARD": [
+    {
+      "score": 3157,
+      "stars": 1,
+      "date": "2026-05-26T11:33:25",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 2332,
+      "stars": 0,
+      "date": "2026-05-25T18:52:02",
+      "player": "DERECK",
+      "combo": 3,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 1871,
+      "stars": 0,
+      "date": "2026-05-25T18:48:20",
+      "player": "DERECK",
+      "combo": 2,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 1495,
+      "stars": 0,
+      "date": "2026-05-25T18:41:25",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 1343,
+      "stars": 0,
+      "date": "2026-05-25T15:16:24",
+      "player": "DERECK",
+      "combo": 5,
+      "perfects_pct": 1.3
+    }
+  ],
+  "prehistorock_EXTREME": [
+    {
+      "score": 1377,
+      "stars": 0,
+      "date": "2026-05-25T15:23:47",
+      "player": "DERECK",
+      "combo": 3,
+      "perfects_pct": 1.7
+    }
+  ],
+  "miku_EASY": [
+    {
+      "score": 219,
+      "stars": 0,
+      "date": "2026-05-25T16:23:03",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "miku_HARD": [
+    {
+      "score": 2447,
+      "stars": 0,
+      "date": "2026-05-25T16:47:00",
+      "player": "DERECK",
+      "combo": 2,
+      "perfects_pct": 1.8
+    },
+    {
+      "score": 1145,
+      "stars": 0,
+      "date": "2026-05-25T16:26:29",
+      "player": "DERECK",
+      "combo": 4,
+      "perfects_pct": 3.6
+    },
+    {
+      "score": 511,
+      "stars": 0,
+      "date": "2026-05-25T23:47:54",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 109,
+      "stars": 0,
+      "date": "2026-05-26T09:25:27",
+      "player": "DERECK",
+      "combo": 1,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 4,
+      "stars": 0,
+      "date": "2026-05-25T23:14:36",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "talk_EXTREME": [
+    {
+      "score": 7699,
+      "stars": 1,
+      "date": "2026-05-25T17:42:56",
+      "player": "DERECK",
+      "combo": 6,
+      "perfects_pct": 13.3
+    },
+    {
+      "score": 6894,
+      "stars": 1,
+      "date": "2026-05-25T18:09:15",
+      "player": "DERECK",
+      "combo": 5,
+      "perfects_pct": 5.3
+    },
+    {
+      "score": 5508,
+      "stars": 1,
+      "date": "2026-05-25T16:51:16",
+      "player": "DERECK",
+      "combo": 4,
+      "perfects_pct": 5.3
+    },
+    {
+      "score": 4548,
+      "stars": 1,
+      "date": "2026-05-26T09:22:30",
+      "player": "DERECK",
+      "combo": 3,
+      "perfects_pct": 9.2
+    },
+    {
+      "score": 3756,
+      "stars": 0,
+      "date": "2026-05-26T12:23:48",
+      "player": "DERECK",
+      "combo": 2,
+      "perfects_pct": 0.0
+    }
+  ],
+  "talk_EASY": [
+    {
+      "score": 5060,
+      "stars": 2,
+      "date": "2026-05-25T18:02:41",
+      "player": "DERECK",
+      "combo": 6,
+      "perfects_pct": 17.3
+    }
+  ],
+  "airplanes_HARD": [
+    {
+      "score": 3613,
+      "stars": 1,
+      "date": "2026-05-26T11:16:22",
+      "player": "DERECK",
+      "combo": 4,
+      "perfects_pct": 7.5
+    },
+    {
+      "score": 2,
+      "stars": 0,
+      "date": "2026-05-26T15:22:01",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 0,
+      "stars": 0,
+      "date": "2026-05-25T19:27:16",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "duo_EXTREME": [
+    {
+      "score": 1620,
+      "stars": 0,
+      "date": "2026-05-26T11:36:18",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 210,
+      "stars": 0,
+      "date": "2026-05-25T22:50:59",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 180,
+      "stars": 0,
+      "date": "2026-05-26T12:19:02",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 0,
+      "stars": 0,
+      "date": "2026-05-26T00:04:14",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "duo_HARD": [
+    {
+      "score": 192,
+      "stars": 0,
+      "date": "2026-05-26T09:36:05",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 96,
+      "stars": 0,
+      "date": "2026-05-25T23:17:16",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 96,
+      "stars": 0,
+      "date": "2026-05-26T09:42:33",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 96,
+      "stars": 0,
+      "date": "2026-05-26T15:21:12",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 48,
+      "stars": 0,
+      "date": "2026-05-25T23:24:12",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "duo_EASY": [
+    {
+      "score": 272,
+      "stars": 0,
+      "date": "2026-05-26T11:46:35",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 96,
+      "stars": 0,
+      "date": "2026-05-25T23:20:11",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 64,
+      "stars": 0,
+      "date": "2026-05-26T11:59:14",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 0,
+      "stars": 0,
+      "date": "2026-05-26T11:18:47",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "prehistorock_HARD": [
+    {
+      "score": 73,
+      "stars": 0,
+      "date": "2026-05-26T00:08:14",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "oldtownroad_HARD": [
+    {
+      "score": 1700,
+      "stars": 0,
+      "date": "2026-05-26T09:28:31",
+      "player": "DERECK",
+      "combo": 1,
+      "perfects_pct": 0.0
+    }
+  ],
+  "kulikitaka_HARD": [
+    {
+      "score": 75,
+      "stars": 0,
+      "date": "2026-05-26T09:34:04",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "airplanes_EASY": [
+    {
+      "score": 294,
+      "stars": 0,
+      "date": "2026-05-26T09:39:21",
+      "player": "DERECK",
+      "combo": 1,
+      "perfects_pct": 1.5
+    }
+  ],
+  "shouldistay_EASY": [
+    {
+      "score": 3749,
+      "stars": 1,
+      "date": "2026-05-26T10:11:17",
+      "player": "DERECK",
+      "combo": 3,
+      "perfects_pct": 8.7
+    }
+  ],
+  "blindinglights_HARD": [
+    {
+      "score": 2572,
+      "stars": 0,
+      "date": "2026-05-26T11:22:35",
+      "player": "DERECK",
+      "combo": 3,
+      "perfects_pct": 0.0
+    }
+  ],
+  "airplanes_EXTREME": [
+    {
+      "score": 1,
+      "stars": 0,
+      "date": "2026-05-26T11:58:56",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "eyeofthetiger_HARD": [
+    {
+      "score": 6,
+      "stars": 0,
+      "date": "2026-05-26T15:20:03",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 0,
+      "stars": 0,
+      "date": "2026-05-26T12:45:12",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "funkytown_EXTREME": [
+    {
+      "score": 16666,
+      "stars": 4,
+      "date": "2026-05-26T17:31:31",
+      "player": "DERECK",
+      "combo": 33,
+      "perfects_pct": 37.1
+    }
+  ],
+  "macarena_EASY": [
+    {
+      "score": 10000,
+      "stars": 5,
+      "date": "2026-06-02T18:04:38",
+      "player": "DERECK",
+      "combo": 16,
+      "perfects_pct": 22.2
+    },
+    {
+      "score": 6048,
+      "stars": 3,
+      "date": "2026-06-02T18:27:35",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 420,
+      "stars": 0,
+      "date": "2026-06-02T17:47:38",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 70,
+      "stars": 0,
+      "date": "2026-06-01T22:58:33",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 11,
+      "stars": 0,
+      "date": "2026-06-02T11:27:18",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "macarena_EXTREME": [
+    {
+      "score": 1042,
+      "stars": 0,
+      "date": "2026-06-01T23:02:47",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 100,
+      "stars": 0,
+      "date": "2026-06-01T23:01:17",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "Shoulder Flexion and Extension_EASY": [
+    {
+      "score": 10000,
+      "stars": 5,
+      "date": "2026-06-02T16:33:53",
+      "player": "DERECK",
+      "combo": 45,
+      "perfects_pct": 45.3
+    },
+    {
+      "score": 10000,
+      "stars": 5,
+      "date": "2026-06-02T23:14:40",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 40.0
+    },
+    {
+      "score": 10000,
+      "stars": 5,
+      "date": "2026-06-04T14:40:12",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 9400,
+      "stars": 4,
+      "date": "2026-06-02T18:06:25",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    },
+    {
+      "score": 5000,
+      "stars": 2,
+      "date": "2026-06-04T12:05:56",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "prueba 2_EASY": [
+    {
+      "score": 1154,
+      "stars": 0,
+      "date": "2026-06-02T16:36:53",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "Shoulder Internal and External Rotation_EASY": [
+    {
+      "score": 344,
+      "stars": 0,
+      "date": "2026-06-02T17:47:00",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "Shoulder Flexion and Extension_NORMAL": [
+    {
+      "score": 12500,
+      "stars": 5,
+      "date": "2026-06-02T18:10:25",
+      "player": "DERECK",
+      "combo": 13,
+      "perfects_pct": 47.2
+    }
+  ],
+  "Abdominal Lateral Flexion_EASY": [
+    {
+      "score": 9591,
+      "stars": 5,
+      "date": "2026-06-02T18:29:24",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ],
+  "Shoulder Flexion and Extension_HARD": [
+    {
+      "score": 10000,
+      "stars": 5,
+      "date": "2026-06-04T12:03:51",
+      "player": "DERECK",
+      "combo": 0,
+      "perfects_pct": 0.0
+    }
+  ]
+}

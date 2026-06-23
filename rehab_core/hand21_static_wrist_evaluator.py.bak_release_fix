@@ -1,0 +1,260 @@
+"""
+rehab_core/hand21_static_wrist_evaluator.py
+
+Evaluador Hand21 para postura de mano/muñeca extendida.
+Cuenta una repetición cuando la mano cumple una postura objetivo estable:
+    - mano visible con buena calidad
+    - 4 dedos largos extendidos
+    - pulgar extendido opcional/obligatorio según config
+    - eje muñeca -> punta del dedo medio cerca de horizontal
+
+Diseñado para ejercicios tipo "dedos arriba" / mano recta / muñeca alineada.
+"""
+
+from __future__ import annotations
+
+import math
+from dataclasses import dataclass, field
+from typing import Optional
+
+PIP_KEYS = [
+    "index_pip_flexion_2d",
+    "middle_pip_flexion_2d",
+    "ring_pip_flexion_2d",
+    "pinky_pip_flexion_2d",
+]
+THUMB_KEY = "thumb_ip_flexion_2d"
+
+
+def _in_range(value: Optional[float], range_pair) -> bool:
+    if value is None or range_pair is None or len(range_pair) != 2:
+        return False
+    lo, hi = float(range_pair[0]), float(range_pair[1])
+    return lo <= float(value) <= hi
+
+
+def _angle_of_vector_deg(a, b) -> Optional[float]:
+    dx = float(b.x - a.x)
+    dy = float(b.y - a.y)
+    if abs(dx) < 1e-6 and abs(dy) < 1e-6:
+        return None
+    return round(float(math.degrees(math.atan2(dy, dx))), 2)
+
+
+def _from_horizontal(angle: Optional[float]) -> Optional[float]:
+    if angle is None:
+        return None
+    a = abs(float(angle))
+    if a > 90.0:
+        a = 180.0 - a
+    return round(a, 2)
+
+
+def _avg_pip(angles: dict) -> Optional[float]:
+    vals = [float(angles[k]) for k in PIP_KEYS if angles.get(k) is not None]
+    if not vals:
+        return None
+    return sum(vals) / len(vals)
+
+
+def _open_count(angles: dict, open_range) -> int:
+    return sum(1 for k in PIP_KEYS if _in_range(angles.get(k), open_range))
+
+
+def compute_static_wrist_metrics(hand_result) -> dict:
+    lm = getattr(hand_result, "landmarks", {}) or {}
+    angles = getattr(hand_result, "angles", {}) or {}
+    metrics = {}
+
+    wrist = lm.get("wrist")
+    middle_mcp = lm.get("middle_mcp")
+    middle_tip = lm.get("middle_tip")
+    index_mcp = lm.get("index_mcp")
+    pinky_mcp = lm.get("pinky_mcp")
+
+    if wrist is not None and middle_mcp is not None:
+        axis = _angle_of_vector_deg(wrist, middle_mcp)
+        metrics["hand_axis_angle_2d"] = axis
+        metrics["hand_axis_from_horizontal"] = _from_horizontal(axis)
+
+    if wrist is not None and middle_tip is not None:
+        long_axis = _angle_of_vector_deg(wrist, middle_tip)
+        metrics["wrist_to_middle_tip_angle_2d"] = long_axis
+        metrics["wrist_to_middle_tip_from_horizontal"] = _from_horizontal(long_axis)
+
+    if index_mcp is not None and pinky_mcp is not None:
+        palm = _angle_of_vector_deg(index_mcp, pinky_mcp)
+        metrics["palm_mcp_line_angle_2d"] = palm
+        metrics["palm_mcp_line_from_horizontal"] = _from_horizontal(palm)
+
+    metrics["avg_pip_flexion_2d"] = None if _avg_pip(angles) is None else round(float(_avg_pip(angles)), 2)
+    metrics["thumb_ip_flexion_2d"] = angles.get(THUMB_KEY)
+    return metrics
+
+
+@dataclass
+class StaticWristState:
+    completed_reps: int = 0
+    stable_frames: int = 0
+    release_frames: int = 0
+    cooldown_frames_left: int = 0
+    phase: str = "waiting_target"
+    best_score_current_rep: float = 0.0
+    last_rep: dict = field(default_factory=dict)
+
+
+class Hand21StaticWristAlignmentEvaluator:
+    """Evalúa postura estática de mano/muñeca con Hand21."""
+
+    def __init__(self, config: Optional[dict] = None):
+        self.cfg = config or {}
+        self.state = StaticWristState()
+
+        self.target_repetitions = int(self.cfg.get("target_repetitions", 5))
+        self.stop_at_target = bool(self.cfg.get("stop_at_target", True))
+        self.min_tracking_quality = float(self.cfg.get("min_tracking_quality", 0.80))
+
+        self.open_range = self.cfg.get("open_range", [145.0, 180.0])
+        self.min_open_fingers = int(self.cfg.get("min_open_fingers", 4))
+        self.require_thumb_open = bool(self.cfg.get("require_thumb_open", True))
+        self.thumb_open_range = self.cfg.get("thumb_open_range", [150.0, 180.0])
+        self.avg_pip_range = self.cfg.get("avg_pip_range", [155.0, 180.0])
+        self.axis_target_range = self.cfg.get("axis_target_range", [0.0, 25.0])
+
+        self.min_stable_frames = int(self.cfg.get("min_stable_frames", 10))
+        self.release_frames_required = int(self.cfg.get("release_frames", 6))
+        self.cooldown_frames = int(self.cfg.get("cooldown_frames", 12))
+        self.valid_rep_score = float(self.cfg.get("valid_rep_score", 70.0))
+
+    def _target_score(self, axis_from_horizontal, avg_pip, open_count, thumb_open) -> float:
+        score = 0.0
+        if _in_range(axis_from_horizontal, self.axis_target_range):
+            score += 45.0
+        elif axis_from_horizontal is not None:
+            dist = min(abs(axis_from_horizontal - self.axis_target_range[0]), abs(axis_from_horizontal - self.axis_target_range[1]))
+            score += max(0.0, 45.0 * (1.0 - dist / 35.0))
+
+        if _in_range(avg_pip, self.avg_pip_range):
+            score += 30.0
+        elif avg_pip is not None:
+            dist = min(abs(avg_pip - self.avg_pip_range[0]), abs(avg_pip - self.avg_pip_range[1]))
+            score += max(0.0, 30.0 * (1.0 - dist / 45.0))
+
+        score += min(20.0, 20.0 * (open_count / max(1, self.min_open_fingers)))
+        if not self.require_thumb_open or thumb_open:
+            score += 5.0
+        return round(max(0.0, min(100.0, score)), 2)
+
+    def evaluate(self, hand_result=None, frame_index: int = 0, timestamp_s: float = 0.0, **kwargs) -> dict:
+        if hand_result is None:
+            return {
+                "ok": False,
+                "phase": self.state.phase,
+                "rep_completed": False,
+                "completed_reps": self.state.completed_reps,
+                "score": 0.0,
+                "best_score_current_rep": round(self.state.best_score_current_rep, 2),
+                "last_rep": dict(self.state.last_rep),
+                "feedback": "Muestra la mano a la camara.",
+                "hand_state": "sin mano",
+            }
+
+        tracking_quality = float(getattr(hand_result, "tracking_quality", 0.0))
+        handedness_label = getattr(hand_result, "handedness_label", "unknown")
+        angles = getattr(hand_result, "angles", {}) or {}
+        metrics = compute_static_wrist_metrics(hand_result)
+
+        axis = metrics.get("wrist_to_middle_tip_from_horizontal")
+        avg_pip = metrics.get("avg_pip_flexion_2d")
+        thumb_value = metrics.get("thumb_ip_flexion_2d")
+        open_count = _open_count(angles, self.open_range)
+        thumb_open = _in_range(thumb_value, self.thumb_open_range)
+
+        is_target = (
+            tracking_quality >= self.min_tracking_quality
+            and _in_range(axis, self.axis_target_range)
+            and open_count >= self.min_open_fingers
+            and _in_range(avg_pip, self.avg_pip_range)
+            and (thumb_open or not self.require_thumb_open)
+        )
+
+        score = self._target_score(axis, avg_pip, open_count, thumb_open)
+        self.state.best_score_current_rep = max(self.state.best_score_current_rep, score)
+
+        if self.state.cooldown_frames_left > 0:
+            self.state.cooldown_frames_left -= 1
+
+        rep_completed = False
+        feedback = "Extiende la mano y alinea la muñeca."
+        hand_state = "buscando postura"
+
+        if tracking_quality < self.min_tracking_quality:
+            self.state.stable_frames = 0
+            self.state.release_frames = 0
+            feedback = "Acerca la mano a la camara y mantenla visible."
+            hand_state = "tracking_lost"
+        elif self.state.cooldown_frames_left > 0:
+            feedback = "Relaja o cambia ligeramente la postura antes de la siguiente repeticion."
+            hand_state = "cooldown"
+        elif is_target:
+            self.state.stable_frames += 1
+            self.state.release_frames = 0
+            hand_state = "postura correcta"
+            feedback = f"Mantén la mano recta: {self.state.stable_frames}/{self.min_stable_frames}."
+            if self.state.stable_frames >= self.min_stable_frames:
+                rep_completed = True
+                self.state.completed_reps += 1
+                final_score = max(score, self.state.best_score_current_rep)
+                self.state.last_rep = {
+                    "rep_idx": self.state.completed_reps,
+                    "best_score": round(final_score, 2),
+                    "timestamp_s": float(timestamp_s),
+                    "frame_index": int(frame_index),
+                    "axis_from_horizontal": axis,
+                    "avg_pip_flexion_2d": avg_pip,
+                    "open_count": open_count,
+                    "thumb_value": None if thumb_value is None else round(float(thumb_value), 2),
+                    "tracking_quality": round(tracking_quality, 4),
+                }
+                self.state.phase = "cooldown"
+                self.state.cooldown_frames_left = self.cooldown_frames
+                self.state.stable_frames = 0
+                self.state.best_score_current_rep = 0.0
+                feedback = "Repeticion valida: mano recta y dedos extendidos."
+        else:
+            self.state.stable_frames = 0
+            self.state.release_frames += 1
+            self.state.phase = "waiting_target"
+            if open_count < self.min_open_fingers:
+                feedback = f"Extiende los dedos: {open_count}/4."
+            elif self.require_thumb_open and not thumb_open:
+                feedback = "Extiende tambien el pulgar."
+            elif not _in_range(axis, self.axis_target_range):
+                feedback = f"Alinea la mano horizontalmente. Angulo={axis}."
+            elif not _in_range(avg_pip, self.avg_pip_range):
+                feedback = "Mantén los dedos más extendidos."
+
+        return {
+            "ok": True,
+            "phase": self.state.phase,
+            "rep_completed": rep_completed,
+            "completed_reps": self.state.completed_reps,
+            "score": round(score, 2),
+            "best_score_current_rep": round(max(score, self.state.best_score_current_rep), 2),
+            "last_rep": dict(self.state.last_rep),
+            "feedback": feedback,
+            "hand_state": hand_state,
+            "handedness_label": handedness_label,
+            "tracking_quality": round(tracking_quality, 4),
+            "open_count": open_count,
+            "closed_count": 0,
+            "avg_pip_flexion": avg_pip,
+            "avg_pip_flexion_2d": avg_pip,
+            "thumb_value": None if thumb_value is None else round(float(thumb_value), 2),
+            "thumb_open": thumb_open,
+            "thumb_closed": False,
+            "axis_from_horizontal": axis,
+            "wrist_to_middle_tip_from_horizontal": axis,
+            "stable_frames": self.state.stable_frames,
+            "min_stable_frames": self.min_stable_frames,
+        }
