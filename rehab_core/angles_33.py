@@ -465,6 +465,35 @@ def hip_abduction_full_2d(
     return _angle_between(body_down, leg)
 
 
+def knee_rotation_2d(
+    landmarks: dict,
+    side: str = "right",
+    min_confidence: float = 0.35,
+) -> Optional[float]:
+    shoulder_mid = _robust_point(landmarks, "left_shoulder", "right_shoulder", min_confidence)
+    hip_mid = _robust_point(landmarks, "left_hip", "right_hip", min_confidence)
+    if shoulder_mid is None or hip_mid is None:
+        return None
+
+    body_down = hip_mid - shoulder_mid
+    norm_down = float(np.linalg.norm(body_down))
+    if norm_down < 1e-6:
+        return None
+
+    knee = landmarks.get(f"{side}_knee")
+    foot = landmarks.get(f"{side}_foot_index")
+    if knee is None or foot is None:
+        ankle = landmarks.get(f"{side}_ankle")
+        if ankle is None:
+            return None
+        foot = ankle
+    if _confidence(knee) < min_confidence or _confidence(foot) < min_confidence:
+        return None
+
+    leg = np.array([foot.x - knee.x, foot.y - knee.y], dtype=np.float32)
+    return _angle_between(body_down, leg)
+
+
 def hip_abduction_weighted_3d(
     image_landmarks: dict,
     world_landmarks: Optional[dict],
@@ -555,6 +584,10 @@ def compute_angles_33(
     trunk = trunk_lean_2d(image_landmarks, min_confidence)
     if trunk is not None:
         angles["trunk_lean_2d"] = trunk
+
+    trunk_signed = trunk_lean_signed_2d(image_landmarks, min_confidence)
+    if trunk_signed is not None:
+        angles["trunk_lean_signed_2d"] = trunk_signed
 
     shoulder = shoulder_alignment_2d(image_landmarks, min_confidence)
     if shoulder is not None:
@@ -654,6 +687,14 @@ def compute_angles_33(
     _l_hip_full = hip_abduction_full_2d(image_landmarks, "left", min_confidence)
     if _l_hip_full is not None:
         angles["left_hip_abduction_full_2d"] = _l_hip_full
+
+    _r_knee_rot = knee_rotation_2d(image_landmarks, "right", min_confidence)
+    if _r_knee_rot is not None:
+        angles["right_knee_rotation_2d"] = _r_knee_rot
+
+    _l_knee_rot = knee_rotation_2d(image_landmarks, "left", min_confidence)
+    if _l_knee_rot is not None:
+        angles["left_knee_rotation_2d"] = _l_knee_rot
 
     _r_hip_abd_3d = hip_abduction_weighted_3d(
         image_landmarks, world_landmarks, "right", min_confidence,
@@ -1130,6 +1171,16 @@ def trunk_lean_2d(landmarks: dict, min_confidence: float = 0.35) -> Optional[flo
     trunk_vec = shoulder_mid - hip_mid
     vertical = np.array([0.0, -1.0], dtype=np.float32)
     return _angle_between(trunk_vec, vertical)
+
+
+def trunk_lean_signed_2d(landmarks: dict, min_confidence: float = 0.35) -> Optional[float]:
+    shoulder_mid = _robust_point(landmarks, "left_shoulder", "right_shoulder", min_confidence)
+    hip_mid = _robust_point(landmarks, "left_hip", "right_hip", min_confidence)
+    if shoulder_mid is None or hip_mid is None:
+        return None
+    trunk_vec = shoulder_mid - hip_mid
+    signed = math.degrees(math.atan2(-trunk_vec[0], -trunk_vec[1]))
+    return round(float(signed), 2)
 
 
 def shoulder_alignment_2d(landmarks: dict, min_confidence: float = 0.35) -> Optional[float]:
