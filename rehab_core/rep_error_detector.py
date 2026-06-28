@@ -70,15 +70,13 @@ class RepErrorDetector:
         # 3. Intento abortado: usuario vuelve a posicion inicial sin completar
         if self._attempt_active and not rep_completed:
             at_start = False
-            # Deteccion por posicion (in_start) — disponible en pose33 y rehab_bridge
             in_start_val = eval_result.get("in_start")
             if in_start_val is not None:
-                # No contar si es retorno normal (fase returning)
-                in_returning = phase in self._returning_phases
-                if bool(in_start_val) and not in_returning:
+                # Deteccion por posicion — no contar si es retorno normal
+                if bool(in_start_val) and phase not in self._returning_phases:
                     at_start = True
-            # Fallback por fase (hand21 donde no hay in_start)
-            if not at_start:
+            else:
+                # Fallback por fase (hand21 donde no hay in_start)
                 at_start = phase in self._start_phases and self._prev_phase not in self._start_phases
             if at_start:
                 self.error_count += 1
