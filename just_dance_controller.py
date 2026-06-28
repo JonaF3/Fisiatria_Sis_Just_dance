@@ -1428,7 +1428,7 @@ class JustDanceController:
             try:
                 error_info = self._rep_error_detector.evaluate(eval_result)
                 self.error_count = error_info.get("error_count", self.error_count)
-                if error_info.get("error_just_counted") and error_info.get("error_type") == "aborted":
+                if error_info.get("error_just_counted"):
                     self._chrono_idx += 1
                     self.error_attempts.append({
                         "rep_idx": self._chrono_idx,
