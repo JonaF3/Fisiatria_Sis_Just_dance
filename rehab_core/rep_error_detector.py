@@ -3,116 +3,95 @@ from __future__ import annotations
 
 class RepErrorDetector:
     """
-    Detector de errores de movimiento en tiempo real.
+    Detecta errores de movimiento observando las transiciones de fase del FSM.
 
-    Maquina de estados independiente del contador de repeticiones:
+    Lógica:
+    - Cuando el usuario SALE de la fase inicial (waiting_start / waiting_release)
+      y ENTRA en una fase de movimiento (going_target / waiting_target),
+      se marca un intento activo.
+    - Si el intento termina VOLVIENDO a la fase inicial sin un rep_completed,
+      se cuenta 1 error (movimiento abortado / dirección incorrecta).
+    - Si el rep se completa pero con score < valid_rep_score,
+      también se cuenta 1 error (movimiento incompleto / fuera de rango).
 
-        NEUTRAL ──(movimiento correcto)──> CORRECT
-        NEUTRAL ──(error detectado)──────> INCORRECT  (+1 error)
-        CORRECT ──(error detectado)──────> INCORRECT  (+1 error)
-        CORRECT ──(vuelve a posicion neutra)─> NEUTRAL
-        INCORRECT ──(vuelve a neutro)─────> NEUTRAL
-        INCORRECT ──(movimiento correcto)─> CORRECT
-
-    Un error se cuenta UNA SOLA VEZ por evento. Para volver a contar otro error,
-    el usuario debe regresar a NEUTRAL primero.
+    Estados del FSM según tracking_type:
+      pose33:   waiting_start -> going_target -> returning -> waiting_start
+      hand21:   waiting_release -> waiting_target -> cooldown -> waiting_release
     """
-
-    HYSTERESIS_ERROR = 5
-    HYSTERESIS_OK = 3
-    HYSTERESIS_NEUTRAL = 5
-    WRONG_DIR_DELTA = 8.0
 
     def __init__(self, config: dict):
         self.cfg = config or {}
-        self.state = "neutral"
         self.error_count = 0
-        self._prev_angle: float | None = None
-        self._cons_error = 0
-        self._cons_ok = 0
-        self._cons_neutral = 0
-        self._total_frames_in_error_state = 0
-        self.direction = str(self.cfg.get("direction", "increasing")).lower()
-
-    def _is_error_frame(self, phase: str, primary_value: float | None,
-                        in_start: bool, in_target: bool, in_safe: bool,
-                        compensations: dict) -> tuple[bool, str]:
-        if primary_value is None:
-            return False, ""
-
-        if not in_safe:
-            return True, "unsafe"
-
-        if self._prev_angle is not None and phase not in ("waiting_start", "calibrating"):
-            delta = primary_value - self._prev_angle
-            if self.direction == "increasing" and delta < -self.WRONG_DIR_DELTA:
-                return True, "wrong_direction"
-            if self.direction == "decreasing" and delta > self.WRONG_DIR_DELTA:
-                return True, "wrong_direction"
-
-        if isinstance(compensations, dict):
-            active = [k for k, v in compensations.items() if v]
-            if active:
-                return True, f"compensation_{active[0]}"
-
-        return False, ""
-
-    def evaluate(self, phase: str, primary_value: float | None,
-                 in_start: bool, in_target: bool, in_safe: bool,
-                 compensations: dict, frame_index: int = 0) -> dict:
-        is_error, err_type = self._is_error_frame(
-            phase, primary_value, in_start, in_target, in_safe, compensations
-        )
-
-        self._prev_angle = primary_value
-
-        if is_error:
-            self._cons_error += 1
-            self._cons_ok = 0
-            self._cons_neutral = 0
+        self._attempt_active = False
+        self._prev_phase: str | None = None
+        self._valid_rep_score = float(self.cfg.get("valid_rep_score", 70.0))
+        tracking = str(self.cfg.get("tracking_type", "pose33")).lower()
+        if tracking == "hand21":
+            self._start_phases = {"waiting_release"}
+            self._moving_phases = {"waiting_target", "cooldown"}
         else:
-            if phase in ("waiting_start", "calibrating") or in_start:
-                self._cons_neutral += 1
-                self._cons_ok = 0
-            else:
-                self._cons_ok += 1
-                self._cons_neutral = 0
-            self._cons_error = 0
+            self._start_phases = {"waiting_start", "calibrating"}
+            self._moving_phases = {"going_target", "returning"}
+
+    def evaluate(self, eval_result: dict) -> dict:
+        """
+        Analiza el resultado del evaluador y actualiza el contador de errores.
+
+        Args:
+            eval_result: diccionario devuelto por evaluate() del evaluador.
+                Debe contener: 'phase', 'rep_completed', 'score'.
+
+        Returns:
+            dict con: error_state, error_count, error_just_counted, display_status
+        """
+        phase = str(eval_result.get("phase", ""))
+        rep_completed = eval_result.get("rep_completed", False)
+        score = float(eval_result.get("score", 0.0))
 
         error_just_counted = False
-        prev_state = self.state
+        prev_state = self._get_display_state()
 
-        if self.state == "neutral":
-            if self._cons_error >= self.HYSTERESIS_ERROR:
-                self.state = "incorrect"
+        # 1. Detectar inicio de intento de movimiento
+        if not self._attempt_active and phase in self._moving_phases:
+            self._attempt_active = True
+
+        # 2. Repetición completada
+        if rep_completed:
+            self._attempt_active = False
+            if score < self._valid_rep_score:
                 self.error_count += 1
                 error_just_counted = True
-            elif self._cons_ok >= self.HYSTERESIS_OK:
-                self.state = "correct"
 
-        elif self.state == "incorrect":
-            if self._cons_neutral >= self.HYSTERESIS_NEUTRAL:
-                self.state = "neutral"
-            elif self._cons_ok >= self.HYSTERESIS_OK:
-                self.state = "correct"
-
-        elif self.state == "correct":
-            if self._cons_error >= self.HYSTERESIS_ERROR:
-                self.state = "incorrect"
+        # 3. Intento abortado: estaba en movimiento y volvió a inicio sin completar
+        if self._attempt_active and phase in self._start_phases and not rep_completed:
+            if self._prev_phase and self._prev_phase not in self._start_phases:
                 self.error_count += 1
                 error_just_counted = True
-            elif self._cons_neutral >= self.HYSTERESIS_NEUTRAL:
-                self.state = "neutral"
+                self._attempt_active = False
 
-        if self.state == "incorrect":
-            self._total_frames_in_error_state += 1
+        self._prev_phase = phase
+
+        if phase in self._moving_phases:
+            display_status = "correcto"
+        elif phase in self._start_phases or not phase:
+            display_status = "neutro"
+        else:
+            display_status = "neutro"
 
         return {
-            "error_state": self.state,
+            "error_state": "incorrect" if error_just_counted else "correct" if phase in self._moving_phases else "neutral",
             "error_count": self.error_count,
             "error_just_counted": error_just_counted,
-            "error_type": err_type if is_error else None,
-            "display_status": "correcto" if self.state == "correct" else (
-                "incorrecto" if self.state == "incorrect" else "neutro"
-            ),
+            "error_type": "aborted" if (error_just_counted and not rep_completed) else "low_score" if (error_just_counted and rep_completed) else None,
+            "display_status": display_status,
         }
+
+    def _get_display_state(self) -> str:
+        if self.error_count > 0:
+            return "has_errors"
+        return "clean"
+
+    def reset(self) -> None:
+        self.error_count = 0
+        self._attempt_active = False
+        self._prev_phase = None

@@ -17,9 +17,11 @@ try:
     from rehab_core.controller_bridge import RehabControllerBridge
     from rehab_core.angles import canonical_angle_name
     REHAB_BRIDGE_AVAILABLE = True
+    from rehab_core.rep_error_detector import RepErrorDetector
 except Exception as _rehab_bridge_error:
     print(f"[WARN] Rehab bridge no disponible: {_rehab_bridge_error}")
     RehabControllerBridge = None
+    RepErrorDetector = None
     canonical_angle_name = lambda x: x
     REHAB_BRIDGE_AVAILABLE = False
 
@@ -73,16 +75,18 @@ class JustDanceController:
         self.current_rep = 0
         self.rep_results = []
         self.error_count = 0
+        self._rep_error_detector = None
 
         from just_dance_rehab_config import REHAB_EXERCISE_CONFIGS
         self.rehab_cfg = REHAB_EXERCISE_CONFIGS.get(song_key, {})
         if self.rehab_cfg:
             self.rep_duration = self.rehab_cfg.get("rep_duration", 10.0)
             self.key_pose_offset = self.rehab_cfg.get("key_pose_offset", 4.0)
+            if RepErrorDetector is not None:
+                self._rep_error_detector = RepErrorDetector(self.rehab_cfg)
         else:
             self.rep_duration = 10.0
             self.key_pose_offset = 4.0
-            
 
         # ── Bridge clínico separado ──────────────────────────────────────────
         self.rehab_bridge = None
@@ -1412,6 +1416,14 @@ class JustDanceController:
         self._cleanup()
         return "lobby"
 
+    def _update_error_detector(self, eval_result: dict) -> None:
+        if self._rep_error_detector is not None and eval_result:
+            try:
+                error_info = self._rep_error_detector.evaluate(eval_result)
+                self.error_count = error_info.get("error_count", self.error_count)
+            except Exception as e:
+                pass
+
     def process_frames(self, audio_path=None):
         from just_dance_model import JustDanceModel
 
@@ -1670,6 +1682,7 @@ class JustDanceController:
                             frame_index=frame_counter,
                             timestamp_s=video_time,
                         )
+                        self._update_error_detector(rehab_result)
                     except Exception as e:
                         print(f"[WARN] Error evaluando rehab_bridge: {e}")
                         rehab_result = None
@@ -1816,8 +1829,8 @@ class JustDanceController:
                     difficulty=self.model.difficulty, max_score=max_score,
                     player_name=self._player_name, avatar_color_idx=self._avatar_color_idx,
                     repetitions=self.repetitions, current_rep=self.current_rep, rep_results=self.rep_results,
-                    error_state=(rehab_result or {}).get("error_state", "neutral"),
-                    error_count=(rehab_result or {}).get("error_count", 0),
+                    error_state="correct" if self.error_count == 0 else "incorrect",
+                    error_count=self.error_count,
                 )
 
                 if self.rep_best_rating and self.rep_best_rating != "MISS" and rating_frames_left > 0:
@@ -2118,7 +2131,7 @@ class JustDanceController:
                         )
                     else:
                         eval_result = evaluator.evaluate(hand_result=hand, frame_index=frame_counter, timestamp_s=timestamp_s)
-                    self.error_count = eval_result.get("error_count", self.error_count)
+                    self._update_error_detector(eval_result)
                     self.rep_best_similarity = max(self.rep_best_similarity, float(eval_result.get('best_score_current_rep', 0.0)))
 
                     if eval_result.get('rep_completed'):
@@ -2184,8 +2197,8 @@ class JustDanceController:
                     song_name=self.exercise_name, difficulty=self.model.difficulty, max_score=max_score,
                     player_name=self._player_name, avatar_color_idx=self._avatar_color_idx,
                     repetitions=self.repetitions, current_rep=self.current_rep, rep_results=self.rep_results,
-                    error_state=eval_result.get("error_state", "neutral"),
-                    error_count=eval_result.get("error_count", 0),
+                    error_state="correct" if self.error_count == 0 else "incorrect",
+                    error_count=self.error_count,
                 )
                 if not user_body_visible:
                     combined_frame = JustDanceView.draw_body_warning(combined_frame)
@@ -2478,7 +2491,7 @@ class JustDanceController:
                     tracking_quality = tracking_quality_for(pose33_result.image_landmarks, self.rehab_cfg.get('required_landmarks', []), min_confidence=self.rehab_cfg.get('min_tracking_confidence', 0.35))
                     user_body_visible = bool(tracking_quality.get('ok', False))
                     eval_result = self.pose33_evaluator.evaluate(angles=angles, pose33_result=pose33_result, tracking_quality=tracking_quality, frame_index=frame_counter, timestamp_s=timestamp_s)
-                    self.error_count = eval_result.get("error_count", self.error_count)
+                    self._update_error_detector(eval_result)
                     self.pose33_last_feedback = eval_result.get('feedback', self.pose33_last_feedback)
                     if frame_counter % 30 == 0:
                         _pa = self.rehab_cfg.get('primary_angle', '')
