@@ -34,6 +34,10 @@ class RepErrorDetector:
         self.error_count = 0
         self._attempt_active = False
         self._prev_phase: str | None = None
+        # Bandera que indica si el usuario realmente salió de la posición inicial
+        # durante el intento actual. Previene falsos positivos en el frame de
+        # transición waiting_start→going_target donde in_start sigue siendo True.
+        self._left_start_once: bool = False
         eval_mode = str(self.cfg.get("evaluation_mode", "trajectory")).lower()
         if eval_mode not in _EVAL_PHASES:
             eval_mode = "trajectory"
@@ -58,22 +62,31 @@ class RepErrorDetector:
         error_just_counted = False
         attempt_started = False
 
+        in_start_val = eval_result.get("in_start")
+
         # 1. Detectar inicio de intento de movimiento
         if not self._attempt_active and phase in self._moving_phases:
             self._attempt_active = True
             attempt_started = True
+            self._left_start_once = False
+
+        # Registrar cuando el usuario realmente sale de la posición inicial
+        if self._attempt_active and in_start_val is not None and not bool(in_start_val):
+            self._left_start_once = True
 
         # 2. Repetición completada — solo resetear intento, NO contar error
         if rep_completed:
             self._attempt_active = False
+            self._left_start_once = False
 
         # 3. Intento abortado: usuario vuelve a posicion inicial sin completar
         if self._attempt_active and not rep_completed:
             at_start = False
-            in_start_val = eval_result.get("in_start")
             if in_start_val is not None:
-                # Deteccion por posicion — no contar si es retorno normal
-                if bool(in_start_val) and phase not in self._returning_phases:
+                # Detectar regreso al inicio solo si el usuario previamente salió.
+                # Esto evita el falso positivo en el frame de transición
+                # waiting_start→going_target donde in_start sigue siendo True.
+                if bool(in_start_val) and phase not in self._returning_phases and self._left_start_once:
                     at_start = True
             else:
                 # Fallback por fase (hand21 donde no hay in_start)
@@ -82,6 +95,7 @@ class RepErrorDetector:
                 self.error_count += 1
                 error_just_counted = True
                 self._attempt_active = False
+                self._left_start_once = False
 
         self._prev_phase = phase
 
@@ -110,3 +124,4 @@ class RepErrorDetector:
         self.error_count = 0
         self._attempt_active = False
         self._prev_phase = None
+        self._left_start_once = False
