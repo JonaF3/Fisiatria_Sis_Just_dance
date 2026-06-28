@@ -27,7 +27,7 @@ class RepErrorDetector:
         tracking = str(self.cfg.get("tracking_type", "pose33")).lower()
         if tracking == "hand21":
             self._start_phases = {"waiting_release"}
-            self._moving_phases = {"waiting_target", "cooldown"}
+            self._moving_phases = {"waiting_target"}
         else:
             self._start_phases = {"waiting_start", "calibrating"}
             self._moving_phases = {"going_target", "returning"}
