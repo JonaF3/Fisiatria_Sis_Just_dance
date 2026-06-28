@@ -66,9 +66,12 @@ class RepErrorDetector:
         if rep_completed:
             self._attempt_active = False
 
-        # 3. Intento abortado: estaba en movimiento y volvió a inicio sin completar
-        if self._attempt_active and phase in self._start_phases and not rep_completed:
-            if self._prev_phase and self._prev_phase not in self._start_phases:
+        # 3. Intento abortado: usuario vuelve a posicion inicial sin completar
+        if self._attempt_active and not rep_completed:
+            at_start = bool(eval_result.get("in_start", False))
+            if not at_start:
+                at_start = phase in self._start_phases and self._prev_phase not in self._start_phases
+            if at_start:
                 self.error_count += 1
                 error_just_counted = True
                 self._attempt_active = False

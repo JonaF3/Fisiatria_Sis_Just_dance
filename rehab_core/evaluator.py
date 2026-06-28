@@ -242,6 +242,8 @@ class RehabExerciseEvaluator:
             else False
         )
         in_target = self._any_primary_in_target(angles)
+        info["in_start"] = in_start
+        info["in_target"] = in_target
 
         if self.state.phase == "waiting_start":
             if not has_start_range:
