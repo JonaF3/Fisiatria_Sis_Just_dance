@@ -76,6 +76,8 @@ class JustDanceController:
         self.rep_results = []
         self.error_count = 0
         self._rep_error_detector = None
+        self.error_attempts = []
+        self._chrono_idx = 0
 
         from just_dance_rehab_config import REHAB_EXERCISE_CONFIGS
         self.rehab_cfg = REHAB_EXERCISE_CONFIGS.get(song_key, {})
@@ -1200,7 +1202,7 @@ class JustDanceController:
                     elif event.key == pygame.K_SPACE:
                         # Saltar repetición manualmente
                         self._play_success_chime()
-                        self.rep_results.append({
+                        self._add_rep_result({
                             "rep_idx": self.current_rep,
                             "status": "OMITIDA",
                             "similarity": float(self.rep_best_similarity)
@@ -1336,7 +1338,7 @@ class JustDanceController:
                         
                     if team_score >= 55: # Éxito!
                         self._play_success_chime()
-                        self.rep_results.append({
+                        self._add_rep_result({
                             "rep_idx": self.current_rep,
                             "status": self.rep_best_rating,
                             "similarity": float(self.rep_best_similarity)
@@ -1416,11 +1418,26 @@ class JustDanceController:
         self._cleanup()
         return "lobby"
 
+    def _add_rep_result(self, entry: dict) -> None:
+        self._chrono_idx += 1
+        entry["_chrono_idx"] = self._chrono_idx
+        self.rep_results.append(entry)
+
     def _update_error_detector(self, eval_result: dict) -> None:
         if self._rep_error_detector is not None and eval_result:
             try:
                 error_info = self._rep_error_detector.evaluate(eval_result)
                 self.error_count = error_info.get("error_count", self.error_count)
+                if error_info.get("error_just_counted") and error_info.get("error_type") == "aborted":
+                    self._chrono_idx += 1
+                    self.error_attempts.append({
+                        "rep_idx": self._chrono_idx,
+                        "_chrono_idx": self._chrono_idx,
+                        "status": "INCORRECTO",
+                        "similarity": 0.0,
+                        "duration_s": 0.0,
+                        "error_type": "aborted",
+                    })
             except Exception as e:
                 pass
 
@@ -1522,7 +1539,7 @@ class JustDanceController:
                     elif event.key == pygame.K_SPACE:
                         # Saltar repetición manualmente
                         self._play_success_chime()
-                        self.rep_results.append({
+                        self._add_rep_result({
                             "rep_idx": self.current_rep,
                             "status": "OMITIDA",
                             "similarity": float(self.rep_best_similarity)
@@ -1707,7 +1724,7 @@ class JustDanceController:
                                 "similarity": best_score_rep,
                             }
 
-                        self.rep_results.append(rep_result)
+                        self._add_rep_result(rep_result)
                         self.current_rep = int(rehab_result.get("completed_reps", self.current_rep + 1))
                         self.rep_best_similarity = best_score_rep
                         self.rep_best_rating = rehab_rating
@@ -1780,7 +1797,7 @@ class JustDanceController:
 
                     if current_score >= 55:
                         self._play_success_chime()
-                        self.rep_results.append({
+                        self._add_rep_result({
                             "rep_idx": self.current_rep,
                             "status": self.rep_best_rating,
                             "similarity": float(self.rep_best_similarity)
@@ -2046,7 +2063,7 @@ class JustDanceController:
                             self._cleanup()
                             return 'lobby'
                         elif event.key == pygame.K_SPACE:
-                            self.rep_results.append({'rep_idx': self.current_rep + 1, 'status': 'OMITIDA', 'similarity': float(self.rep_best_similarity)})
+                            self._add_rep_result({'rep_idx': self.current_rep + 1, 'status': 'OMITIDA', 'similarity': float(self.rep_best_similarity)})
                             self.current_rep += 1
                             if self.current_rep >= self.repetitions:
                                 force_exit_reps = True
@@ -2164,7 +2181,7 @@ class JustDanceController:
                         if 'compensations' in last_rep:
                             rep_entry['compensations'] = last_rep['compensations']
                             rep_entry['compensation_penalty'] = last_rep.get('compensation_penalty', 0.0)
-                        self.rep_results.append(rep_entry)
+                        self._add_rep_result(rep_entry)
                         self._record_pose_evaluation(0, int(best_score_rep), rehab_rating)
                         try:
                             self._play_success_chime()
@@ -2243,7 +2260,7 @@ class JustDanceController:
 
                 for _ in range(missing):
                     rep_idx = len(self.rep_results) + 1
-                    self.rep_results.append({
+                    self._add_rep_result({
                         "rep_idx": rep_idx,
                         "status": rating,
                         "similarity": score,
@@ -2441,7 +2458,7 @@ class JustDanceController:
                         self._cleanup()
                         return 'lobby'
                     elif event.key == pygame.K_SPACE:
-                        self.rep_results.append({'rep_idx': self.current_rep + 1, 'status': 'OMITIDA', 'similarity': float(self.rep_best_similarity)})
+                        self._add_rep_result({'rep_idx': self.current_rep + 1, 'status': 'OMITIDA', 'similarity': float(self.rep_best_similarity)})
                         self.current_rep += 1
                         if self.current_rep >= self.repetitions:
                             force_exit_reps = True
@@ -2541,7 +2558,7 @@ class JustDanceController:
                         self.rep_best_similarity = best_score_rep
                         self.rep_best_rating = rehab_rating
                         self.total_points += int(best_score_rep * 10)
-                        self.rep_results.append({
+                        self._add_rep_result({
                             'rep_idx': self.current_rep,
                             'status': rehab_rating,
                             'similarity': best_score_rep,

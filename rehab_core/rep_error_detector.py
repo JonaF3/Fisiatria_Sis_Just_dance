@@ -42,23 +42,28 @@ class RepErrorDetector:
                 Debe contener: 'phase', 'rep_completed', 'score'.
 
         Returns:
-            dict con: error_state, error_count, error_just_counted, display_status
+            dict con: error_state, error_count, error_just_counted, error_type,
+                      display_status, attempt_started
         """
         phase = str(eval_result.get("phase", ""))
         rep_completed = eval_result.get("rep_completed", False)
         score = float(eval_result.get("score", 0.0))
 
         error_just_counted = False
+        attempt_started = False
         prev_state = self._get_display_state()
 
         # 1. Detectar inicio de intento de movimiento
         if not self._attempt_active and phase in self._moving_phases:
             self._attempt_active = True
+            attempt_started = True
 
-        # 2. Repetición completada
+        # 2. Repetición completada — usar best_score del last_rep, no score instantáneo
         if rep_completed:
             self._attempt_active = False
-            if score < self._valid_rep_score:
+            last_rep = eval_result.get("last_rep") or {}
+            rep_score = float(last_rep.get("best_score", score))
+            if rep_score < self._valid_rep_score:
                 self.error_count += 1
                 error_just_counted = True
 
@@ -82,8 +87,9 @@ class RepErrorDetector:
             "error_state": "incorrect" if error_just_counted else "correct" if phase in self._moving_phases else "neutral",
             "error_count": self.error_count,
             "error_just_counted": error_just_counted,
-            "error_type": "aborted" if (error_just_counted and not rep_completed) else "low_score" if (error_just_counted and rep_completed) else None,
+            "error_type": "aborted" if (error_just_counted and not rep_completed) else "low_score" if (error_just_counted) else None,
             "display_status": display_status,
+            "attempt_started": attempt_started,
         }
 
     def _get_display_state(self) -> str:

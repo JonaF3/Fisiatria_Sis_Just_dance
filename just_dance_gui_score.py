@@ -201,7 +201,7 @@ class Score:
                  joint_stats=None, song_key=None, player_name=None,
                  perfects_pct=0.0, song_duration=0.0,
                  performance_stats=None, repetitions=5, rep_results=None,
-                 error_count=0):
+                 error_count=0, error_attempts=None):
         self.screen_w    = screen_w
         self.screen_h    = screen_h
         self.score       = score
@@ -216,6 +216,7 @@ class Score:
         self.repetitions = repetitions
         self.rep_results = rep_results or []
         self.error_count = int(error_count)
+        self.error_attempts = error_attempts or []
 
         # Cargar nombre del paciente desde perfil si no se paso
         if player_name is None:
@@ -258,7 +259,7 @@ class Score:
             status = str(rep.get("status", "")).upper()
             sim = float(rep.get("similarity", rep.get("rehab_score", 0.0)) or 0.0)
             best_rep = max(best_rep, sim)
-            if status in ("MISS", "OMITIDA", "SKIPPED"):
+            if status in ("MISS", "OMITIDA", "SKIPPED", "INCORRECTO"):
                 invalid_reps += 1
             else:
                 valid_reps += 1
@@ -356,17 +357,24 @@ class Score:
             ROW_H = 30
             max_rows = max(1, (main_h - (row_y - main_y) - 20) // ROW_H)
 
-            if self.rep_results:
-                for rep in self.rep_results[:max_rows]:
-                    idx      = int(rep.get("rep_idx", 0))
-                    sim      = float(rep.get("similarity", rep.get("rehab_score", 0.0)) or 0.0)
-                    status   = str(rep.get("status", "")).upper()
-                    dur      = rep.get("duration_s")
-                    too_fast = bool(rep.get("too_fast", False))
-                    comps    = rep.get("compensations") or {}
+            # Combinar rep_results + error_attempts ordenados por _chrono_idx
+            all_entries = sorted(
+                list(self.rep_results) + list(self.error_attempts),
+                key=lambda e: int(e.get("_chrono_idx", 0))
+            )
+
+            if all_entries:
+                for entry in all_entries[:max_rows]:
+                    idx      = int(entry.get("rep_idx", 0))
+                    sim      = float(entry.get("similarity", entry.get("rehab_score", 0.0)) or 0.0)
+                    status   = str(entry.get("status", "")).upper()
+                    dur      = entry.get("duration_s")
+                    too_fast = bool(entry.get("too_fast", False))
+                    comps    = entry.get("compensations") or {}
+                    is_error = entry.get("error_type") == "aborted" or status == "INCORRECTO"
 
                     # Color de fila según estado
-                    is_miss = status in ("MISS", "OMITIDA", "SKIPPED")
+                    is_miss = status in ("MISS", "OMITIDA", "SKIPPED", "INCORRECTO")
                     row_col = DANGER if is_miss else (GREEN if sim >= 70 else AMBER)
 
                     # Zebra suave
@@ -379,7 +387,10 @@ class Score:
                     screen.blit(font_small.render(str(idx), True, row_col), (col_x[0], row_y + 6))
 
                     # SCORE
-                    screen.blit(font_small.render(f"{sim:.0f}%", True, row_col), (col_x[1], row_y + 6))
+                    if is_error:
+                        screen.blit(font_small.render("0%", True, row_col), (col_x[1], row_y + 6))
+                    else:
+                        screen.blit(font_small.render(f"{sim:.0f}%", True, row_col), (col_x[1], row_y + 6))
 
                     # DURACIÓN
                     if dur is not None:
@@ -391,7 +402,10 @@ class Score:
                         screen.blit(font_small.render("--", True, MUTED), (col_x[2], row_y + 6))
 
                     # ESTADO
-                    if too_fast:
+                    if is_error:
+                        estado_txt = "INCORRECTO"
+                        estado_col = DANGER
+                    elif too_fast:
                         estado_txt = "RÁPIDO"
                         estado_col = AMBER
                     elif is_miss:

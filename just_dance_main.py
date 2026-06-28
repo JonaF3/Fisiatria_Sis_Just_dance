@@ -362,6 +362,7 @@ def run_game(
         repetitions=repetitions,
         rep_results=getattr(game.controller, "rep_results", []),
         error_count=getattr(game.controller, "error_count", 0),
+        error_attempts=getattr(game.controller, "error_attempts", []),
     )
 
     score_window.mainloop()
