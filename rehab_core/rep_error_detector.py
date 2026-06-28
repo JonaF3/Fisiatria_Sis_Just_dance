@@ -1,22 +1,32 @@
 from __future__ import annotations
 
 
+# Mapa: evaluation_mode -> (start_phases, moving_phases)
+# Cada evaluador tiene su propio ciclo de fases.
+_EVAL_PHASES = {
+    "trajectory": ({"waiting_start", "calibrating"}, {"going_target", "returning"}),
+    "static_wrist_alignment": ({"waiting_release"}, {"waiting_target"}),
+    "open_close": ({"waiting_open"}, {"going_closed", "returning_open"}),
+    "finger_adduction": ({"waiting_spread"}, {"going_together", "returning_spread"}),
+}
+
+
 class RepErrorDetector:
     """
     Detecta errores de movimiento observando las transiciones de fase del FSM.
 
     Lógica:
-    - Cuando el usuario SALE de la fase inicial (waiting_start / waiting_release)
-      y ENTRA en una fase de movimiento (going_target / waiting_target),
+    - Cuando el usuario SALE de la fase inicial y ENTRA en una fase de movimiento,
       se marca un intento activo.
     - Si el intento termina VOLVIENDO a la fase inicial sin rep_completed,
       se cuenta 1 error (movimiento abortado / dirección incorrecta).
-    - NO cuenta errores por score bajo en rep_completed; eso lo maneja el
-      pipeline (pose33 siempre añade a rep_results, hand21 skipea).
+    - NO cuenta errores por score bajo en rep_completed; eso lo maneja el pipeline.
 
-    Estados del FSM según tracking_type:
-      pose33:   waiting_start -> going_target -> returning -> waiting_start
-      hand21:   waiting_release -> waiting_target -> cooldown -> waiting_release
+    Las fases se seleccionan según evaluation_mode del config:
+      trajectory:       waiting_start -> going_target -> returning
+      static_wrist:     waiting_release -> waiting_target
+      open_close:       waiting_open -> going_closed -> returning_open
+      finger_adduction: waiting_spread -> going_together -> returning_spread
     """
 
     def __init__(self, config: dict):
@@ -24,13 +34,10 @@ class RepErrorDetector:
         self.error_count = 0
         self._attempt_active = False
         self._prev_phase: str | None = None
-        tracking = str(self.cfg.get("tracking_type", "pose33")).lower()
-        if tracking == "hand21":
-            self._start_phases = {"waiting_release"}
-            self._moving_phases = {"waiting_target"}
-        else:
-            self._start_phases = {"waiting_start", "calibrating"}
-            self._moving_phases = {"going_target", "returning"}
+        eval_mode = str(self.cfg.get("evaluation_mode", "trajectory")).lower()
+        if eval_mode not in _EVAL_PHASES:
+            eval_mode = "trajectory"
+        self._start_phases, self._moving_phases = _EVAL_PHASES[eval_mode]
 
     def evaluate(self, eval_result: dict) -> dict:
         """
