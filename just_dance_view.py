@@ -195,6 +195,16 @@ class JustDanceView:
         cv2.rectangle(frame, (bx, by), (bx + bsz[0] + 22, by + 26), TEAL, 1)
         cv2.putText(frame, badge, (bx + 10, by + 18), cv2.FONT_HERSHEY_SIMPLEX, 0.43, TEAL, 1, cv2.LINE_AA)
 
+        # Contador de aciertos y fallas
+        valid_count = sum(1 for r in rep_results if str(r.get("status", "")).upper() not in ("MISS", "OMITIDA", "SKIPPED"))
+        invalid_count = sum(1 for r in rep_results if str(r.get("status", "")).upper() in ("MISS", "OMITIDA", "SKIPPED"))
+        panel_x, panel_y = 16, 84
+        panel_h = 22
+        cv2.rectangle(frame, (panel_x, panel_y), (panel_x + 200, panel_y + panel_h), CARD, -1)
+        cv2.rectangle(frame, (panel_x, panel_y), (panel_x + 200, panel_y + panel_h), BORDER, 1)
+        cv2.putText(frame, f"ACIERTOS: {valid_count}", (panel_x + 8, panel_y + 16), cv2.FONT_HERSHEY_SIMPLEX, 0.42, GREEN, 1, cv2.LINE_AA)
+        cv2.putText(frame, f"FALLAS: {invalid_count}", (panel_x + 110, panel_y + 16), cv2.FONT_HERSHEY_SIMPLEX, 0.42, AMBER if invalid_count > 0 else MUTED, 1, cv2.LINE_AA)
+
         return frame
 
     @staticmethod

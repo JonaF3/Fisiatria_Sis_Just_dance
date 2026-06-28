@@ -325,7 +325,7 @@ class Score:
             metric_card(main_x + 28, y, card_w, 120, "Reps válidas", f"{valid_reps}/{total_reps}", GREEN)
             metric_card(main_x + 48 + card_w, y, card_w, 120, "Efectividad", f"{effectiveness:.0f}%", GREEN if effectiveness >= 80 else AMBER)
             metric_card(main_x + 68 + card_w * 2, y, card_w, 120, "Mejor rep.", f"{best_rep:.0f}%", TEAL)
-            metric_card(main_x + 88 + card_w * 3, y, card_w, 120, "Completadas", completed, TEXT)
+            metric_card(main_x + 88 + card_w * 3, y, card_w, 120, "FALLAS", invalid_reps, DANGER if invalid_reps > 0 else MUTED)
 
             # ── Tabla clínica de repeticiones ─────────────────────────────
             list_y = y + 150
