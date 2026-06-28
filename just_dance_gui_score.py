@@ -200,7 +200,8 @@ class Score:
                  difficulty="NORMAL", max_score=12500, best_combo=0,
                  joint_stats=None, song_key=None, player_name=None,
                  perfects_pct=0.0, song_duration=0.0,
-                 performance_stats=None, repetitions=5, rep_results=None):
+                 performance_stats=None, repetitions=5, rep_results=None,
+                 error_count=0):
         self.screen_w    = screen_w
         self.screen_h    = screen_h
         self.score       = score
@@ -214,6 +215,7 @@ class Score:
         self.song_duration = float(song_duration)
         self.repetitions = repetitions
         self.rep_results = rep_results or []
+        self.error_count = int(error_count)
 
         # Cargar nombre del paciente desde perfil si no se paso
         if player_name is None:
@@ -326,6 +328,17 @@ class Score:
             metric_card(main_x + 48 + card_w, y, card_w, 120, "Efectividad", f"{effectiveness:.0f}%", GREEN if effectiveness >= 80 else AMBER)
             metric_card(main_x + 68 + card_w * 2, y, card_w, 120, "Mejor rep.", f"{best_rep:.0f}%", TEAL)
             metric_card(main_x + 88 + card_w * 3, y, card_w, 120, "FALLAS", invalid_reps, DANGER if invalid_reps > 0 else MUTED)
+
+            # Barra de errores de movimiento (debajo de las métricas)
+            err_y = y + 130
+            err_color = DANGER if self.error_count > 0 else MUTED
+            screen.blit(font_label.render("ERRORES DE MOVIMIENTO", True, TEAL), (main_x + 28, err_y))
+            err_rect = pygame.Rect(main_x + 28, err_y + 24, 180, 32)
+            draw_rounded_rect(screen, CARD, (err_rect.x, err_rect.y, err_rect.w, err_rect.h), 12, 245, 2, err_color)
+            err_text = font_value.render(str(self.error_count), True, err_color)
+            screen.blit(err_text, (err_rect.x + 16, err_rect.y + 4))
+            err_label = font_small.render("movimientos incorrectos detectados", True, MUTED)
+            screen.blit(err_label, (err_rect.x + err_rect.w + 16, err_rect.y + 10))
 
             # ── Tabla clínica de repeticiones ─────────────────────────────
             list_y = y + 150

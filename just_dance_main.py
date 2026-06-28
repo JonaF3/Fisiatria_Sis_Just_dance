@@ -361,6 +361,7 @@ def run_game(
         song_duration=getattr(game.controller, "_game_duration", 0.0) if game.controller else 0.0,
         repetitions=repetitions,
         rep_results=getattr(game.controller, "rep_results", []),
+        error_count=getattr(game.controller, "error_count", 0),
     )
 
     score_window.mainloop()

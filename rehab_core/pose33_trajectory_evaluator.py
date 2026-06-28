@@ -21,6 +21,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, Optional
 
+from .rep_error_detector import RepErrorDetector
+
 
 def _in_range(value: Optional[float], range_pair: Optional[list | tuple]) -> bool:
     if value is None or range_pair is None or len(range_pair) != 2:
@@ -141,6 +143,8 @@ class Pose33TrajectoryEvaluator:
         # "increasing": el angulo crece desde el neutro hacia el objetivo.
         # "decreasing": el angulo decrece desde el neutro hacia el objetivo.
         self.direction = str(self.cfg.get("direction", "increasing")).lower()
+
+        self.error_detector = RepErrorDetector(self.cfg)
 
         if not self.primary_angle:
             raise ValueError("Pose33TrajectoryEvaluator requiere primary_angle en config")
@@ -511,6 +515,16 @@ class Pose33TrajectoryEvaluator:
             elif compensations.get("shoulder_hike"):
                 feedback = self._feedback("shoulder_hike", "Evita elevar el hombro como compensacion.")
 
+        error_info = self.error_detector.evaluate(
+            phase=self.state.phase,
+            primary_value=primary_value,
+            in_start=in_start,
+            in_target=in_target,
+            in_safe=in_safe,
+            compensations=compensations,
+            frame_index=frame_index,
+        )
+
         return {
             "ok": True,
             "phase": self.state.phase,
@@ -537,4 +551,9 @@ class Pose33TrajectoryEvaluator:
             "feedback_key": feedback_key,
             "feedback": feedback,
             "compensations": compensations,
+            "error_state": error_info["error_state"],
+            "error_count": error_info["error_count"],
+            "error_just_counted": error_info["error_just_counted"],
+            "error_type": error_info["error_type"],
+            "display_status": error_info["display_status"],
         }

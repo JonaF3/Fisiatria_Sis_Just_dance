@@ -72,7 +72,8 @@ class JustDanceController:
         self.repetitions = repetitions
         self.current_rep = 0
         self.rep_results = []
-        
+        self.error_count = 0
+
         from just_dance_rehab_config import REHAB_EXERCISE_CONFIGS
         self.rehab_cfg = REHAB_EXERCISE_CONFIGS.get(song_key, {})
         if self.rehab_cfg:
@@ -1173,6 +1174,7 @@ class JustDanceController:
         # Inicializar repetición clínica
         self.current_rep = 0
         self.rep_results = []
+        self.error_count = 0
         self.loop_start = 0.0
         self.loop_end = self.rep_duration
         self.key_pose_time = self.loop_start + self.key_pose_offset
@@ -1484,6 +1486,7 @@ class JustDanceController:
         # Inicializar repetición clínica
         self.current_rep = 0
         self.rep_results = []
+        self.error_count = 0
         self.loop_start = 0.0
         self.loop_end = self.rep_duration
         self.key_pose_time = self.loop_start + self.key_pose_offset
@@ -1812,7 +1815,9 @@ class JustDanceController:
                     song_name=self.exercise_name,
                     difficulty=self.model.difficulty, max_score=max_score,
                     player_name=self._player_name, avatar_color_idx=self._avatar_color_idx,
-                    repetitions=self.repetitions, current_rep=self.current_rep, rep_results=self.rep_results
+                    repetitions=self.repetitions, current_rep=self.current_rep, rep_results=self.rep_results,
+                    error_state=(rehab_result or {}).get("error_state", "neutral"),
+                    error_count=(rehab_result or {}).get("error_count", 0),
                 )
 
                 if self.rep_best_rating and self.rep_best_rating != "MISS" and rating_frames_left > 0:
@@ -1944,6 +1949,7 @@ class JustDanceController:
 
         self.current_rep = 0
         self.rep_results = []
+        self.error_count = 0
         self.rep_best_similarity = 0.0
         self.rep_best_rating = 'MISS'
         self.total_points = 0
@@ -2112,6 +2118,7 @@ class JustDanceController:
                         )
                     else:
                         eval_result = evaluator.evaluate(hand_result=hand, frame_index=frame_counter, timestamp_s=timestamp_s)
+                    self.error_count = eval_result.get("error_count", self.error_count)
                     self.rep_best_similarity = max(self.rep_best_similarity, float(eval_result.get('best_score_current_rep', 0.0)))
 
                     if eval_result.get('rep_completed'):
@@ -2177,6 +2184,8 @@ class JustDanceController:
                     song_name=self.exercise_name, difficulty=self.model.difficulty, max_score=max_score,
                     player_name=self._player_name, avatar_color_idx=self._avatar_color_idx,
                     repetitions=self.repetitions, current_rep=self.current_rep, rep_results=self.rep_results,
+                    error_state=eval_result.get("error_state", "neutral"),
+                    error_count=eval_result.get("error_count", 0),
                 )
                 if not user_body_visible:
                     combined_frame = JustDanceView.draw_body_warning(combined_frame)
@@ -2272,6 +2281,7 @@ class JustDanceController:
 
         self.current_rep = 0
         self.rep_results = []
+        self.error_count = 0
         self.rep_best_similarity = 0.0
         self.rep_best_rating = 'MISS'
         self.total_points = 0
@@ -2468,6 +2478,7 @@ class JustDanceController:
                     tracking_quality = tracking_quality_for(pose33_result.image_landmarks, self.rehab_cfg.get('required_landmarks', []), min_confidence=self.rehab_cfg.get('min_tracking_confidence', 0.35))
                     user_body_visible = bool(tracking_quality.get('ok', False))
                     eval_result = self.pose33_evaluator.evaluate(angles=angles, pose33_result=pose33_result, tracking_quality=tracking_quality, frame_index=frame_counter, timestamp_s=timestamp_s)
+                    self.error_count = eval_result.get("error_count", self.error_count)
                     self.pose33_last_feedback = eval_result.get('feedback', self.pose33_last_feedback)
                     if frame_counter % 30 == 0:
                         _pa = self.rehab_cfg.get('primary_angle', '')
@@ -2547,6 +2558,8 @@ class JustDanceController:
                 difficulty=self.model.difficulty, max_score=max_score,
                 player_name=self._player_name, avatar_color_idx=self._avatar_color_idx,
                 repetitions=self.repetitions, current_rep=self.current_rep, rep_results=self.rep_results,
+                error_state=eval_result.get("error_state", "neutral"),
+                error_count=eval_result.get("error_count", 0),
             )
             if not user_body_visible:
                 lost_msg = self.rehab_cfg.get('feedback', {}).get('lost_tracking', None)

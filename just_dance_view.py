@@ -128,7 +128,8 @@ class JustDanceView:
                       player_name="", avatar_color_idx=0,
                       record_score=0,
                       practice_mode=False, practice_rep=0,
-                      repetitions=5, current_rep=0, rep_results=None):
+                      repetitions=5, current_rep=0, rep_results=None,
+                      error_state="neutral", error_count=0):
         """HUD clínico para sesión de rehabilitación."""
         h, w, _ = frame.shape
         import time
@@ -195,15 +196,28 @@ class JustDanceView:
         cv2.rectangle(frame, (bx, by), (bx + bsz[0] + 22, by + 26), TEAL, 1)
         cv2.putText(frame, badge, (bx + 10, by + 18), cv2.FONT_HERSHEY_SIMPLEX, 0.43, TEAL, 1, cv2.LINE_AA)
 
-        # Contador de aciertos y fallas
+        # Contador de aciertos, fallas y errores en tiempo real
         valid_count = sum(1 for r in rep_results if str(r.get("status", "")).upper() not in ("MISS", "OMITIDA", "SKIPPED"))
         invalid_count = sum(1 for r in rep_results if str(r.get("status", "")).upper() in ("MISS", "OMITIDA", "SKIPPED"))
         panel_x, panel_y = 16, 84
-        panel_h = 22
-        cv2.rectangle(frame, (panel_x, panel_y), (panel_x + 200, panel_y + panel_h), CARD, -1)
-        cv2.rectangle(frame, (panel_x, panel_y), (panel_x + 200, panel_y + panel_h), BORDER, 1)
-        cv2.putText(frame, f"ACIERTOS: {valid_count}", (panel_x + 8, panel_y + 16), cv2.FONT_HERSHEY_SIMPLEX, 0.42, GREEN, 1, cv2.LINE_AA)
-        cv2.putText(frame, f"FALLAS: {invalid_count}", (panel_x + 110, panel_y + 16), cv2.FONT_HERSHEY_SIMPLEX, 0.42, AMBER if invalid_count > 0 else MUTED, 1, cv2.LINE_AA)
+        panel_h = 40
+        cv2.rectangle(frame, (panel_x, panel_y), (panel_x + 260, panel_y + panel_h), CARD, -1)
+        cv2.rectangle(frame, (panel_x, panel_y), (panel_x + 260, panel_y + panel_h), BORDER, 1)
+        cv2.putText(frame, f"ACIERTOS: {valid_count}", (panel_x + 8, panel_y + 14), cv2.FONT_HERSHEY_SIMPLEX, 0.40, GREEN, 1, cv2.LINE_AA)
+        cv2.putText(frame, f"FALLAS: {invalid_count}", (panel_x + 110, panel_y + 14), cv2.FONT_HERSHEY_SIMPLEX, 0.40, AMBER if invalid_count > 0 else MUTED, 1, cv2.LINE_AA)
+        cv2.putText(frame, f"ERRORES: {error_count}", (panel_x + 185, panel_y + 14), cv2.FONT_HERSHEY_SIMPLEX, 0.40, (0, 0, 255) if error_count > 0 else MUTED, 1, cv2.LINE_AA)
+        # Indicador de estado actual (correcto/incorrecto)
+        if error_state == "correct":
+            status_color = GREEN
+            status_label = "CORRECTO"
+        elif error_state == "incorrect":
+            status_color = (0, 0, 255)
+            status_label = "INCORRECTO"
+        else:
+            status_color = MUTED
+            status_label = "NEUTRO"
+        cv2.circle(frame, (panel_x + 10, panel_y + 30), 5, status_color, -1, cv2.LINE_AA)
+        cv2.putText(frame, f"ESTADO: {status_label}", (panel_x + 22, panel_y + 34), cv2.FONT_HERSHEY_SIMPLEX, 0.40, status_color, 1, cv2.LINE_AA)
 
         return frame
 
